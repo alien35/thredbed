@@ -9,10 +9,16 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'haml'
+gem 'devise'
+gem 'html2haml'
 
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'capybara'
+  gem 'factory_girl_rails'
 
 end
 

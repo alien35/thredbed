@@ -1,0 +1,9 @@
+.nav
+  - unless user_signed_in?
+    = link_to 'Login',  new_user_session_path
+    or
+    = link_to "Sign up", new_user_registration_path
+    to post or comment.
+  - else
+    = link_to 'New post', new_post_path
+    = link_to 'Sign out', destroy_user_session_path, method: :delete

@@ -13,6 +13,9 @@ gem 'haml'
 gem 'devise'
 gem 'html2haml'
 gem 'paperclip', '~> 4.2'
+gem 'simple_form'
+gem 'metainspector'
+gem 'bootstrap-sass', '~> 3.3.5'
 
 group :development, :test do
   gem 'byebug'

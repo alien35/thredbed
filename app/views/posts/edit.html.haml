@@ -1,5 +1,9 @@
 %h1 Editing Post
-= render 'form'
+= simple_form_for @post do |f|
+  = f.input  :image, label: "Unhappy with the default image? Upload your own"
+  = f.input  :title, label: 'Title. Maximum length is 100 characters', error: 'Title, please'
+  = f.input  :commentary, label: "Add your full commentary here:", placeholder: 'Type type type...'
+  = f.button :submit
 = link_to 'Show', @post
 |
 = link_to 'Back', posts_path

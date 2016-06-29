@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+/* general */
+
+body {
+  background:#EEE;
+}
+/* links */
+
+a {
+  color: #1aa3ff !important;
+  text-decoration: underline;
+  &:hover {
+    color: #008ae6;
+    background: none;
+    text-decoration: none;
+  }
+}
+
+/* format index posts */
+
+
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+ .organize_rows {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 0;
+ -webkit-column-gap:0;
+}
+
+.item {
+ display: inline-block;
+ padding:  .25rem 0.25rem 0 0.25rem;
+ width:  100%;
+ max-width:98%;
+ word-wrap: break-word;
+}
+
+.well {
+  background: #FDFDFD;
+ padding:3px 10px 15px;
+ position:relative;
+ display: block;
+ border-radius: 0;
+ border:0;
+ box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+ img {
+  padding:5px 3px;
+  border-bottom:1px solid #DDD;
+  margin-bottom: 10px;
+ }
+}
+
+.well:hover {
+   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.6);
+}
+
+/* navigation bar */
+
+.nav {
+  background: #FDFDFD;
+  padding:10px;
+  border-bottom: 1px solid #DDD;
+  margin-bottom: 5px;
+}

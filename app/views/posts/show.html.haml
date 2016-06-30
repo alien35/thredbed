@@ -12,8 +12,9 @@
   %li
     %h3= @post.title
   %li= @post.commentary
-
-  = render @post.comments
-  = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
-    = f.input :content, label:'Add your commentary:', class:"comment_content", id:"comment_content_#{@post.id}"
-    = f.submit
+.comments{id: "comments_#{@post.id}"}
+  - if @post.comments.any?
+    = render @post.comments, post: @post
+= simple_form_for([@post, @post.comments.build], remote: true)  do |f|
+  = f.input :content, label:'Add your commentary:', class: "comment_content"
+  = f.submit

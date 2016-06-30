@@ -2,8 +2,10 @@
   - @posts.each do |post|
     .item
       .well
-        =link_to (image_tag post.image.url(:medium)), post_path(post)
-        %h3=post.title
-        =post.commentary
-        =post.user.user_name
         =time_ago_in_words post.created_at
+        =link_to (image_tag post.image.url(:medium)), post_path(post)
+        %ul
+          %h3=title_max_length(post.title)
+          %li=caption_max_length(post.commentary)
+          %li=post.user.user_name
+          %li=comment_count_index(post)

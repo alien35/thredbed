@@ -2,6 +2,6 @@
 = comment.content
 = time_ago_in_words comment.created_at
 - if comment.user == current_user
-  = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true do
+  = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
     .glyphicon.glyphicon-remove
 %br

@@ -41,6 +41,50 @@ a {
 abbr {
   display:none;
 }
+
+.well, .post_info {
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+}
+.well:hover, .post_info:hover {
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.6);
+}
+
+.glyphicon-remove {
+  color:#C00000;
+  &:hover {
+    color:#800000;
+  }
+}
+
+.comment_format {
+  width:800px;
+  margin:0 auto;
+}
+.comment_format {
+  color:#444;
+  font-size: 15px;
+}
+
+.post_title {
+  color:black;
+  font-size: 30px;
+}
+
+textarea#comment_content {
+  max-width:100%;
+  margin-right:3px;
+}
+#comment_content {
+  font-size:15px;
+  min-height:150px;
+}
+#comment_content input[type=text]:focus {
+    background-color: lightblue;
+}
+.btn {
+  font-size: 15px;
+}
+
 /* format index posts */
 
 
@@ -69,7 +113,6 @@ abbr {
  display: block;
  border-radius: 0;
  border:0;
- box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
  img {
   padding:5px 3px;
   border-bottom:1px solid #DDD;
@@ -77,8 +120,15 @@ abbr {
  }
 }
 
-.well:hover {
-   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.6);
+
+/* format show posts */
+
+.post_info {
+  padding:10px;
+  margin-left: 5px;
+  display: inline-block;
+  background:white;
+
 }
 
 /* navigation bar */
@@ -89,3 +139,4 @@ abbr {
   border-bottom: 1px solid #DDD;
   margin-bottom: 5px;
 }
+

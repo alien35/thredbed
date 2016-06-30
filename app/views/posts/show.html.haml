@@ -1,20 +1,20 @@
-= image_tag @post.image.url(:medium)
-- begin
-  - if @post.user.id == current_user.id
-    = link_to 'Edit', edit_post_path(@post)
-    = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
-    = link_to 'Back', posts_path
-- rescue NoMethodError
-%ul
-  %li= link_to @post.link, @post.link
+%ul.post_info
+  = link_to 'Back', posts_path
+  - begin
+    - if @post.user.id == current_user.id
+      = link_to 'Edit', edit_post_path(@post)
+      = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
+  - rescue NoMethodError
+  %li Check out the reference:
+  = link_to @post.link, @post.link
+  %li Post created #{time_ago_in_words @post.created_at} ago
   %li= @post.user.user_name
-  %li= time_ago_in_words @post.created_at
-  %li
-    %h3= @post.title
+.comment_format
+  %h1.post_title= @post.title
   %li= @post.commentary
-.comments{id: "comments_#{@post.id}"}
-  - if @post.comments.any?
-    = render @post.comments, post: @post
-= simple_form_for([@post, @post.comments.build], remote: true)  do |f|
-  = f.input :content, label:'Add your commentary:', class: "comment_content"
-  = f.submit
+  .comments{id: "comments_#{@post.id}"}
+    - if @post.comments.any?
+      = render @post.comments, post: @post
+  = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
+    = f.input :content, label:'Add your commentary:'
+    = f.submit class: "btn btn-primary"

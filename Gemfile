@@ -15,7 +15,11 @@ gem 'html2haml'
 gem 'paperclip', '~> 4.2'
 gem 'simple_form'
 gem 'metainspector'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'will_paginate', '~> 3.0.5'
+gem 'bootstrap-sass', '3.2.0.2'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+#gem 'kaminari'
+gem 'faker', '~> 1.6', '>= 1.6.3'
 
 group :development, :test do
   gem 'byebug'

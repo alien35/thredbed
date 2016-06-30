@@ -1,5 +1,6 @@
+= link_to 'Back', posts_path, class: 'back_button'
+%br
 %ul.post_info
-  = link_to 'Back', posts_path
   - begin
     - if @post.user.id == current_user.id
       = link_to 'Edit', edit_post_path(@post)

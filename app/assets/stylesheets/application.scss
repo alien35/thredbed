@@ -28,19 +28,28 @@ li {
 }
 /* links */
 
-a {
-  color: #1aa3ff !important;
+.nav a {
+  color: white !important;
   text-decoration: underline;
   &:hover {
-    color: #008ae6;
+    color: #DDD !important;
     background: none;
     text-decoration: none;
+  }
+}
+
+a {
+  color:#0099ff!important;
+  &:hover {
+    color:#007acc;
+    background: none;
   }
 }
 
 abbr {
   display:none;
 }
+
 
 .well, .post_info {
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
@@ -134,7 +143,8 @@ textarea#comment_content {
 /* navigation bar */
 
 .nav {
-  background: #FDFDFD;
+  background: #ff4d4d;
+  color:white;
   padding:10px;
   border-bottom: 1px solid #DDD;
   margin-bottom: 5px;
@@ -151,4 +161,10 @@ textarea#comment_content {
 
 .signup_reasons li h5 {
   word-spacing:-8px;
+}
+
+/* small thing */
+
+.back_button {
+  margin-left: 5px;
 }

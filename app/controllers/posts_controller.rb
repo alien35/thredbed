@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :post_owner, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
       flash[:success] = "Your post has been created!"
       redirect_to posts_path
     else
-      flash[:alert] = "Uh oh! Something went wrong. Please check the form."
+      flash.now[:alert] = "Uh oh! Something went wrong. Please check the form."
     end
   end
 
@@ -51,6 +52,13 @@ class PostsController < ApplicationController
 
     def update_params
       params.require(:post).permit(:image, :commentary, :title)
+    end
+
+    def post_owner
+      unless current_user = @post.user
+        flash.now[:alert] = "That post doesn't belong to you"
+        redirect_to root_path
+      end
     end
 
 end

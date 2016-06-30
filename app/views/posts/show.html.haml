@@ -1,7 +1,10 @@
-= image_tag @post.image.url(:thumb)
-= link_to 'Edit', edit_post_path(@post)
-= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
-= link_to 'Back', posts_path
-= @post.title
+= image_tag @post.image.url(:medium)
+- if @post.user.id == current_user.id
+  = link_to 'Edit', edit_post_path(@post)
+  = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
+  = link_to 'Back', posts_path
 = link_to @post.link, @post.link
+= @post.user.user_name
+= time_ago_in_words @post.created_at
+= @post.title
 = @post.commentary

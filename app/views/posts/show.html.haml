@@ -1,10 +1,19 @@
 = image_tag @post.image.url(:medium)
-- if @post.user.id == current_user.id
-  = link_to 'Edit', edit_post_path(@post)
-  = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
-  = link_to 'Back', posts_path
-= link_to @post.link, @post.link
-= @post.user.user_name
-= time_ago_in_words @post.created_at
-= @post.title
-= @post.commentary
+- begin
+  - if @post.user.id == current_user.id
+    = link_to 'Edit', edit_post_path(@post)
+    = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
+    = link_to 'Back', posts_path
+- rescue NoMethodError
+%ul
+  %li= link_to @post.link, @post.link
+  %li= @post.user.user_name
+  %li= time_ago_in_words @post.created_at
+  %li
+    %h3= @post.title
+  %li= @post.commentary
+
+  = render @post.comments
+  = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
+    = f.input :content, label:'Add your commentary:', class:"comment_content", id:"comment_content_#{@post.id}"
+    = f.submit

@@ -2,7 +2,7 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
-    = f.label :user_name
+    = f.label :user_name, hint: "Min. length: 4 characters, Max. length: 16 characters"
     = f.text_field :user_name
     = f.label :email
     %br/

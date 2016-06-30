@@ -21,6 +21,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       flash.now[:alert] = "Uh oh! Something went wrong. Please check the form."
+      render :new
     end
   end
 

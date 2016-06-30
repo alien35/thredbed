@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   validates :user_id, presence: true
 
   belongs_to :user
+  has_many :comments, dependent: :destroy
   before_save :get_image_from_link,
               if: ->(post) { post.link_changed? }
   has_attached_file :image, styles: { medium: "260x", thumb: "100x"},

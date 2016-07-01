@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  acts_as_votable
+
   VALID_LINK_REGEX = /\Ahttp\.*/
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }
   validates :title, presence: true, length: { maximum: 100 }

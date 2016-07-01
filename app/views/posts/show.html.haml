@@ -17,6 +17,13 @@
 .comment_format
   %h1.post_title= @post.title
   %li= @post.commentary
+  .comment-like-form.row
+    .col-sm-1
+      =link_to '', like_post_path(@post.id), remote: true,
+                                              id: "like_#{@post.id}",
+                                              class: "glyphicon glyphicon-thumbs-up"
+= render 'posts/likes'
+.comment_format
   .comments{id: "comments_#{@post.id}"}
     - if @post.comments.any?
       = render @post.comments, post: @post

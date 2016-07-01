@@ -10,5 +10,6 @@
     - elsif user_signed_in?
       = link_to 'New post', new_post_path
       = link_to 'Sign out', destroy_user_session_path, method: :delete
+      = link_to current_user.user_name, profile_path(current_user.user_name)
     - else
 .nav_decoy

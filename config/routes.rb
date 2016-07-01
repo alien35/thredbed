@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   get ':user_name', to: 'profiles#show', as: :profile
+  get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
+  patch ':user_name/edit', to: 'profiles#update', as: :update_profile
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

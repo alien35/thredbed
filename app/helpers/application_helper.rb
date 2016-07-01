@@ -7,4 +7,13 @@ module ApplicationHelper
       notice: 'alert-info'
     }[flash_type.to_sym] || flash_type.to_s
   end
+
+  def profile_avatar_select(user)
+  return image_tag user.avatar.url(:medium),
+                   id: 'image-preview',
+                   class: 'img-responsive img-circle profile-image' if user.profile_pic.exists?
+  image_tag 'default-avatar.jpg', id: 'image-preview',
+                                  class: 'img-responsive img-circle profile-image'
+  end
+
 end

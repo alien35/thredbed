@@ -1,12 +1,13 @@
 .item
   .well
-    =time_ago_in_words post.created_at
+    = link_to (index_profile_avatar_select(post.user)), profile_path(post.user.user_name)
+    - if user_signed_in?
+      %li.index_name=link_to post.user.user_name, profile_path(post.user.user_name)
+    - else
+      %li=post.user.user_name
     =link_to (image_tag post.image.url(:medium)), post_path(post)
     %ul
       %h3=title_max_length(post.title)
       %li=caption_max_length(post.commentary)
-      - if user_signed_in?
-        %li=link_to post.user.user_name, profile_path(post.user.user_name)
-      - else
-        %li=post.user.user_name
       %li=comment_count_index(post)
+      =time_ago_in_words post.created_at

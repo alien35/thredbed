@@ -39,9 +39,9 @@ li {
 }
 
 a {
-  color:#0099ff!important;
+  color:#0059b3 !important;
   &:hover {
-    color:#007acc;
+    color:#004080;
     background: none;
   }
 }
@@ -128,6 +128,18 @@ textarea#comment_content {
   margin-bottom: 10px;
  }
 }
+
+.index_name {
+  position:relative;
+  font-weight: bold;
+  left:5px;
+  top:17px;
+  color:#004d99;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
 
 
 /* format show posts */
@@ -430,14 +442,14 @@ height:100%;
 }
 
 @keyframes gc_g {
-  0% { top:100px; left:500px; color:rgba(0,0,0,0);}
+  0% { top:100px; left:300px; color:rgba(0,0,0,0);}
   5% {color:rgba(0,0,0,0.5);}
   99% { top:100px; left:93%; color:rgba(0,0,0,0.5);}
   100% { top:100px; left:93%; color:rgba(0,0,0,0);}
 }
 
 @-webkit-keyframes gc_g {
-  0% { top:100px; left:500px; color:rgba(0,0,0,0);}
+  0% { top:100px; left:300px; color:rgba(0,0,0,0);}
   5% {color:rgba(0,0,0,0.5);}
   99% { top:100px; left: 93%; color:rgba(0,0,0,0.5);}
   100% { top:100px; left: 93%; color:rgba(0,0,0,0);}
@@ -531,5 +543,14 @@ height:100%;
 
 .profile-bio {
   margin-top: 20px;
+}
+
+.index-profile-image {
+  float:left;
+  margin-top:7px;
+  height: 43px;
+  width: 43px;
+  padding:0;
+  border-bottom: none !important;
 }
 

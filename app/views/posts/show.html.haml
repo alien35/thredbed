@@ -21,6 +21,7 @@
     - if @post.comments.any?
       = render @post.comments, post: @post
 - if user_signed_in?
-  = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
-    = f.input :content, label:'Add your commentary:'
-    = f.submit class: "btn btn-primary"
+  .comment_format
+    = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
+      = f.input :content, label:'Add your commentary:'
+      = f.submit class: "btn btn-primary"

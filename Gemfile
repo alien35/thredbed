@@ -18,7 +18,6 @@ gem 'metainspector'
 gem 'will_paginate', '~> 3.0.5'
 gem 'bootstrap-sass', '3.2.0.2'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
-#gem 'kaminari'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 
 group :development, :test do

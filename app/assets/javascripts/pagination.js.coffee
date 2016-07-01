@@ -1,3 +1,4 @@
+
 jQuery ->
   if $('#infinite-scrolling').size() > 0
     $(window).on 'scroll', ->
@@ -7,3 +8,4 @@ jQuery ->
             $.getScript more_posts_url
         return
       return
+

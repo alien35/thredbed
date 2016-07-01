@@ -3,9 +3,9 @@
     .glyphicon.glyphicon-home
   .nav_elements
     - if !user_signed_in? && !current_page?(new_user_registration_path)
-      = link_to 'Login',  new_user_session_path
+      %span.sign_up_underline= link_to 'Login',  new_user_session_path
       or
-      = link_to "Sign up", new_user_registration_path
+      %span.sign_up_underline= link_to "Sign up", new_user_registration_path
       to post or comment. Join the comment-powered news source today!
     - elsif user_signed_in?
       = link_to 'New post', new_post_path

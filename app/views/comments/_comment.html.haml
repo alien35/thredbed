@@ -1,11 +1,16 @@
 %strong
   - if user_signed_in?
-    = link_to comment.user.user_name, profile_path(comment.user.user_name)
+    =link_to show_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
+  -else
+    =show_profile_avatar_select(comment.user)
+.comment_format
+  -if user_signed_in?
+    .commenter_name= link_to comment.user.user_name, profile_path(comment.user.user_name)
   -else
     = comment.user.user_name
-= comment.content
-= time_ago_in_words comment.created_at
-- if comment.user == current_user
-  = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
-    .glyphicon.glyphicon-remove
+  = comment.content
+  - if comment.user == current_user
+    = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
+      .glyphicon.glyphicon-remove
+  .time_ago= time_ago_in_words comment.created_at
 %br

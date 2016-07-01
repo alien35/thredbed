@@ -1,4 +1,8 @@
-%strong= comment.user.user_name
+%strong
+  - if user_signed_in?
+    = link_to comment.user.user_name, profile_path(comment.user.user_name)
+  -else
+    = comment.user.user_name
 = comment.content
 = time_ago_in_words comment.created_at
 - if comment.user == current_user

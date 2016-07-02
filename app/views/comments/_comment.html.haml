@@ -13,4 +13,19 @@
     = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
       .glyphicon.glyphicon-remove
   .time_ago= time_ago_in_words comment.created_at
+  %span.voter_names= render 'comments/likes', comment: comment
+  %span.voter_names= render 'comments/dislikes', comment: comment
+- if user_signed_in?
+  =link_to upvote_post_comment_path(post, comment), method: :put do
+    %span.glyphicon.glyphicon-chevron-up
+  =link_to unvote_post_comment_path(post, comment), method: :put do
+    %span.glyphicon.glyphicon-adjust
+  =link_to downvote_post_comment_path(post, comment), method: :put do
+    %span.glyphicon.glyphicon-chevron-down
+
 %br
+
+
+
+
+

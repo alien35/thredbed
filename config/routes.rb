@@ -4,11 +4,28 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :posts do
-    resources :comments, only: [:new,:create,:show,:edit,:update,:destroy]
+    resources :comments#, only: [:new,:create,:show,:edit,:update,:destroy]
+  end
+
+  resources :posts do
     member do
-      get 'like'
+      put 'upvote',   to: 'posts#upvote'
+      put 'downvote', to: 'posts#downvote'
+      put 'unvote',   to: 'posts#unvote'
     end
   end
+  resources :posts do
+    resources :comments do
+      member do
+        put 'upvote',   to: 'comments#upvote'
+        put 'downvote', to: 'comments#downvote'
+        put 'unvote',   to: 'comments#unvote'
+      end
+    end
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'posts#index'

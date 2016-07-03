@@ -45,11 +45,13 @@ class PostsController < ApplicationController
 
   def upvote
     @post.upvote_by current_user
+   # create_upvote_notification @post
     redirect_to :back
   end
 
   def downvote
     @post.downvote_by current_user
+  #  create_downvote_notification @post
     redirect_to :back
   end
 
@@ -79,6 +81,22 @@ class PostsController < ApplicationController
         flash.now[:alert] = "That post doesn't belong to you"
         redirect_to root_path
       end
+    end
+
+    def create_upvote_notification(post)
+      Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        identifier: upvote.id,
+                        notice_type: 'upvot')
+    end
+
+    def create_downvote_notification(post)
+      Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        identifier: downvote.id,
+                        notice_type: 'upvot')
     end
 
 end

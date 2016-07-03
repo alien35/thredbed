@@ -33,12 +33,14 @@ class CommentsController < ApplicationController
   def upvote
     @comment = @post.comments.find(params[:id])
     @comment.upvote_by current_user
+    create_upvote_notification @comment
     redirect_to :back
   end
 
   def downvote
     @comment = @post.comments.find(params[:id])
     @comment.downvote_by current_user
+    create_downvote_notification @comment
     redirect_to :back
   end
 
@@ -50,12 +52,28 @@ class CommentsController < ApplicationController
 
   private
 
-    def create_notification(post)
+    def create_notification(comment)
       Notification.create(user_id: post.user.id,
                         notified_by_id: current_user.id,
                         post_id: post.id,
                         comment_id: @comment.id,
                         notice_type: 'comment')
+    end
+
+    def create_upvote_notification(post)
+      Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        comment_id: @comment.id,
+                        notice_type: 'upvot')
+    end
+
+    def create_downvote_notification(post)
+      Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        comment_id: @comment.id,
+                        notice_type: 'upvot')
     end
 
     def comment_params

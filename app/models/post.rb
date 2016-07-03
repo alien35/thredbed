@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   acts_as_votable
+  scope :of_followed_users, -> (following_users) { where user_id: following_users }
 
   VALID_LINK_REGEX = /\Ahttp\.*/
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }

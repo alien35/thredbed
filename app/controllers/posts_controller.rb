@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :post_owner, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc)
+    @posts = Post.paginate(page: params[:page], per_page: 12).of_followed_users(current_user.following).order(cached_weighted_total: :desc)
     respond_to do |format|
       format.html
       format.js

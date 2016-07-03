@@ -6,16 +6,18 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      create_notification @post, @comment
+      create_notification @post
       respond_to do |format|
-        format.html { redirect_to :back }
+        format.html { redirect_to root_path }
         format.js
       end
     else
-      flash.now[:alert] = "Check the comment form, something went wrong."
-      render :show
+      flash[:alert] = 'Check the comment form, something went wrong.'
+      render root_path
     end
   end
+
+
 
   def destroy
     @comment = @post.comments.find(params[:id])
@@ -49,12 +51,11 @@ class CommentsController < ApplicationController
   private
 
     def create_notification(post)
-      return if post.user.id == current_user.id
       Notification.create(user_id: post.user.id,
-                          notified_by_id: current_user.id,
-                          post_id: post.id,
-                          comment_id: comment.id,
-                          notice_type: 'comment')
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        comment_id: @comment.id,
+                        notice_type: 'comment')
     end
 
     def comment_params

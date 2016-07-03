@@ -608,3 +608,26 @@ height:100%;
   position: relative;
   left:15px;
 }
+
+/* notifications */
+
+.notification-dropdown {
+  margin-top: 10px;
+  button {
+    border: none;
+  }
+}
+
+
+ul.dropdown-menu {
+  word-wrap: break-word;
+a {
+  display: inline-block;
+  word-wrap: break-word !important;
+  color:black !important;
+}
+}
+
+.nav_space {
+  margin-left:200px;
+}

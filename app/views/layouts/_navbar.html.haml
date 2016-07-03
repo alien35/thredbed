@@ -8,19 +8,8 @@
       %span.sign_up_underline= link_to "Sign up", new_user_registration_path
       to post or comment. Join the comment-powered news source today!
     - elsif user_signed_in?
-      %li
-        .dropdown.notification-dropdown
-          %button.btn.btn-default.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
-            5
-            %span.glyphicon.glyphicon-flag
-          %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
-            %li.dropdown-header.text-center Notifications
-            %li
-              %a{ href: '#' } Notification 1
-            %li
-              %a{ href: '#' } Notification 2
-
-            = link_to "New Post", new_post_path
+      = render 'notifications/notification_dropdown'
+      %span.nav_space
       = link_to 'New post', new_post_path
       = link_to 'Sign out', destroy_user_session_path, method: :delete
       = link_to current_user.user_name, profile_path(current_user.user_name)

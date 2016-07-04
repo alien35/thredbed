@@ -1,24 +1,21 @@
 .posts-wrapper
-  .row.profile-header
-    .col-md-6
-      .img-circle
-        = profile_avatar_select(@user)
-    .col-md-6
-      .user-name-and-follow
-        %h3.profile-user-name
-          = @user.user_name
-        %span
-        - if @user == current_user
-          = link_to 'Edit Profile', edit_profile_path(@user.user_name),
-                            class: 'btn edit-button'
-        - else
-          = render 'follow_unfollow'
+  = profile_avatar_select(@user)
+  %h3.profile-user-name
+    = @user.user_name
+  - if @user == current_user
+    = link_to 'Edit Profile', edit_profile_path(@user.user_name),
+                          class: 'btn edit-button'
+  - else
+    = render 'follow_unfollow'
+  %span= followers_count(@user)
+  %span following
+  %span= @user.following.count
 
-      %p.profile-bio
-        = @user.bio
-      .user-statistics
-        %p
-          = pluralize @user.posts.count, 'post'
+  %p.profile-bio
+    = @user.bio
+  .user-statistics
+    %p
+    = pluralize @user.posts.count, 'post'
 
 
 .container.organize_rows#my-posts

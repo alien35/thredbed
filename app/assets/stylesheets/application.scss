@@ -142,7 +142,7 @@ textarea#comment_content {
   position:relative;
   display:inline-block;
   font-weight: bold;
-  left:5px;
+  left:7px;
   top:17px;
   color:#004d99;
   &:hover {
@@ -224,7 +224,6 @@ textarea#comment_content {
 
 div.well img {
   position:relative;
-  left:-5px;
 }
 
 .sign_up_underline {
@@ -539,6 +538,11 @@ height:100%;
 
 /* profiles */
 
+.posts-wrapper img, .posts-wrapper h3 {
+  display: flex;
+  align-items: center;
+}
+
 .profile-header {
   padding: 20px 0;
 }
@@ -549,8 +553,9 @@ height:100%;
   display: inline;
 }
 
-.profile-user-name {
+.posts-wrapper {
   display: inline;
+  text-align: right;
 }
 
 .edit-button {
@@ -563,10 +568,9 @@ height:100%;
   margin-top: 20px;
 }
 
-.profile-image {
-  margin: 20px auto;
-  height: 152px;
-  width: 152px;
+h3.profile-user-name {
+  width:100%;
+  text-align: right;
 }
 
 .index-profile-image {

@@ -25,4 +25,11 @@ module ProfilesHelper
     return true if relationship
   end
 
+  def followers_count(user)
+    word = user.followers.count == 1 ? " follower" : " followers"
+    user.followers.count.to_s + word
+  end
+
+
+
 end

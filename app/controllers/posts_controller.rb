@@ -4,10 +4,14 @@ class PostsController < ApplicationController
   before_action :post_owner, only: [:edit, :update, :destroy]
 
   def index
+    if user_signed_in?
     @posts = Post.paginate(page: params[:page], per_page: 12).of_followed_users(current_user.following).order(cached_weighted_total: :desc)
     respond_to do |format|
       format.html
       format.js
+    end
+    else
+    @posts = Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc)
     end
   end
 
@@ -60,7 +64,9 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
-
+  def more_posts
+    Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc)
+  end
 
   private
 
@@ -83,20 +89,6 @@ class PostsController < ApplicationController
       end
     end
 
-    def create_upvote_notification(post)
-      Notification.create(user_id: post.user.id,
-                        notified_by_id: current_user.id,
-                        post_id: post.id,
-                        identifier: upvote.id,
-                        notice_type: 'upvot')
-    end
 
-    def create_downvote_notification(post)
-      Notification.create(user_id: post.user.id,
-                        notified_by_id: current_user.id,
-                        post_id: post.id,
-                        identifier: downvote.id,
-                        notice_type: 'upvot')
-    end
 
 end

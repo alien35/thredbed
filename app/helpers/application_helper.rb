@@ -16,4 +16,11 @@ module ApplicationHelper
                                   class: 'img-responsive img-circle profile-image'
   end
 
+  def notif_title_count
+    return "Comlink" unless user_signed_in?
+    a = current_user.notifications.where(read:false).count
+    a > 0 ? "(#{a}) Comlink" : "Comlink"
+
+  end
+
 end

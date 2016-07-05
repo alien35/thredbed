@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
   def upvote
     @post.upvote_by current_user
-   # create_upvote_notification @post
+    create_upvote_notification @post
     redirect_to :back
   end
 
@@ -89,6 +89,14 @@ class PostsController < ApplicationController
       end
     end
 
+    def create_upvote_notification(post)
+    #return if post.user.id == current_user.id
+    Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        identifier: post.id,
+                        notice_type: 'upvoted your post')
+    end
 
 
 end

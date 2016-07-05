@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       end
     else
       flash[:alert] = 'Check the comment form, something went wrong.'
-      render root_path
+      render :back
     end
   end
 
@@ -33,14 +33,13 @@ class CommentsController < ApplicationController
   def upvote
     @comment = @post.comments.find(params[:id])
     @comment.upvote_by current_user
-    create_upvote_notification @comment
+    create_upvote_notification @comment, @post
     redirect_to :back
   end
 
   def downvote
     @comment = @post.comments.find(params[:id])
     @comment.downvote_by current_user
-    create_downvote_notification @comment
     redirect_to :back
   end
 
@@ -53,29 +52,23 @@ class CommentsController < ApplicationController
   private
 
     def create_notification(post, comment)
-    return if post.user.id == current_user.id
+    #return if post.user.id == current_user.id
     Notification.create(user_id: post.user.id,
                         notified_by_id: current_user.id,
                         post_id: post.id,
                         identifier: comment.id,
-                        notice_type: 'comment')
-  end
-
-    def create_upvote_notification(post)
-      Notification.create(user_id: post.user.id,
-                        notified_by_id: current_user.id,
-                        post_id: post.id,
-                        comment_id: @comment.id,
-                        notice_type: 'comment')
+                        notice_type: 'commented on your post')
     end
 
-    def create_downvote_notification(post)
-      Notification.create(user_id: post.user.id,
+    def create_upvote_notification(comment, post)
+    #return if post.user.id == current_user.id
+    Notification.create(user_id: comment.user.id,
                         notified_by_id: current_user.id,
                         post_id: post.id,
-                        comment_id: @comment.id,
-                        notice_type: 'comment')
+                        identifier: comment.id,
+                        notice_type: 'upvoted your comment')
     end
+
 
 
 

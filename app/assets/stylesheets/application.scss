@@ -625,10 +625,27 @@ h3.profile-user-name {
 
 ul.dropdown-menu {
   word-wrap: break-word;
-a {
+.notif_image {
   display: inline-block;
   word-wrap: break-word !important;
-  color:black !important;
+
+  position: relative;
+  left:10px;
+}
+
+.notif_text {
+  position: relative;
+  left:14px;
+  top:-18px;
+}
+li {
+  display:inline-block;
+  width:350px;
+
+}
+
+a {
+  color:#222 !important;
 }
 }
 

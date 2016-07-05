@@ -1,2 +1,3 @@
 %li
-  = link_to "#{notification.notified_by.user_name} has #{notification.notice_type}ed on your post", link_through_path(notification)
+  %span.notif_image= link_to index_profile_avatar_select(notification.user), link_through_path(notification)
+  %span.notif_text= link_to "#{notification.notified_by.user_name} #{notification.notice_type}", link_through_path(notification)

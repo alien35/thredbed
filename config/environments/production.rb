@@ -29,7 +29,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+  config.assets.paths << Rails.root.join("vendor", "assets", "images")
   config.assets.compile = false
 
 

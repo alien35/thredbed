@@ -135,6 +135,7 @@ textarea#comment_content {
   padding:5px 3px;
   border-bottom:1px solid #DDD;
   margin-bottom: 10px;
+  max-width: 255px;
  }
 }
 
@@ -180,6 +181,7 @@ textarea#comment_content {
   padding:10px;
   position:fixed;
   width:100%;
+  display: inline-block;
   z-index: 1;
 }
 
@@ -188,6 +190,14 @@ textarea#comment_content {
   float:right;
 
 }
+
+form#search-form {
+  color:black;
+  float:left;
+  margin:0 30px 0 0;
+}
+
+
 /* sign up form */
 .create_your_account {
   text-align: center;
@@ -690,4 +700,5 @@ a {
   background:red;
   display: inline-block;
 }
+
 

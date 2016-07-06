@@ -21,6 +21,7 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'acts_as_votable', '~> 0.10.0'
 
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

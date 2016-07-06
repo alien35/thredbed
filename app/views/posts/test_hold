@@ -1,5 +1,3 @@
-.container.organize_rows#my-posts
-  = render @posts
   - Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc).each do |post|
     .item
       .well
@@ -15,8 +13,3 @@
         %li=caption_max_length(post.commentary)
         %li=comment_count_index(post)
         =time_ago_in_words post.created_at
-
-
-
-#infinite-scrolling
-  = will_paginate

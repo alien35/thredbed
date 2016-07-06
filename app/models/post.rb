@@ -17,6 +17,10 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :image,
                                      content_type: /\Aimage\/.*\Z/
 
+  def self.search(query)
+    where("title OR commentary like ?", "%#{query}%")
+  end
+
   private
 
         def get_image_from_link

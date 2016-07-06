@@ -1,7 +1,12 @@
 .nav
+
   = link_to url_for(root_url) do
     .glyphicon.glyphicon-home
   .nav_elements
+    = form_tag(posts_path, :method => "get", id: "search-form") do
+      %span= text_field_tag :search, params[:search], placeholder: "Search Posts"
+      %span= submit_tag "Search", :name => nil
+
     - if !user_signed_in? && !current_page?(new_user_registration_path)
       %span.sign_up_underline= link_to 'Login',  new_user_session_path
       or
@@ -14,4 +19,5 @@
       = link_to 'Sign out', destroy_user_session_path, method: :delete
       = link_to current_user.user_name, profile_path(current_user.user_name)
     - else
+
 .nav_decoy

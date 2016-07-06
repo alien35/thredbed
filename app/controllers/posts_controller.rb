@@ -5,10 +5,19 @@ class PostsController < ApplicationController
 
   def index
     if user_signed_in?
-    @posts = Post.paginate(page: params[:page], per_page: 12).of_followed_users(current_user.following).where("created_at > ?", Time.now - 5.days).order(cached_weighted_total: :desc)
+      @posts = Post.paginate(page: params[:page], per_page: 12)
+                 .of_followed_users(current_user.following)
+                 .where("created_at > ?", Time.now - 5.days)
+                 .order(cached_weighted_total: :desc)
     else
-    @posts = Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc)
+      @posts = Post.paginate(page: params[:page], per_page: 12)
+                 .order(cached_weighted_total: :desc)
     end
+      if params[:search]
+        @posts = Post.paginate(page: params[:page], per_page: 12)
+                 .search(params[:search]).order("created_at DESC")
+      end
+
   end
 
   def show

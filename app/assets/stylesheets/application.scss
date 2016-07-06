@@ -229,6 +229,12 @@ div.well img {
 .sign_up_underline {
   text-decoration: underline;
 }
+
+.glyphicon-share-alt {
+  font-size: 20px;
+  margin: 5px 0 5px 5px;
+  transform: scaleX(-1);
+}
 /* registration page */
 
 .registration-bg {
@@ -678,5 +684,10 @@ a {
     background-color: #47821F;
     color: white;
   }
+}
+
+.follower-block {
+  background:red;
+  display: inline-block;
 }
 

@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   before_save :get_image_from_link,
               if: ->(post) { post.link_changed? }
   has_attached_file :image, styles: { medium: "260x", thumb: "100x"},
-                         default_url: 'question_mark.jpeg'
+                         default_url: 'https://s31.postimg.org/z6185cysb/question_mark.jpg'
   validates_attachment_content_type :image,
                                      content_type: /\Aimage\/.*\Z/
 

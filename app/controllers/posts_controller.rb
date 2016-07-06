@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     if user_signed_in?
-    @posts = Post.paginate(page: params[:page], per_page: 12).of_followed_users(current_user.following).order(cached_weighted_total: :desc)
+    @posts = Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc)
     respond_to do |format|
       format.html
       format.js
@@ -90,7 +90,7 @@ class PostsController < ApplicationController
     end
 
     def create_upvote_notification(post)
-    #return if post.user.id == current_user.id
+    return if post.user.id == current_user.id
     Notification.create(user_id: post.user.id,
                         notified_by_id: current_user.id,
                         post_id: post.id,

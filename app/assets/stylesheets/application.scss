@@ -538,6 +538,10 @@ height:100%;
 
 /* profiles */
 
+.stats, .user-statistics, .profile_user_name, .profile-bio {
+  text-align: center;
+}
+
 .posts-wrapper img, .posts-wrapper h3 {
   display: flex;
   align-items: center;
@@ -568,10 +572,7 @@ height:100%;
   margin-top: 20px;
 }
 
-h3.profile-user-name {
-  width:100%;
-  text-align: right;
-}
+
 
 .index-profile-image {
   float:left;

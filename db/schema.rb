@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703122609) do
+ActiveRecord::Schema.define(version: 20160705050327) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,17 +23,6 @@ ActiveRecord::Schema.define(version: 20160703122609) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
-
-  create_table "follows", force: :cascade do |t|
-    t.integer  "following_id", null: false
-    t.integer  "follower_id",  null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id"
-  add_index "follows", ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
-  add_index "follows", ["following_id"], name: "index_follows_on_following_id"
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
@@ -84,8 +73,8 @@ ActiveRecord::Schema.define(version: 20160703122609) do
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"

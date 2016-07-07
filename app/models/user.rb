@@ -41,9 +41,6 @@ validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
     following.include?(other_user)
   end
 
-  def self.search(query)
-    where("user_name ILIKE ?", "%#{query}%")
-  end
 
 end
 #152

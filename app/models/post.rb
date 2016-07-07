@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
                                      content_type: /\Aimage\/.*\Z/
 
   def self.search(query)
-    where("commentary LIKE ?", "%#{query}%")
+    where("title LIKE :search OR commentary LIKE :search", search: "%#{query}%")
   end
 
   private

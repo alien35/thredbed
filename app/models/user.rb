@@ -42,7 +42,7 @@ validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   end
 
   def self.search(query)
-    where("user_name like ?", "%#{query}%")
+    where("user_name ILIKE ?", "%#{query}%")
   end
 
 end

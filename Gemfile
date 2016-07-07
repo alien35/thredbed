@@ -20,7 +20,7 @@ gem 'bootstrap-sass', '3.2.0.2'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'aws-sdk', '~> 2'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'byebug'

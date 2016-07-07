@@ -245,6 +245,11 @@ div.well img {
   margin: 5px 0 5px 5px;
   transform: scaleX(-1);
 }
+
+.alert-info {
+  position:absolute;
+  z-index: 2;
+}
 /* registration page */
 
 .registration-bg {

@@ -1,4 +1,13 @@
 class User < ActiveRecord::Base
+  before_save :capitalize_name
+  before_save :downcase_email
+
+  after_create :send_create_mail
+  def send_create_mail
+    UserMailer.send_signup_email(self).deliver
+  end
+
+
   acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -40,6 +49,16 @@ validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   def following?(other_user)
     following.include?(other_user)
   end
+
+  private
+
+    def capitalize_name
+      self.user_name = user_name.downcase.capitalize
+    end
+
+    def downcase_email
+      self.email = email.downcase
+    end
 
 
 end

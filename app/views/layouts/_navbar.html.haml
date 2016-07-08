@@ -6,7 +6,6 @@
       = form_tag(posts_path, :method => "get", id: "search-form") do
         %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs", class: "search-query form-control"
       = submit_tag "Go", :name => nil, class: "btn btn-primary btn-search glyphicon glyphicon-search"
-.nav_elements_right
   - if !user_signed_in? && !current_page?(new_user_registration_path)
     %span.sign_up_underline= link_to 'Login',  new_user_session_path
     or

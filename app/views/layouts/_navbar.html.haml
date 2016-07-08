@@ -1,15 +1,17 @@
 .nav
+
   = link_to url_for(root_url) do
     .glyphicon.glyphicon-home
   .nav_elements
     = form_tag(posts_path, :method => "get", id: "search-form") do
-      = text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
-      = submit_tag "Go", :name => nil
+      %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
+      %span= submit_tag "Go", :name => nil
+
     - if !user_signed_in? && !current_page?(new_user_registration_path)
       %span.sign_up_underline= link_to 'Login',  new_user_session_path
       or
       %span.sign_up_underline= link_to "Sign up", new_user_registration_path
-      %span.intro-text to post or comment. Join the comment-powered news source today!
+      to post or comment. Join the comment-powered news source today!
     - elsif user_signed_in?
       = render 'notifications/notification_dropdown'
       %span.nav_space

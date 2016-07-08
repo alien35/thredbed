@@ -223,11 +223,14 @@ span.login_or_sign_up_to {
   top:3px;
 }
 
+.btn-danger {
+  top:-2px;
+}
 .btn-danger, .new_post {
   position: relative;
-  top:-3px;
   background: none;
   border:none;
+  font-size: 15px;
 }
 
 

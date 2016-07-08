@@ -16,6 +16,10 @@ class PostsController < ApplicationController
       if params[:search]
         @posts = Post.paginate(page: params[:page], per_page: 12)
                  .search(params[:search]).order("created_at DESC")
+      elsif params[:tag]
+        @posts = Post.paginate(page: params[:page], per_page: 12)
+                     .tagged_with(params[:tag])
+                     .order("created_at DESC")
       end
 
   end
@@ -80,7 +84,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:link, :commentary, :title)
+      params.require(:post).permit(:link, :commentary, :title, :tag_list)
     end
 
     def update_params

@@ -1,5 +1,7 @@
 .container.organize_rows#my-posts
   = render @posts
+.index_divider All posts
+.container.organize_rows#my-posts
   - Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc).each do |post|
     .item
       .well
@@ -12,9 +14,11 @@
         =link_to (image_tag post.image.url(:medium)), post_path(post)
         %ul
         %h3=title_max_length(post.title)
-        %li=caption_max_length(post.commentary)
+        %h5=caption_max_length(post.commentary)
         %li=comment_count_index(post)
-        =time_ago_in_words post.created_at
+        %span Tags:
+        %span=raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
+        %h6=time_ago_in_words post.created_at
 
 
 

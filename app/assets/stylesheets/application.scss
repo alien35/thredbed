@@ -110,6 +110,7 @@ textarea#comment_content {
 
 
  .organize_rows {
+  margin-top: 5px;
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
  -moz-column-gap: 0;
@@ -151,6 +152,13 @@ textarea#comment_content {
   }
 }
 
+.index_divider {
+  text-align: center;
+  color:grey;
+  width:100%;
+  display: inline-block;
+  margin:5px 2px 25px;
+}
 
 
 
@@ -173,6 +181,7 @@ textarea#comment_content {
   color:green;
   height:7%;
   background:#ff4d4d;
+  margin-bottom: 10px;
 }
 
 .nav {
@@ -185,17 +194,23 @@ textarea#comment_content {
   z-index: 1;
 }
 
-.nav_elements {
-  position:relative;
-  float:right;
 
-}
 
 form#search-form {
   color:black;
-  float:left;
-  margin:0 30px 0 0;
+  position:relative;
+  left:0;
+  padding-left:0;
+  margin-left: 30px;
+  margin-right: 200px;
 }
+
+.glyphicon-home {
+  position:fixed;
+  margin-top: 15px;
+}
+
+
 
 
 /* sign up form */
@@ -210,6 +225,10 @@ form#search-form {
 
 .signup_reasons li h5 {
   word-spacing:-8px;
+}
+
+.input-group-btn {
+  display: inline-block;
 }
 
 /* small thing */

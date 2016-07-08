@@ -1,11 +1,13 @@
 class Post < ActiveRecord::Base
   acts_as_votable
+  acts_as_taggable_on :tags
   scope :of_followed_users, -> (following_users) { where user_id: following_users }
   VALID_LINK_REGEX = /\Ahttp\.*/
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }
   validates :title, presence: true, length: { maximum: 100 }
   validates :commentary, presence: true
   validates :user_id, presence: true
+  validates :tag_list, presence: true
 
   belongs_to :user
   has_many :comments,      dependent: :destroy

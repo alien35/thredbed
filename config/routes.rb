@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'notifications', to: 'notifications#index'
   get 'profiles/show'
   get 'profiles/index'
+  get 'tags/:tag', to: 'posts#index', as: :tag
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 

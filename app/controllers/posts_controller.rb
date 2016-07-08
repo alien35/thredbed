@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :unvote]
   before_action :post_owner, only: [:edit, :update, :destroy]
+  before_action :count_tags
 
   def index
     if user_signed_in?
@@ -21,9 +22,7 @@ class PostsController < ApplicationController
                      .tagged_with(params[:tag])
                      .order("created_at DESC")
       end
-    @tag_counts = Post.tag_counts_on(:tags)
-                      .order('count desc')
-                      .limit(10)
+
 
 
   end
@@ -51,7 +50,6 @@ class PostsController < ApplicationController
 
   def update
     @post.update(update_params)
-    flash[:success] = "Your post has been successfully updated!"
     redirect_to post_path(@post)
   end
 
@@ -111,5 +109,10 @@ class PostsController < ApplicationController
                         notice_type: 'upvoted your post')
     end
 
+    def count_tags
+      @tag_counts = Post.tag_counts_on(:tags)
+                      .order('count desc')
+                      .limit(10)
+    end
 
 end

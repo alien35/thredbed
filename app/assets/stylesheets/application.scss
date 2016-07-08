@@ -103,6 +103,8 @@ textarea#comment_content {
   font-size: 15px;
 }
 
+
+
 /* format index posts */
 
 
@@ -110,6 +112,7 @@ textarea#comment_content {
 
 
  .organize_rows {
+  margin-top: 5px;
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
  -moz-column-gap: 0;
@@ -135,6 +138,7 @@ textarea#comment_content {
   padding:5px 3px;
   border-bottom:1px solid #DDD;
   margin-bottom: 10px;
+  max-width: 255px;
  }
 }
 
@@ -153,8 +157,6 @@ textarea#comment_content {
 
 
 
-
-
 /* format show posts */
 
 .post_info {
@@ -167,27 +169,67 @@ textarea#comment_content {
 
 /* navigation bar */
 
-.nav_decoy {
-  dispay:inline-block;
-  color:green;
-  height:7%;
-  background:#ff4d4d;
-}
+
+
 
 .nav {
-  background: #ff4d4d;
+  background: #ff5c33;
   color:white;
-  padding:10px;
+  padding:10px 10px 3px;
   position:fixed;
   width:100%;
+  display: inline-block;
   z-index: 1;
 }
 
 .nav_elements {
   position:relative;
   float:right;
+  a {
+    margin-top:20px;
+  }
 
 }
+
+form#search-form {
+  color:black;
+  float:left;
+  margin:0 30px 0 0;
+}
+
+input {
+  color:black;
+  background: white;
+  border-radius: 3px;
+  border:3px solid white;
+}
+input#search {
+  width:300px;
+
+}
+
+.popular_posts {
+  background-color: #EEE;
+  width:100%;
+  position:fixed;
+  padding: 1px 1px 1px 3px;
+  z-index: 3;
+}
+
+span.login_or_sign_up_to {
+  position:relative;
+  top:3px;
+}
+
+.btn-danger, .new_post {
+  position: relative;
+  top:-3px;
+  background: none;
+  border:none;
+}
+
+
+
 /* sign up form */
 .create_your_account {
   text-align: center;
@@ -200,6 +242,10 @@ textarea#comment_content {
 
 .signup_reasons li h5 {
   word-spacing:-8px;
+}
+
+.input-group-btn {
+  display: inline-block;
 }
 
 /* small thing */
@@ -234,6 +280,11 @@ div.well img {
   font-size: 20px;
   margin: 5px 0 5px 5px;
   transform: scaleX(-1);
+}
+
+.alert-info {
+  position:absolute;
+  z-index: 2;
 }
 /* registration page */
 
@@ -690,4 +741,6 @@ a {
   background:red;
   display: inline-block;
 }
+
+
 

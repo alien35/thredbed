@@ -2,8 +2,8 @@
   = link_to url_for(root_url) do
     .glyphicon.glyphicon-home
   = form_tag(posts_path, :method => "get", id: "search-form") do
-    %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
-  = submit_tag "Go", :name => nil, class: "btn btn-primary btn-search glyphicon glyphicon-search"
+    = text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
+    = submit_tag "Go", :name => nil, class: "btn btn-primary btn-search"
   - if !user_signed_in? && !current_page?(new_user_registration_path)
     %span.sign_up_underline= link_to 'Login',  new_user_session_path
     or

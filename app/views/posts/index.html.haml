@@ -1,6 +1,6 @@
 .container.organize_rows#my-posts
   = render @posts
-.index_divider All posts
+%h3 All posts
 -if user_signed_in?
   .container.organize_rows#my-posts
     - Post.paginate(page: params[:page], per_page: 12).order(cached_weighted_total: :desc).each do |post|

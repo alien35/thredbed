@@ -21,6 +21,7 @@
 
 body {
   background:#EEE;
+  color:#444;
 }
 
 li {
@@ -210,8 +211,9 @@ input#search {
 
 .popular_posts {
   background-color: #EEE;
-  width:100%;
+  width:80%;
   position:fixed;
+  top:44px;
   padding: 1px 1px 1px 3px;
   z-index: 3;
 }
@@ -284,8 +286,17 @@ div.well img {
 
 .alert-info {
   position:absolute;
-  z-index: 2;
+  z-index: 4;
+  left:300px;
+  top:50px;
 }
+
+.nav_decoy {
+  height:35px;
+  width:100%;
+}
+
+
 /* registration page */
 
 .registration-bg {
@@ -690,6 +701,8 @@ ul.dropdown-menu {
   position: relative;
   left:10px;
 }
+
+
 
 .notif_text {
   position: relative;

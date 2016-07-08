@@ -5,19 +5,18 @@
     .input-group.col-md-6
       = form_tag(posts_path, :method => "get", id: "search-form") do
         %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs", class: "search-query form-control"
-        %span.input-group-btn.glyphicon.glyphicon-search
       = submit_tag "Go", :name => nil, class: "btn"
-  - if !user_signed_in? && !current_page?(new_user_registration_path)
-    %span.sign_up_underline= link_to 'Login',  new_user_session_path
-    or
-    %span.sign_up_underline= link_to "Sign up", new_user_registration_path
-    to post or comment. Join the comment-powered news source today!
-  - elsif user_signed_in?
-    = render 'notifications/notification_dropdown'
-    %span.nav_space
-    = link_to 'New post', new_post_path
-    = link_to 'Sign out', destroy_user_session_path, method: :delete
-    = link_to current_user.user_name, profile_path(current_user.user_name)
-  - else
+      - if !user_signed_in? && !current_page?(new_user_registration_path)
+        %span.sign_up_underline= link_to 'Login',  new_user_session_path
+        or
+        %span.sign_up_underline= link_to "Sign up", new_user_registration_path
+        to post or comment. Join the comment-powered news source today!
+      - elsif user_signed_in?
+        = render 'notifications/notification_dropdown'
+        %span.nav_space
+        = link_to 'New post', new_post_path
+        = link_to 'Sign out', destroy_user_session_path, method: :delete
+        = link_to current_user.user_name, profile_path(current_user.user_name)
+      - else
 
 .nav_decoy

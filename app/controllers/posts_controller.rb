@@ -21,6 +21,10 @@ class PostsController < ApplicationController
                      .tagged_with(params[:tag])
                      .order("created_at DESC")
       end
+    @tag_counts = Post.tag_counts_on(:tags)
+                      .order('count desc')
+                      .limit(10)
+
 
   end
 

@@ -184,13 +184,22 @@ textarea#comment_content {
   position:fixed;
   width:100%;
   z-index: 1;
+  input {
+    background:white;
+    color:black;
+    border: none;
+    border-radius: 3px;
+  }
 }
 
 .nav * {
   display: inline;
 }
 
-
+input#search {
+  width:400px;
+  border:1px solid white;
+}
 
 
 

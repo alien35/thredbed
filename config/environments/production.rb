@@ -1,16 +1,4 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-  #config.paperclip_defaults = {
-   # storage: :s3,
-    #s3_credentials: {
-     # bucket: ENV['AWS_S3_BUCKET'],
-      #access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      #secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-    #}
-  #}
-  # Code is not reloaded between requests.
-
-  # Code is not reloaded between requests.
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -79,20 +67,14 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-  # Prepend all log lines with the following tags.
-  # config.log_tags = [ :subdomain, :uuid ]
 
-  # Use a different logger for distributed setups.
-  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
 
-  # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'https://evening-ridge-66378.herokuapp.com'
@@ -111,9 +93,4 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
 
 
-  # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
-
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
 end

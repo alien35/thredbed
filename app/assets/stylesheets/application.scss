@@ -208,9 +208,29 @@ form#search-form {
 .glyphicon-home {
   position:fixed;
   margin-top: 15px;
+  z-index: 2;
 }
 
+.intro-text {
+  display: inline;
+}
 
+.btn-search {
+  position:fixed;
+  top:10px;
+  margin-left: 3px;
+}
+
+.nav_elements_right {
+  color:white;
+  z-index: 1;
+  position:fixed;
+  right:5px;
+  top:15px;
+  a {
+    color:white !important;
+  }
+}
 
 
 /* sign up form */

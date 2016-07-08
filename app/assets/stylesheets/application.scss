@@ -190,22 +190,24 @@ textarea#comment_content {
   padding:10px;
   position:fixed;
   width:100%;
-  display: inline-block;
+  display: inline;
   z-index: 1;
+}
+
+.nav * {
+  display: inline;
 }
 
 
 
 form#search-form {
   color:black;
-  position:relative;
   left:0;
   padding-left:0;
   margin-left: 30px;
 }
 
 .glyphicon-home {
-  position:fixed;
   margin-top: 15px;
   z-index: 2;
 }

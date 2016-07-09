@@ -30,13 +30,10 @@
         %button.btn.btn-danger.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
           = current_user.user_name
           %span.caret
-        %ul.dropdown-menu
-          %li
-            = link_to "Profile", profile_path(current_user.user_name)
-          %li
-            = link_to "Settings", edit_user_registration_path
-          %li
-            = link_to 'Sign out', destroy_user_session_path, method: :delete
+        %ul.dropdown-menu#account_dropdown
+          %li= link_to "Profile", profile_path(current_user.user_name)
+          %li= link_to "Settings", edit_user_registration_path
+          %li= link_to 'Sign out', destroy_user_session_path, method: :delete
       %span.new_post
         = link_to 'New post', new_post_path
 

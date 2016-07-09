@@ -2,8 +2,8 @@
   %button.btn.btn-danger.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
     = new_notifs(current_user)
     %span.glyphicon.glyphicon-flag
-  %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
+  %ul#notif_dropdown.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
     %li.dropdown-header.text-center Notifications
-    = render current_user.notifications.order('created_at DESC').where(read: false).take(5)
+    %h6#notification_details= render current_user.notifications.order('created_at DESC').where(read: false).take(5)
     %li.divider{ role: 'separator' }
     %li.text-center= link_to 'View All', notifications_path

@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   validates :user_name,
              presence: true,
              length: { minimum: 4, maximum: 16 }
+  validates :bio, length: {maximum: 20 }
   has_attached_file :avatar, styles: { medium: '300x300#', thumb: "30x30#" }
 validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 

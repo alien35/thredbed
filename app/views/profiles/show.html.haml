@@ -1,4 +1,8 @@
 .posts-wrapper
+  -if current_user == @user
+    %br
+    %h4#edit_profile
+      =link_to "Edit Profile", edit_profile_path
   = profile_avatar_select(@user)
 %h3.profile_user_name
   = @user.user_name
@@ -7,12 +11,11 @@
 
 
 %span= render 'shared/stats'
+
+
 %span= render 'follow_form'
 
 
-%span.user-statistics
-  %p
-  = pluralize @user.posts.count, 'post'
 
 
 .container.organize_rows#my-posts

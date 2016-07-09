@@ -299,7 +299,10 @@ div.well img {
   width:100%;
 }
 
-
+input#user_avatar {
+  background: none;
+  border:none;
+}
 /* registration page */
 
 .registration-bg {
@@ -613,6 +616,8 @@ height:100%;
   text-align: center;
 }
 
+
+
 .posts-wrapper img, .posts-wrapper h3 {
   display: flex;
   align-items: center;
@@ -643,7 +648,14 @@ height:100%;
   margin-top: 20px;
 }
 
+#edit_profile {
+  text-align: center;
+}
 
+textarea#user_bio {
+  width:250px;
+  margin:0 auto;
+}
 
 .index-profile-image {
   float:left;
@@ -773,5 +785,9 @@ a {
   display: inline-block;
 }
 
+#follow_form {
+  margin-top: 14px;
+  text-align: center;
+}
 
 

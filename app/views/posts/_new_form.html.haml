@@ -1,6 +1,6 @@
 = simple_form_for @post do |f|
   = f.input  :link, hint: "Make sure it includes 'http://' or 'https://' at the beginning."
-  = f.input  :title, label: 'Title. Maximum length is 100 characters', error: 'Title, please'
+  = f.input  :title, label: 'Title. Maximum length is 100 characters', error: 'Title, please', maxlength: 100
   = f.input  :commentary, label: "Add your full commentary here:", placeholder: 'Type type type...'
   = f.input  :tag_list, label: "Tags", hint: "use commas to separate"
   = f.button :submit

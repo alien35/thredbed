@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'profiles/index'
   get 'tags/:tag', to: 'posts#index', as: :tag
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
+
 
   resources :users do
     member do

@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   def upvote
     @comment = @post.comments.find(params[:id])
     @comment.upvote_by current_user
-    create_upvote_notification @comment, @post
+    create_upvote_notification @post, @comment
     redirect_to :back
   end
 
@@ -60,7 +60,7 @@ class CommentsController < ApplicationController
                         notice_type: 'commented on your post')
     end
 
-    def create_upvote_notification(comment, post)
+    def create_upvote_notification(post, comment)
     return if post.user.id == current_user.id
     Notification.create(user_id: comment.user.id,
                         notified_by_id: current_user.id,

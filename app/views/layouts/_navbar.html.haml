@@ -2,12 +2,22 @@
 
   = link_to url_for(root_url) do
     .glyphicon.glyphicon-home
+  -if !current_page?(new_user_registration_path)
+    %span.dropdown
+      %button.btn.btn-danger.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+        Trending
+        %span.caret
+      %ul.dropdown-menu
+        - @tag_counts.each do |tag|
+          %li= link_to tag, tag_path(tag.name)
+
+
   .nav_elements
     = form_tag(posts_path, :method => "get", id: "search-form") do
       %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
       %span= submit_tag "Go", :name => nil
 
-    - if !user_signed_in? && !current_page?(new_user_registration_path)
+    - if !user_signed_in? && ( !current_page?(new_user_registration_path) || !current_page?(new_user_session_path) )
       %span.login_or_sign_up_to
         %span.sign_up_underline= link_to 'Login',  new_user_session_path
         or
@@ -16,8 +26,6 @@
     - elsif user_signed_in?
       = render 'notifications/notification_dropdown'
       %span.nav_space
-      %span.new_post
-        = link_to 'New post', new_post_path
       %span.dropdown
         %button.btn.btn-danger.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
           = current_user.user_name
@@ -29,4 +37,7 @@
             = link_to "Settings", edit_user_registration_path
           %li
             = link_to 'Sign out', destroy_user_session_path, method: :delete
+      %span.new_post
+        = link_to 'New post', new_post_path
+
     - else

@@ -2,6 +2,10 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
   before_action :profile_owner, only: [:edit, :update]
+  before_action :count_tags
+
+
+
 
   def index
     @users = User.all
@@ -16,7 +20,6 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(profile_params)
-      flash[:success] = 'Your profile has been updated.'
       redirect_to profile_path(@user.user_name)
     else
       @user.errors.full_messages
@@ -41,5 +44,11 @@ class ProfilesController < ApplicationController
   def set_user
     @user = User.find_by(user_name: params[:user_name])
   end
+
+  def count_tags
+      @tag_counts = Post.tag_counts_on(:tags)
+                      .order('count desc')
+                      .limit(10)
+    end
 
 end

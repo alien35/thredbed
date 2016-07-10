@@ -106,7 +106,7 @@ class PostsController < ApplicationController
                         notified_by_id: current_user.id,
                         post_id: post.id,
                         identifier: post.id,
-                        notice_type: 'upvoted your post')
+                        notice_type: 'likes your post')
     end
 
     def count_tags

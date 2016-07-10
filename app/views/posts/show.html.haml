@@ -1,25 +1,29 @@
 
 %br
 %ul.post_info
+  %span Check out the reference:
+  = link_to @post.link, @post.link
+.comment_format
   - begin
     - if @post.user.id == current_user.id
       = link_to 'Edit', edit_post_path(@post)
       = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
+      %br
   - rescue NoMethodError
-  %li Check out the reference:
-  = link_to @post.link, @post.link
-  %li Post created #{time_ago_in_words @post.created_at} ago
   - if user_signed_in?
     = link_to index_profile_avatar_select(@post.user), profile_path(@post.user.user_name)
-    %li.index_name=link_to @post.user.user_name, profile_path(@post.user.user_name)
+    = link_to user_bio(@post.user), profile_path(@post.user.user_name)
+
   - else
     = index_profile_avatar_select(@post.user)
-    %li.signed_out_names=@post.user.user_name
-.comment_format
+    %li.signed_out_names=user_bio(@post.user)
+  .small_font posted this #{time_ago_in_words @post.created_at} ago
+
   %h1.post_title= @post.title
   %li= @post.commentary
   %span.voter_names= render 'posts/likes'
   %span.voter_names= render 'posts/dislikes'
+
   - if user_signed_in?
     .comment-like-form.row.post_vote_machine
       =link_to upvote_post_path(@post), method: :put do

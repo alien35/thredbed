@@ -43,11 +43,11 @@ module CommentsHelper
   private
 
   def like_plural(votes)
-    return ' upvoted this'
+    return ' likes this'
   end
 
   def dislike_plural(votes)
-    return ' downvoted this'
+    return ' likes this'
   end
 
   def display_comment_likes(comment)

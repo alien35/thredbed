@@ -31,11 +31,11 @@ module PostsHelper
   private
 
   def like_plural(votes)
-    return ' upvoted this'
+    return ' likes this'
   end
 
   def dislike_plural(votes)
-    return ' downvoted this'
+    return ' dislikes this'
   end
 
   def display_likes(post)

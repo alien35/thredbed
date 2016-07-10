@@ -7,12 +7,11 @@
       =index_profile_avatar_select(post.user)
       %li.signed_out_names=post.user.user_name
     =link_to (image_tag post.image.url(:medium)), post_path(post)
-    %ul
-      %h3=title_max_length(post.title)
-      %h5=caption_max_length(post.commentary)
-      %li=comment_count_index(post)
-      %span Tags:
-      %span=raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
-      %h6=time_ago_in_words post.created_at
+    %h3=title_max_length(post.title)
+    %h5=caption_max_length(post.commentary)
+    %li=comment_count_index(post)
+    %span Tags:
+    %span=raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
+    %h6=time_ago_in_words post.created_at
 
 

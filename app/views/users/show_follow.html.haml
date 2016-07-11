@@ -1,18 +1,28 @@
-= link_to "", :back, class: "glyphicon glyphicon-share-alt"
-%br
-- if @user.followers.count == 0  && @user.following.count == 0
-  %h3.stats Looks like #{@user.user_name} doesn't have any followers yet.
--else
-  #{@user.user_name}'s Followers
-  .follower-block
-    - @user.followers.each do |follower|
-      = link_to index_profile_avatar_select(follower), profile_path(follower.user_name)
-      %li.index_name= link_to follower.user_name, profile_path(follower.user_name)
-  .following-block
-    #{@user.user_name}'s Following
-    - @user.following.each do |following|
-      = link_to index_profile_avatar_select(following), profile_path(following.user_name)
-      %li.index_name= link_to following.user_name, profile_path(following.user_name)
+.container
+  %br
+  = link_to "", :back, class: "glyphicon glyphicon-share-alt"
+  %br
+  - if @user.followers.count == 0  && @user.following.count == 0
+    %h3.stats Looks like #{@user.user_name} doesn't have any followers yet.
+  -else
+    %strong #{@user.user_name}'s Followers
     %br
-    %br
-    %br
+    .follower-block
+      -if @user.followers.count == 0
+        %em none
+      -else
+        - @user.followers.each do |follower|
+          = link_to index_profile_avatar_select(follower), profile_path(follower.user_name)
+          %li.follower_block_text= link_to follower.user_name, profile_path(follower.user_name)
+    .following-block
+      %strong #{@user.user_name}'s Following
+      %br
+      -if @user.following.count == 0
+        %em none
+      -else
+        - @user.following.each do |following|
+          = link_to index_profile_avatar_select(following), profile_path(following.user_name)
+          %li.index_name= link_to following.user_name, profile_path(following.user_name)
+      %br
+      %br
+      %br

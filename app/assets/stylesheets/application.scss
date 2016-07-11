@@ -850,8 +850,13 @@ a {
 }
 
 .follower-block {
-  background:red;
   display: inline-block;
+}
+
+li.follower_block_text {
+  display: inline-block;
+  position: relative;
+  top:10px;
 }
 
 #follow_form {

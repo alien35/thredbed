@@ -91,6 +91,9 @@ abbr {
   margin:0 auto;
 }
 
+.new_post_grey {
+  color:#808080;
+}
 .post_title {
   color:black;
   font-size: 30px;
@@ -864,4 +867,12 @@ li.follower_block_text {
   text-align: center;
 }
 
+#post_follow_form {
+  font-size: 10px;
+  color:green;
+}
+
+.post_follow_button {
+  color:red !important;
+}
 

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :upvote, :downvote, :unvote]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :unvote]
   before_action :post_owner, only: [:edit, :update, :destroy]
   before_action :count_tags

@@ -1,6 +1,6 @@
 = simple_form_for @post do |f|
-  = f.input  :link, hint: "Make sure it includes 'http://' or 'https://' at the beginning, and links that are purely images with no text aren't allowed."
-  = f.input  :title, label: 'Opening question', hint: 'Invite people to the conversation with a question', error: 'Title, please', maxlength: 100
+  = f.input  :link, hint: "Make sure it includes 'http://' or 'https://' at the beginning."
+  = f.input  :title, label: 'Opening question', hint: 'Invite people to the conversation with a question.', error: 'Title, please', maxlength: 100
   = f.input  :commentary, label: "Add your own thoughts, commentary here:", placeholder: 'Type type type...'
   = f.input  :tag_list, label: "Tags", hint: "use commas to separate"
   = f.button :submit

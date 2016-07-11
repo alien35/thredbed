@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable_on :tags
   scope :of_followed_users, -> (following_users) { where user_id: following_users }
+  before_save :ends_with_q
   VALID_LINK_REGEX = /\Ahttp\.*/
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }
   validates :title, presence: true, length: { maximum: 100 }
@@ -34,5 +35,10 @@ class Post < ActiveRecord::Base
             self.image = file
           end
         end
+
+        def ends_with_q
+          self.title = (/\A.*\?\z/).match(self.title).nil? ? title + "?" : title
+        end
+
 
 end

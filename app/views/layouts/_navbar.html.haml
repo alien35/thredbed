@@ -1,6 +1,6 @@
 .nav
 
-  = link_to url_for(root_url) do
+  = link_to '/' do
     .glyphicon.glyphicon-home
   -if !current_page?(new_user_registration_path)
     %span.dropdown
@@ -10,8 +10,6 @@
       %ul.dropdown-menu
         - @tag_counts.each do |tag|
           %li= link_to tag, tag_path(tag.name)
-
-
   .nav_elements
     = form_tag(posts_path, :method => "get", id: "search-form") do
       %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
@@ -35,6 +33,6 @@
           %li= link_to "Settings", edit_user_registration_path
           %li= link_to 'Sign out', destroy_user_session_path, method: :delete
       %span.new_post
-        = link_to 'New post', new_post_path
+        = link_to 'New thread', new_post_path
 
     - else

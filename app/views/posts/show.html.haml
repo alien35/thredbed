@@ -35,7 +35,19 @@
 .comment_format
   .comments{id: "comments_#{@post.id}"}
     - if @post.comments.any?
-      = render @post.comments.order(cached_votes_score: :desc), post: @post
+      -if user_signed_in?
+        %p
+          %strong
+            -if @post.comments.of_followed_users(current_user.following).count > 0
+              Comments by people you're following:
+        = render @post.comments.of_followed_users(current_user.following)
+        %p
+          %strong
+            -if @post.comments.of_followed_users(current_user.following).count > 0
+              All comments:
+        = render @post.comments.order(cached_votes_score: :desc), post: @post
+      -else
+        = render @post.comments.order(cached_votes_score: :desc), post: @post
 - if user_signed_in?
   .comment_format
     = simple_form_for([@post, @post.comments.build], remote: true)  do |f|

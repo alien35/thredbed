@@ -270,13 +270,13 @@ span.login_or_sign_up_to {
   top:-2px;
 }
 
-.btn-danger article {
+button article {
   color:red;
   background: white;
   border-radius: 10px;
   padding:0 3px;
   position:relative;
-  left:10px;
+  left:15px;
   bottom:-10px;
   z-index: 10;
 }
@@ -287,7 +287,9 @@ span.login_or_sign_up_to {
   font-size: 15px;
 }
 
-
+button.dropdown-toggle {
+  background: none;
+}
 
 /* sign up form */
 .create_your_account {
@@ -311,6 +313,7 @@ span.login_or_sign_up_to {
 
 .glyphicon-globe {
   position: absolute;
+  top:-8px;
   left:0;
   font-size: 30px;
 }

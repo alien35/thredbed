@@ -1,5 +1,5 @@
 %span.dropdown.notification-dropdown
-  %button.btn.btn-danger.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
+  %button.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
     %article= new_notifs(current_user)
     %span.glyphicon.glyphicon-globe
   %ul#notif_dropdown.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }

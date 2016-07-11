@@ -27,7 +27,7 @@ def create
                         notified_by_id: current_user.id,
                         post_id: user.id,
                         identifier: user.id,
-                        notice_type: 'starting following you')
+                        notice_type: 'started following you')
     end
 
 

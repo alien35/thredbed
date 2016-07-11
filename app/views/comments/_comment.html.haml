@@ -22,6 +22,7 @@
       %span.glyphicon.glyphicon-adjust
     =link_to downvote_post_comment_path(@post, comment), method: :put do
       %span.glyphicon.glyphicon-chevron-down
+    = render 'profiles/comment_follow_form'
 
 %br
 

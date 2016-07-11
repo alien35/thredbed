@@ -687,7 +687,9 @@ height:100%;
   text-align: center;
 }
 
+.profile_user_name {
 
+}
 
 .posts-wrapper img, .posts-wrapper h3 {
   display: flex;
@@ -863,8 +865,7 @@ li.follower_block_text {
 }
 
 #follow_form {
-  margin-top: 14px;
-  text-align: center;
+
 }
 
 #post_follow_form {
@@ -872,7 +873,12 @@ li.follower_block_text {
   color:green;
 }
 
-.post_follow_button {
-  color:red !important;
+.btn.btn-primary, input.btn {
+  font-size:12px;
+  padding:1px 5px;
+}
+
+.profile_follow_form {
+  text-align: center;
 }
 

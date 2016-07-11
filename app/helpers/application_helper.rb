@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def user_bio(post_user)
-    a = link_to post_user.user_name, profile_path(post_user.user_name)
+    a = post_user.user_name
     post_user.bio.nil? ? a : a + ", " + "#{post_user.bio}"
   end
 

@@ -4,7 +4,11 @@ class NotificationsController < ApplicationController
   def link_through
     @notification = Notification.find(params[:id])
     @notification.update read: true
-    redirect_to post_path @notification.post
+    if @notification.notice_type == "started following you"
+       redirect_to profile_path @notification.notified_by.user_name
+    else
+      redirect_to post_path @notification.post
+    end
   end
 
   def index

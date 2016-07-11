@@ -13,5 +13,6 @@
     %span Tags:
     %span=raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
     %h6=time_ago_in_words post.created_at
+    %hr=link_to post.link, post.link
 
 

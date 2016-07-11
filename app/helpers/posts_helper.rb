@@ -74,5 +74,8 @@ module PostsHelper
     end
   end
 
+  def ends_with_q(title)
+    (/\A.*\?\z/).match(title).nil? ? title + "?" : title
+  end
 
 end

@@ -7,7 +7,7 @@
       =index_profile_avatar_select(post.user)
       %li.signed_out_names=post.user.user_name
     =link_to (image_tag post.image.url(:medium)), post_path(post)
-    %h3=title_max_length(post.title)
+    %h3=title_max_length(ends_with_q(post.title))
     %h5=caption_max_length(post.commentary)
     %li=comment_count_index(post)
     %span Tags:

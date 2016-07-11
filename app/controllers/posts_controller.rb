@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :unvote]
   before_action :post_owner, only: [:edit, :update, :destroy]
   before_action :count_tags
+
 
   def index
     if user_signed_in?
@@ -36,6 +37,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    current_user.posts << @post
     if @post.save
       flash[:success] = "Your post has been created!"
       redirect_to posts_path

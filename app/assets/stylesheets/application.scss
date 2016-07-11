@@ -83,6 +83,14 @@ abbr {
   margin:0 auto;
 }
 
+.new_post_format {
+  padding-left:48px;
+  color:#444;
+  font-size: 15px;
+  width:600px;
+  margin:0 auto;
+}
+
 .post_title {
   color:black;
   font-size: 30px;
@@ -103,7 +111,7 @@ textarea#comment_content {
   max-width:100%;
   margin-right:3px;
 }
-#comment_content {
+#comment_content, #post_commentary {
   font-size:15px;
   min-height:150px;
 }
@@ -261,6 +269,17 @@ span.login_or_sign_up_to {
 .btn-danger {
   top:-2px;
 }
+
+.btn-danger article {
+  color:red;
+  background: white;
+  border-radius: 10px;
+  padding:0 3px;
+  position:relative;
+  left:10px;
+  bottom:-10px;
+  z-index: 10;
+}
 .btn-danger, .new_post {
   position: relative;
   background: none;
@@ -289,6 +308,12 @@ span.login_or_sign_up_to {
 }
 
 /* small thing */
+
+.glyphicon-globe {
+  position: absolute;
+  left:0;
+  font-size: 30px;
+}
 
 .back_button {
   margin-left: 5px;

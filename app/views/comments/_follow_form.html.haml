@@ -1,0 +1,6 @@
+-unless comment.user == current_user
+  #follow_form
+    -if current_user.following?(comment.user)
+      = render 'comments/unfollow', comment: comment
+    -else
+      = render 'comments/follow', comment: comment

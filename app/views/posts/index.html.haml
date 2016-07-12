@@ -1,9 +1,8 @@
 .nav_decoy
-
 .container.organize_rows#my-posts
   = render @posts
 %br
-  .col-md-offset-6
+  .stats
     -if user_signed_in?
       All posts
 .container.organize_rows#my-posts

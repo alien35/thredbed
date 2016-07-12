@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   before_save :ends_with_q
   VALID_LINK_REGEX = /\Ahttp\.*/
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }
-  validates :title, length: { maximum: 100 }
+  validates :title, length: { maximum: 101 }
   validates :commentary, presence: true
   validates :user_id, presence: true
   validates :tag_list, presence: true
@@ -24,6 +24,10 @@ class Post < ActiveRecord::Base
     where("title LIKE :search OR commentary LIKE :search OR link LIKE :search", search: "%#{query}%")
   end
 
+  def ends_with_q
+    self.title = (/\A.*\?\z/).match(self.title).nil? && self.title.length > 0 ? title + "?" : title
+  end
+
   private
 
         def get_image_from_link
@@ -35,10 +39,5 @@ class Post < ActiveRecord::Base
             self.image = file
           end
         end
-
-        def ends_with_q
-            self.title = (/\A.*\?\z/).match(self.title).nil? && self.title.length > 0 ? title + "?" : title
-        end
-
 
 end

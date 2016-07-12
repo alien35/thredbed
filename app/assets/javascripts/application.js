@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require posts
 //= require turbolinks
 //= require pagination
 //= require_tree .

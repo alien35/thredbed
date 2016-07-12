@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :comments#, only: [:new,:create,:show,:edit,:update,:destroy]
   end
 
+  resources :comments do
+    resources :responses#, only: [:new,:create,:show,:edit,:update,:destroy]
+  end
+
   resources :posts do
     member do
       put 'upvote',   to: 'posts#upvote'

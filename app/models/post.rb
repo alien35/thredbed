@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments,      dependent: :destroy
+  has_many :responses,     dependent: :destroy
   has_many :notifications, dependent: :destroy
   before_save :get_image_from_link,
               if: ->(post) { post.link_changed? }

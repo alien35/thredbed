@@ -22,7 +22,18 @@
       %span.glyphicon.glyphicon-adjust
     =link_to downvote_post_comment_path(@post, comment), method: :put do
       %span.glyphicon.glyphicon-chevron-down
-    %span= render 'comments/follow_form', comment: comment
+  = render comment.responses, comment: comment
+  - if user_signed_in?
+    .reply_block{id: "reply_block_#{comment.id}"}
+      %button.reply_button reply
+      %span= render 'comments/follow_form', comment: comment
+      .responses{id: "responses_#{comment.id}"}
+      .response_form_hide
+        = simple_form_for([comment, comment.responses.build])  do |f|
+          = f.input :content, label: false
+          = f.submit class: "btn btn-primary"
+
+
 
 %br
 

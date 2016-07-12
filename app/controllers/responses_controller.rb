@@ -21,9 +21,9 @@ class ResponsesController < ApplicationController
 
 
   def destroy
-    @comment = @post.comments.find(params[:id])
-    if @comment.user_id == current_user.id
-      @comment.delete
+    @response = @comment.responses.find(params[:id])
+    if @response.user_id == current_user.id
+      @response.delete
       respond_to do |format|
         format.html { redirect_to :back}
         format.js

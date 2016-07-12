@@ -892,4 +892,13 @@ li.follower_block_text {
   display: none;
 }
 
+.reply_container {
+  margin-left: 20px;
+  border-left: 3px solid grey;
 
+}
+
+.reply_button {
+  cursor: pointer;
+  display: inline-block;
+}

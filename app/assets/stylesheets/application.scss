@@ -83,6 +83,8 @@ abbr {
   margin:0 auto;
 }
 
+
+
 #comment_dropdown {
   background: #808080;
 }
@@ -217,6 +219,8 @@ li.show_name a {
   top:10px;
   left:5px;
 }
+
+
 
 /* navigation bar */
 
@@ -869,7 +873,7 @@ li.follower_block_text {
 }
 
 #follow_form {
-
+  display: inline-block;
 }
 
 #post_follow_form {
@@ -893,8 +897,9 @@ li.follower_block_text {
 }
 
 .reply_container {
+  padding-top: 0;
   margin-left: 20px;
-  border-left: 3px solid grey;
+  border-left: 3px solid #CCC;
 
 }
 

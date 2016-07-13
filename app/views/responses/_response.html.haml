@@ -3,13 +3,25 @@
     =link_to show_profile_avatar_select(response.user), profile_path(response.user.user_name)
   -else
     =show_profile_avatar_select(response.user)
-.comment_format
-  -if user_signed_in?
-    .commenter_name= link_to response.user.user_name, profile_path(response.user.user_name)
-  -else
-    = response.user.user_name
-  = response.content
-  - if response.user == current_user
-    = link_to comment_response_path(comment, response), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{response.id}" do
-      .glyphicon.glyphicon-remove
-  .time_ago= time_ago_in_words comment.created_at
+-if user_signed_in?
+  .commenter_name= link_to response.user.user_name, profile_path(response.user.user_name)
+-else
+  = response.user.user_name
+= response.content
+- if response.user == current_user
+  = link_to comment_response_path(comment, response), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{response.id}" do
+    .glyphicon.glyphicon-remove
+.time_ago= time_ago_in_words response.created_at
+%span.voter_names= render 'responses/likes', response: response
+%span.voter_names= render 'responses/dislikes', response: response
+- if user_signed_in? && response.user != current_user
+  =link_to upvote_comment_response_path(comment, response), method: :put do
+    %span.glyphicon.glyphicon-chevron-up
+  =link_to unvote_comment_response_path(comment, response), method: :put do
+    %span.glyphicon.glyphicon-adjust
+  =link_to downvote_comment_response_path(comment, response), method: :put do
+    %span.glyphicon.glyphicon-chevron-down
+
+%br
+
+

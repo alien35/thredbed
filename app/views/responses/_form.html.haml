@@ -1,0 +1,5 @@
+.reply_button reply
+.response_form_hide
+  = simple_form_for([comment, comment.responses.build])  do |f|
+    = f.input :content, label: false
+    = f.submit class: "btn btn-primary"

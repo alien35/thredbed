@@ -1,9 +1,9 @@
-%strong
-  - if user_signed_in?
-    =link_to show_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
-  -else
-    =show_profile_avatar_select(comment.user)
-.comment_format
+.first_comment_format
+  %strong
+    - if user_signed_in?
+      =link_to show_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
+    -else
+      =show_profile_avatar_select(comment.user)
   -if user_signed_in?
     .commenter_name= link_to comment.user.user_name, profile_path(comment.user.user_name)
   -else
@@ -22,20 +22,14 @@
       %span.glyphicon.glyphicon-adjust
     =link_to downvote_post_comment_path(@post, comment), method: :put do
       %span.glyphicon.glyphicon-chevron-down
-  - if user_signed_in?
-    .reply_button reply
-  .container.reply_container
-    = render comment.responses, comment: comment
     %span= render 'comments/follow_form', comment: comment
-    .responses{id: "responses_#{comment.id}"}
-    .response_form_hide
-      = simple_form_for([comment, comment.responses.build])  do |f|
-        = f.input :content, label: false
-        = f.submit class: "btn btn-primary"
+  -if comment.responses.any?
+    .container.reply_container
+      = render comment.responses, comment: comment
+  -if user_signed_in?
+    = render 'responses/form', comment: comment
 
 
-
-%br
 
 
 

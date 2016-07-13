@@ -45,6 +45,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments do
+    resources :responses do
+      member do
+        put 'upvote',   to: 'responses#upvote'
+        put 'downvote', to: 'responses#downvote'
+        put 'unvote',   to: 'responses#unvote'
+      end
+    end
+  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -32,21 +32,21 @@ class ResponsesController < ApplicationController
   end
 
   def upvote
-    @comment = @post.comments.find(params[:id])
-    @comment.upvote_by current_user
-    create_upvote_notification @post, @comment
+    @response = @comment.responses.find(params[:id])
+    @response.upvote_by current_user
+    create_upvote_notification @comment, @response
     redirect_to :back
   end
 
   def downvote
-    @comment = @post.comments.find(params[:id])
-    @comment.downvote_by current_user
+    @response = @comment.responses.find(params[:id])
+    @response.downvote_by current_user
     redirect_to :back
   end
 
   def unvote
-    @comment = @post.comments.find(params[:id])
-    @comment.unvote_by current_user
+    @response = @comment.responses.find(params[:id])
+    @response.unvote_by current_user
     redirect_to :back
   end
 

@@ -28,11 +28,11 @@
   - if user_signed_in?
     .comment-like-form.row.post_vote_machine
       =link_to upvote_post_path(@post), method: :put do
-        %span.glyphicon.glyphicon-chevron-up
+        %span.glyphicon.glyphicon-thumbs-up
       =link_to unvote_post_path(@post), method: :put do
         %span.glyphicon.glyphicon-adjust
       =link_to downvote_post_path(@post), method: :put do
-        %span.glyphicon.glyphicon-chevron-down
+        %span.glyphicon.glyphicon-thumbs-down
 .comment_format
   .comments{id: "comments_#{@post.id}"}
     - if @post.comments.any?

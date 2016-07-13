@@ -20,6 +20,13 @@ module ProfilesHelper
                                     class: 'show-profile-image'
   end
 
+  def comment_profile_avatar_select(user)
+    return image_tag user.avatar.url(:thumb),
+                     class: 'comment-profile-image' if user.avatar.exists?
+    image_tag 'blank_profile_pic.png',
+                                    class: 'comment-profile-image'
+  end
+
   def reply_profile_avatar_select(user)
     return image_tag user.avatar.url(:thumb),
                      class: 'reply-profile-image' if user.avatar.exists?

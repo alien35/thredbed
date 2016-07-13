@@ -16,12 +16,10 @@
 %span.voter_names= render 'responses/dislikes', response: response
 - if user_signed_in? && response.user != current_user
   =link_to upvote_comment_response_path(comment, response), method: :put do
-    %span.glyphicon.glyphicon-chevron-up
+    %span.glyphicon.glyphicon-thumbs-up
   =link_to unvote_comment_response_path(comment, response), method: :put do
     %span.glyphicon.glyphicon-adjust
   =link_to downvote_comment_response_path(comment, response), method: :put do
-    %span.glyphicon.glyphicon-chevron-down
+    %span.glyphicon.glyphicon-thumbs-down
   %span= render 'responses/follow_form', response: response
 %br
-
-

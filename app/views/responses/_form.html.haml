@@ -1,5 +1,6 @@
 .reply_button reply
-.reply_button_cover
+-if comment.responses.count > 0
+  .signed_in_reply_line
 .response_form_hide
   = simple_form_for([comment, comment.responses.build])  do |f|
     = f.input :content, label: false

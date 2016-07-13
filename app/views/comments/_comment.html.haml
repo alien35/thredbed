@@ -30,6 +30,6 @@
     = render 'responses/form', comment: comment
 -if !user_signed_in? && comment.responses.count > 0
   .signed_out_reply_line
--unless comment.responses.count > 0
+-unless user_signed_in? || comment.responses.count > 0
   %br
 

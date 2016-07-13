@@ -1,8 +1,8 @@
 %strong
   - if user_signed_in?
-    =link_to show_profile_avatar_select(response.user), profile_path(response.user.user_name)
+    =link_to reply_profile_avatar_select(response.user), profile_path(response.user.user_name)
   -else
-    =show_profile_avatar_select(response.user)
+    =reply_profile_avatar_select(response.user)
 -if user_signed_in?
   .commenter_name= link_to response.user.user_name, profile_path(response.user.user_name)
 -else

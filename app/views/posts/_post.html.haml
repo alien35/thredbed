@@ -6,7 +6,7 @@
     - else
       =index_profile_avatar_select(post.user)
       %li.signed_out_names=post.user.user_name
-    =link_to (image_tag post.image.url(:medium)), post_path(post)
+    =link_to (image_tag post.image.url(:medium)), post_path(post), method: :get
     %h3=post.title
     %h5=caption_max_length(post.commentary)
     %li=comment_count_index(post)

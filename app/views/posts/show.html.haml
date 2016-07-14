@@ -46,7 +46,8 @@
                   Comments by people you're following:
                   %span.caret
                 %ul.dropdown-menu#account_dropdown
-                  = render @post.comments.of_followed_users(current_user.following)
+                  .container
+                    = render @post.comments.of_followed_users(current_user.following)
         %p
           %strong
             -if @post.comments.of_followed_users(current_user.following).count > 0
@@ -58,4 +59,4 @@
   .comment_format
     = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
       = f.input :content, label:'Add your commentary:'
-      = f.submit class: "btn btn-primary"
+      = f.submit "Submit", class: "btn btn-default"

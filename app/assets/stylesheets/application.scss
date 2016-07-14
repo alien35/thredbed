@@ -133,13 +133,14 @@ textarea#comment_content {
   max-width:700px;
 }
 
-#new_response {
+#new_response, #new_comment {
   margin: 0;
   input.btn {
   position: relative;
   top:-10px;
 }
 }
+
 
 
 .btn {
@@ -888,6 +889,12 @@ a {
   }
 }
 
+
+.comment_format input.btn {
+  font-size:12px;
+  padding:1px 5px;
+}
+
 .unfollow-button {
   text-transform: uppercase;
   border-color: #66bd2b;
@@ -921,10 +928,6 @@ li.follower_block_text {
   color:green;
 }
 
-.btn.btn-primary, input.btn {
-  font-size:12px;
-  padding:1px 5px;
-}
 
 .profile_follow_form {
   text-align: center;

@@ -30,11 +30,11 @@ module PostsHelper
 
   private
 
-  def like_plural(votes)
+  def post_like_plural(votes)
     return ' likes this'
   end
 
-  def dislike_plural(votes)
+  def post_dislike_plural(votes)
     return ' dislikes this'
   end
 
@@ -58,7 +58,7 @@ module PostsHelper
                                 profile_path(voter.user_name),
                                 class: 'user-name')
       end
-      user_names.to_sentence.html_safe + like_plural(votes)
+      user_names.to_sentence.html_safe + post_like_plural(votes)
     end
   end
 
@@ -70,7 +70,7 @@ module PostsHelper
                                 profile_path(voter.user_name),
                                 class: 'user-name')
       end
-      user_names.to_sentence.html_safe + dislike_plural(votes)
+      user_names.to_sentence.html_safe + post_dislike_plural(votes)
     end
   end
 

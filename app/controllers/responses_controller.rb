@@ -1,5 +1,5 @@
 class ResponsesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy, :upvote, :downvote]
   before_action :set_post
 
   def create

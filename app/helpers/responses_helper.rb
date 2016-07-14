@@ -21,11 +21,11 @@ module ResponsesHelper
   private
 
   def like_plural(votes)
-    return ' likes this'
+    return votes.count > 1 ? ' like this' : ' likes this'
   end
 
   def dislike_plural(votes)
-    return ' likes this'
+    return votes.count > 1 ? ' dislike this' : ' dislikes this'
   end
 
   def display_response_likes(response)

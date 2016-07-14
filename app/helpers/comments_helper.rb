@@ -47,7 +47,7 @@ module CommentsHelper
   end
 
   def dislike_plural(votes)
-    return ' likes this'
+    return ' dislikes this'
   end
 
   def display_comment_likes(comment)

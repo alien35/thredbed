@@ -53,7 +53,7 @@ class CommentsController < ApplicationController
   private
 
     def create_notification(post, comment)
-    return if post.user.id == current_user.id
+    return if comment.user.id == current_user.id
     Notification.create(user_id: post.user.id,
                         notified_by_id: current_user.id,
                         post_id: post.id,
@@ -62,7 +62,7 @@ class CommentsController < ApplicationController
     end
 
     def create_upvote_notification(post, comment)
-    return if post.user.id == current_user.id
+    return if comment.user.id == current_user.id
     Notification.create(user_id: comment.user.id,
                         notified_by_id: current_user.id,
                         post_id: post.id,

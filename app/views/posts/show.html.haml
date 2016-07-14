@@ -42,12 +42,13 @@
             -if @post.comments.of_followed_users(current_user.following).count > 0
               %ul.dropdown-menu#account_dropdown
               %span.dropdown
-                %button.btn.btn-danger.dropdown-toggle#comment_dropdown{"data-toggle" => "dropdown", :type => "button"}
+                %button.btn.btn-default.dropdown-toggle#comment_dropdown{"data-toggle" => "dropdown", :type => "button"}
                   Comments by people you're following:
                   %span.caret
                 %ul.dropdown-menu#account_dropdown
-                  .container
-                    = render @post.comments.of_followed_users(current_user.following)
+                  .container#comment_dropdown
+                    - @post.comments.of_followed_users(current_user.following).each do |comment|
+                      = render 'comments/followed_users', comment: comment
         %p
           %strong
             -if @post.comments.of_followed_users(current_user.following).count > 0

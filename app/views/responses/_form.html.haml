@@ -1,4 +1,4 @@
--unless current_user == comment.user
+-unless user_signed_in?
   %br
 .reply_button reply
 -if comment.responses.count > 0

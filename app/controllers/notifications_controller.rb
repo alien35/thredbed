@@ -13,7 +13,11 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.notifications
+    current_user.notifications.each do |notif|
+      notif.update read: true
+    end
   end
+
 
   def count_tags
       @tag_counts = Post.tag_counts_on(:tags)

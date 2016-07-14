@@ -1,0 +1,19 @@
+.first_comment_format
+  %strong
+    =link_to comment_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
+    .commenter_name= link_to comment.user.user_name, profile_path(comment.user.user_name)
+  = comment.content
+  .time_ago= time_ago_in_words comment.created_at
+  %span.voter_names= render 'comments/likes', comment: comment
+  %span.voter_names= render 'comments/dislikes', comment: comment
+
+  =link_to upvote_post_comment_path(@post, comment), method: :put do
+    %span.glyphicon.glyphicon-thumbs-up
+  =link_to unvote_post_comment_path(@post, comment), method: :put do
+    %span.glyphicon.glyphicon-adjust
+  =link_to downvote_post_comment_path(@post, comment), method: :put do
+    %span.glyphicon.glyphicon-thumbs-down
+  %span= render 'comments/follow_form', comment: comment
+  -if comment.responses.any?
+    .container.reply_container
+      = render comment.responses, comment: comment

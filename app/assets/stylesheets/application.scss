@@ -49,6 +49,8 @@ a {
   }
 }
 
+
+
 .glyphicon, .glyphicon-chevron-down, .glyphicon-chevron-up, .glyphicon-remove, .glyphicon-adjust {
   &:hover {
   text-decoration: none !important;
@@ -243,7 +245,7 @@ li.show_name a {
 
 
 .nav {
-  background: #ff5c33;
+  background: #0099cc;
   color:white;
   padding:5px 10px 5px;
   position:fixed;
@@ -401,14 +403,7 @@ input#user_avatar {
 
 .registration-bg {
 
-background: rgba(255,77,77,1);
-background: -moz-linear-gradient(left, rgba(255,77,77,1) 0%, rgba(230,163,39,1) 51%, rgba(231,56,39,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,77,77,1)), color-stop(51%, rgba(230,163,39,1)), color-stop(100%, rgba(231,56,39,1)));
-background: -webkit-linear-gradient(left, rgba(255,77,77,1) 0%, rgba(230,163,39,1) 51%, rgba(231,56,39,1) 100%);
-background: -o-linear-gradient(left, rgba(255,77,77,1) 0%, rgba(230,163,39,1) 51%, rgba(231,56,39,1) 100%);
-background: -ms-linear-gradient(left, rgba(255,77,77,1) 0%, rgba(230,163,39,1) 51%, rgba(231,56,39,1) 100%);
-background: linear-gradient(to right, rgba(255,77,77,1) 0%, rgba(230,163,39,1) 51%, rgba(231,56,39,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4d4d', endColorstr='#e73827', GradientType=1 );
+background: none;
 height:100%;
 }
 
@@ -952,6 +947,7 @@ li.follower_block_text {
 }
 
 .reply_button {
+  color:#0059b3 !important;
   position:relative;
   left:15px;
   cursor: pointer;

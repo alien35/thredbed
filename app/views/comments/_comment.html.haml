@@ -5,10 +5,9 @@
     -else
       =comment_profile_avatar_select(comment.user)
   -if user_signed_in?
-    .commenter_name= link_to comment.user.user_name, profile_path(comment.user.user_name)
+    .commenter_name= user_bio_comment(comment.user, comment.content)
   -else
-    = comment.user.user_name
-  = comment.content
+    = signed_out_user_bio_comment(comment.user, comment.content)
   - if comment.user == current_user
     = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
       .glyphicon.glyphicon-remove
@@ -23,6 +22,8 @@
     =link_to downvote_post_comment_path(@post, comment), method: :put do
       %span.glyphicon.glyphicon-thumbs-down
     %span= render 'comments/follow_form', comment: comment
+    - unless comment.responses.count > 0
+      %br
   -if comment.responses.any?
     .container.reply_container
       = render comment.responses, comment: comment

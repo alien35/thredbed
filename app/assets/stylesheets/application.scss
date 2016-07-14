@@ -114,7 +114,10 @@ abbr {
 }
 
 .commenter_name {
-  display: inline-block;
+  display: inline;
+  max-width: 700px;
+  width:700px;
+  word-wrap: break-word;
 }
 
 textarea#comment_content {
@@ -956,6 +959,9 @@ li.follower_block_text {
   color: #555;
   margin-bottom: 8px;
   display: inline-block;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .signed_out_reply_line {

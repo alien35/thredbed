@@ -21,7 +21,7 @@
       %span.glyphicon.glyphicon-adjust
     =link_to downvote_post_comment_path(@post, comment), method: :put do
       %span.glyphicon.glyphicon-thumbs-down
-    %span= render 'comments/follow_form', comment: comment
+    %span.show_follow_xhr= render 'comments/follow_form', comment: comment
     - unless comment.responses.count > 0
       %br
 

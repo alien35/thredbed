@@ -702,6 +702,10 @@ height:100%;
   100% { top:200px; left: 99%; color:rgba(0,0,0,0);}
 }
 
+.row .col-md-4 .panel-body span {
+  cursor: pointer;
+  color:#0059b3;
+}
 /* profiles */
 
 .stats, .user-statistics, .profile_user_name, .profile-bio {

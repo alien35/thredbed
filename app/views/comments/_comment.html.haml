@@ -24,13 +24,14 @@
     %span= render 'comments/follow_form', comment: comment
     - unless comment.responses.count > 0
       %br
-  -if comment.responses.any?
-    .container.reply_container
-      = render comment.responses, comment: comment
-  -if user_signed_in?
-    = render 'responses/form', comment: comment
--if !user_signed_in? && comment.responses.count > 0
-  .signed_out_reply_line
--unless user_signed_in? || comment.responses.count > 0
-  %br
+  .responses{id: "responses_#{comment.id}"}
+    -if comment.responses.any?
+      .container.reply_container
+        = render comment.responses, comment: comment
+    -if user_signed_in?
+      = render 'responses/form', comment: comment
+  -if !user_signed_in? && comment.responses.count > 0
+    .signed_out_reply_line
+  -unless user_signed_in? || comment.responses.count > 0
+    %br
 

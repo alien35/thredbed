@@ -1,9 +1,10 @@
 
 %br
-%ul.post_info
-  %span Check out the reference:
-  = link_to @post.link, @post.link
+
 .comment_format
+  %ul.post_info
+    %span Check out the reference:
+    = link_to @post.link, @post.link
   - begin
     - if @post.user.id == current_user.id
       = link_to 'Edit', edit_post_path(@post)
@@ -15,10 +16,12 @@
     = link_to user_bio(@post.user), profile_path(@post.user.user_name)
     = render 'profiles/post_follow_form'
 
+
   - else
     = index_profile_avatar_select(@post.user)
     %li.signed_out_names=user_bio(@post.user)
   .small_font posted this #{time_ago_in_words @post.created_at} ago
+
 
   %h1.post_title= @post.title
   %li= @post.commentary
@@ -33,6 +36,7 @@
         %span.glyphicon.glyphicon-adjust
       =link_to downvote_post_path(@post), method: :put do
         %span.glyphicon.glyphicon-thumbs-down
+
 .comment_format
   .comments{id: "comments_#{@post.id}"}
     - if @post.comments.any?

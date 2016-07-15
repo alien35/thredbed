@@ -201,7 +201,7 @@ hr {
  }
 }
 
-.index_name, .signed_out_names {
+.signed_out_names {
   word-break: keep-all;
   position:relative;
   top:3px;
@@ -210,6 +210,16 @@ hr {
   font-weight: bold;
   color:#004d99;
 
+}
+
+.index_name {
+  word-break: keep-all;
+  position:relative;
+  top:9px;
+
+  display:inline-block;
+  font-weight: bold;
+  color:#004d99;
 }
 
 .well .signed_out_names {

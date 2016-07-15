@@ -27,7 +27,7 @@
   %li= @post.commentary
   %span= render 'posts/likes'
 
-
+%br
 
 .comment_format
   .comments{id: "comments_#{@post.id}"}
@@ -57,5 +57,3 @@
     = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
       = f.input :content, label:'Add your commentary:'
       = f.submit "Submit", class: "btn btn-default"
-
-

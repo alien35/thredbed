@@ -12,7 +12,7 @@
         .well
           - if user_signed_in?
             %span= link_to (index_profile_avatar_select(post.user)), profile_path(post.user.user_name), method: :get
-            %span.index_name= user_bio(post.user)
+            %strong.index_name= render 'posts/user_info', post: post
           - else
             =index_profile_avatar_select(post.user)
             %li.signed_out_names=post.user.user_name
@@ -30,3 +30,6 @@
 #infinite-scrolling
   = will_paginate
 
+
+
+%a{"data-content" => "Some content", "data-toggle" => "popover", "data-trigger" => "hover", :href => "#", :title => "Header"} Hover over me

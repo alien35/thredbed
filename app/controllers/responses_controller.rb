@@ -86,6 +86,7 @@ class ResponsesController < ApplicationController
 
     def set_post
       @comment = Comment.find(params[:comment_id])
+      @post = @comment.post_id
     end
 
 end

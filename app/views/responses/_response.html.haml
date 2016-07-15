@@ -15,10 +15,10 @@
 %span.voter_names= render 'responses/likes', response: response
 %span.voter_names= render 'responses/dislikes', response: response
 - if user_signed_in? && response.user != current_user
-  =link_to upvote_comment_response_path(comment, response), method: :put do
+  =link_to like_comment_response_path(comment, response), method: :put do
     %span.glyphicon.glyphicon-thumbs-up
-  =link_to unvote_comment_response_path(comment, response), method: :put do
+  =link_to unlike_comment_response_path(comment, response), method: :put do
     %span.glyphicon.glyphicon-adjust
-  =link_to downvote_comment_response_path(comment, response), method: :put do
+  =link_to dislike_comment_response_path(comment, response), method: :put do
     %span.glyphicon.glyphicon-thumbs-down
 %br

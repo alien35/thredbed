@@ -31,23 +31,30 @@ class CommentsController < ApplicationController
     end
   end
 
-  def upvote
+  def like
     @comment = @post.comments.find(params[:id])
     @comment.upvote_by current_user
+    respond_to do |format|
+      format.js { render "like.js.erb" }
+    end
     create_upvote_notification @post, @comment
-    redirect_to :back
+
   end
 
-  def downvote
+  def dislike
     @comment = @post.comments.find(params[:id])
     @comment.downvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "like.js.erb" }
+    end
   end
 
-  def unvote
+  def unlike
     @comment = @post.comments.find(params[:id])
     @comment.unvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "like.js.erb" }
+    end
   end
 
   private

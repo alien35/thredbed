@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments#, only: [:new,:create,:show,:edit,:update,:destroy]
+      member do
+        get 'like'
+      end
   end
 
   resources :comments do
@@ -32,17 +35,17 @@ Rails.application.routes.draw do
 
   resources :posts do
     member do
-      put 'upvote',   to: 'posts#upvote'
-      put 'downvote', to: 'posts#downvote'
-      put 'unvote',   to: 'posts#unvote'
+      put 'like',   to: 'posts#like'
+      put 'dislike', to: 'posts#dislike'
+      put 'unlike',   to: 'posts#unlike'
     end
   end
   resources :posts do
     resources :comments do
       member do
-        put 'upvote',   to: 'comments#upvote'
-        put 'downvote', to: 'comments#downvote'
-        put 'unvote',   to: 'comments#unvote'
+        put 'like',   to: 'comments#like'
+        put 'dislike', to: 'comments#dislike'
+        put 'unlike',   to: 'comments#unlike'
       end
     end
   end
@@ -50,9 +53,9 @@ Rails.application.routes.draw do
   resources :comments do
     resources :responses do
       member do
-        put 'upvote',   to: 'responses#upvote'
-        put 'downvote', to: 'responses#downvote'
-        put 'unvote',   to: 'responses#unvote'
+        put 'like',   to: 'responses#like'
+        put 'dislike', to: 'responses#dislike'
+        put 'unlike',   to: 'responses#unlike'
       end
     end
   end

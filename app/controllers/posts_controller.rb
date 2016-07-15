@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :upvote, :downvote, :unvote]
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :unvote]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :like, :dislike, :unlike]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :dislike, :unlike]
   before_action :post_owner, only: [:edit, :update, :destroy]
   before_action :count_tags
 
@@ -60,30 +60,29 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def upvote
+  def like
     @post.upvote_by current_user
+    respond_to do |format|
+      format.js { render "like.js.erb" }
+    end
     create_upvote_notification @post
-    respond_to do |format|
-  format.html { redirect_to :back }
-  format.js
-end
+
   end
 
-  def downvote
+  def dislike
     @post.downvote_by current_user
-  #  create_downvote_notification @post
     respond_to do |format|
-  format.html { redirect_to :back }
-  format.js
-end
+      format.js { render "dislike.js.erb" }
+    end
+  #  create_downvote_notification @post
   end
 
-  def unvote
+  def unlike
     @post.unvote_by current_user
     respond_to do |format|
-  format.html { redirect_to :back }
-  format.js
-end
+      format.js { render "dislike.js.erb"}
+
+    end
   end
 
   def more_posts

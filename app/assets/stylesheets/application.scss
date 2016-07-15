@@ -26,6 +26,7 @@ body {
 
 li {
   list-style-type: none;
+
 }
 /* links */
 
@@ -43,18 +44,17 @@ a {
   &:hover {
     color:#004080 !important;
     background: none;
+    text-decoration: none;
   }
   &:visited {
     color:#0059b3;
   }
 }
 
-
-
-.glyphicon, .glyphicon-chevron-down, .glyphicon-chevron-up, .glyphicon-remove, .glyphicon-adjust {
+.commenter_name a, .voter_names a, .reply_button, .post_info a, .poster_name a {
   &:hover {
-  text-decoration: none !important;
-    }
+    text-decoration: underline;
+  }
 }
 
 abbr {

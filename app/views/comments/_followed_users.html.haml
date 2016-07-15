@@ -5,13 +5,3 @@
   = comment.content
   .time_ago= time_ago_in_words comment.created_at
   %span.voter_names= render 'comments/likes', comment: comment
-
-  =link_to like_post_comment_path(@post, comment), method: :put do
-    %span.glyphicon.glyphicon-thumbs-up
-  =link_to unlike_post_comment_path(@post, comment), method: :put do
-    %span.glyphicon.glyphicon-adjust
-  =link_to dislike_post_comment_path(@post, comment), method: :put do
-    %span.glyphicon.glyphicon-thumbs-down
-  -if comment.responses.any?
-    .container.reply_container
-      = render comment.responses, comment: comment

@@ -1,5 +1,5 @@
 class ResponsesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy, :upvote, :downvote]
+  before_action :authenticate_user!, only: [:create, :destroy, :like, :dislike]
   before_action :set_post
 
   def create
@@ -31,23 +31,29 @@ class ResponsesController < ApplicationController
     end
   end
 
-  def upvote
+  def like
     @response = @comment.responses.find(params[:id])
     @response.upvote_by current_user
     create_upvote_notification @comment, @response
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "response_like.js.erb" }
+    end
   end
 
-  def downvote
+  def dislike
     @response = @comment.responses.find(params[:id])
     @response.downvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "response_dislike.js.erb" }
+    end
   end
 
-  def unvote
+  def unlike
     @response = @comment.responses.find(params[:id])
     @response.unvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "response_dislike.js.erb" }
+    end
   end
 
   private

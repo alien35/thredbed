@@ -1,6 +1,0 @@
-
--if current_user.following?(response.user)
-  %span.show_follow_xhr= render 'responses/unfollow', response: response
--else
-  %span.show_follow_xhr= render 'responses/follow', response: response
-

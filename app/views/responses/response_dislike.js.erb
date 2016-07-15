@@ -1,0 +1,1 @@
+$("#response_votes_<%= @response.id %> ").html("<%= j (render partial: 'responses/likes', locals: { response: @response} ) %>");

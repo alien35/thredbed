@@ -5,7 +5,7 @@
       %li.index_name= render 'posts/user_info', post: post
     - else
       =index_profile_avatar_select(post.user)
-      %li.signed_out_names=post.user.user_name
+      %li.signed_out_names= render 'posts/so_user_info', post: post
     =link_to (image_tag post.image.url(:medium)), post_path(post), method: :get
     %h3=post.title
     %h5=caption_max_length(post.commentary)

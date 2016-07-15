@@ -7,7 +7,7 @@
   -if user_signed_in?
     #{render "comments/user_info", comment: comment} #{ comment.content }
   -else
-    = signed_out_user_bio_comment(comment.user, comment.content)
+    #{render "comments/so_user_info", comment: comment} #{ comment.content }
   - if comment.user == current_user
     = link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
       .glyphicon.glyphicon-remove

@@ -25,12 +25,9 @@
 
   %h1.post_title= @post.title
   %li= @post.commentary
-  %span.voter_names= render 'posts/likes'
-  %span.voter_names= render 'posts/dislikes'
+  %span= render 'posts/likes'
 
-  - if user_signed_in?
-    .comment-like-form.row.post_vote_machine
-      = render 'voting_buttons'
+
 
 .comment_format
   .comments{id: "comments_#{@post.id}"}

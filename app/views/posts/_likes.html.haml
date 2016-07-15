@@ -1,17 +1,18 @@
 #votes_up_down
-  .likes{id: "likes_#{@post.id}"}
+  .likes.voter_names{id: "likes_#{@post.id}"}
     = display_likes @post
-  .dislikes{id: "dislikes_#{@post.id}"}
+  .dislikes.voter_names{id: "dislikes_#{@post.id}"}
     = display_dislikes @post
-  - unless current_user.voted_up_on? @post
-    =link_to like_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
-      %span.glyphicon.glyphicon-thumbs-up
-  - else
-    =link_to unlike_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
-      %span.glyphicon.glyphicon-adjust
-  - unless current_user.voted_down_on? @post
-    =link_to dislike_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
-      %span.glyphicon.glyphicon-thumbs-down
-  - else
-    =link_to unlike_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
-      %span.glyphicon.glyphicon-adjust
+  -if user_signed_in? && current_user != @post.user
+    - unless current_user.voted_up_on? @post
+      =link_to like_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-up
+    - else
+      =link_to unlike_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-up.glyphicon-selected
+    - unless current_user.voted_down_on? @post
+      =link_to dislike_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-down
+    - else
+      =link_to unlike_post_path(@post), remote: true, id: "likes_#{@post.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-down.glyphicon-selected

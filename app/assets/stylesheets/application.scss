@@ -818,6 +818,13 @@ textarea#user_bio {
   position: relative;
   left:15px;
 }
+.glyphicon-thumbs-up, .glyphicon-thumbs-down {
+  color:grey;
+}
+.glyphicon-selected {
+  color: #007399;
+}
+
 
 /* notifications */
 
@@ -841,13 +848,6 @@ ul.dropdown-menu {
 }
 
 
-
-
-a {
-  color:#222 !important;
-  margin:0;
-
-}
 
 #notification_details {
     position:relative;

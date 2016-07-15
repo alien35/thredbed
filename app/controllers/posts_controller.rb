@@ -63,18 +63,27 @@ class PostsController < ApplicationController
   def upvote
     @post.upvote_by current_user
     create_upvote_notification @post
-    redirect_to :back
+    respond_to do |format|
+  format.html { redirect_to :back }
+  format.js
+end
   end
 
   def downvote
     @post.downvote_by current_user
   #  create_downvote_notification @post
-    redirect_to :back
+    respond_to do |format|
+  format.html { redirect_to :back }
+  format.js
+end
   end
 
   def unvote
     @post.unvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+  format.html { redirect_to :back }
+  format.js
+end
   end
 
   def more_posts

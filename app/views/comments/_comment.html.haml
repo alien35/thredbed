@@ -13,15 +13,14 @@
       .glyphicon.glyphicon-remove
   .time_ago= time_ago_in_words comment.created_at
   %span= render 'comments/likes', post: @post, comment: comment
-  - unless comment.responses.count > 0
-    %br
+
 
   -if comment.responses.any?
     .container.reply_container
       .responses{id: "responses_#{comment.id}"}
         = render comment.responses, post: @post, comment: comment
-    -if user_signed_in?
-      = render 'responses/form', comment: comment
+  -if user_signed_in?
+    = render 'responses/form', comment: comment
   -if !user_signed_in? && comment.responses.count > 0
     .signed_out_reply_line
   -unless user_signed_in? || comment.responses.count > 0

@@ -24,9 +24,6 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments#, only: [:new,:create,:show,:edit,:update,:destroy]
-      member do
-        get 'like'
-      end
   end
 
   resources :comments do

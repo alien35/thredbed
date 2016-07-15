@@ -1,2 +1,18 @@
-.likes{id: "likes_#{comment.id}"}
-  = display_comment_likes comment
+#votes_up_down
+  .likes.voter_names{id: "likes_#{comment.id}"}
+    = display_likes comment
+  .dislikes.voter_names{id: "dislikes_#{comment.id}"}
+    = display_dislikes comment
+  -if user_signed_in? && current_user != comment.user
+    - unless current_user.voted_up_on? comment
+      =link_to like_post_comment_path(@post, comment), remote: true, id: "likes_#{comment.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-up
+    - else
+      =link_to unlike_post_comment_path(@post, comment), remote: true, id: "likes_#{comment.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-up.glyphicon-selected
+    - unless current_user.voted_down_on? comment
+      =link_to dislike_post_comment_path(@post, comment), remote: true, id: "likes_#{comment.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-down
+    - else
+      =link_to unlike_post_comment_path(@post, comment), remote: true, id: "likes_#{comment.id}", method: :put do
+        %span.glyphicon.glyphicon-thumbs-down.glyphicon-selected

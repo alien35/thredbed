@@ -1,1 +1,2 @@
-$(".comment_votes").replaceWith("<%= j (render partial: 'comments/likes', locals: { comment: @comment} ) %>");
+
+$("#comment_votes_<%= @comment.id %> ").html("<%= j (render partial: 'comments/likes', locals: { comment: @comment} ) %>");

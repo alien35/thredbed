@@ -5,7 +5,7 @@
     -else
       =comment_profile_avatar_select(comment.user)
   -if user_signed_in?
-    = render 'comments/user_info', comment: comment
+    #{render "comments/user_info", comment: comment} #{ comment.content }
   -else
     = signed_out_user_bio_comment(comment.user, comment.content)
   - if comment.user == current_user

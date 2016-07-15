@@ -950,8 +950,8 @@ li.follower_block_text {
 
 /* replies */
 
-.response_form_hide {
-  display: none;
+.responses {
+  max-width: 647px;
 }
 
 .reply_container {

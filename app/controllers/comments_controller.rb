@@ -34,7 +34,9 @@ class CommentsController < ApplicationController
   def like
     @comment = @post.comments.find(params[:id])
     @comment.upvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "comment_dislike.js.erb" }
+    end
     create_upvote_notification @post, @comment
 
   end
@@ -42,14 +44,18 @@ class CommentsController < ApplicationController
   def dislike
     @comment = @post.comments.find(params[:id])
     @comment.downvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "comment_dislike.js.erb" }
+    end
 
   end
 
   def unlike
     @comment = @post.comments.find(params[:id])
     @comment.unvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.js { render "comment_dislike.js.erb" }
+    end
   end
 
 

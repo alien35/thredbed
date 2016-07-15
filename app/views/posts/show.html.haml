@@ -49,7 +49,7 @@
           %strong
             -if @post.comments.of_followed_users(current_user.following).count > 0
               All comments:
-        = render @post.comments.order(cached_votes_score: :desc), post: @post
+        = render @post.comments, post: @post
       -else
         = render @post.comments.order(cached_votes_score: :desc), post: @post
 - if user_signed_in?

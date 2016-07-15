@@ -5,16 +5,16 @@
     = display_response_dislikes response
   -if user_signed_in? && current_user != response.user
     - unless current_user.voted_up_on? response
-      =link_to like_comment_response_path(@comment, response), remote: true, id: "likes_#{response.id}", method: :put do
+      =link_to like_comment_response_path(comment, response), remote: true, id: "likes_#{response.id}", method: :put do
         %span.glyphicon.glyphicon-thumbs-up
     - else
-      =link_to unlike_comment_response_path(@comment, response), remote: true, id: "likes_#{response.id}", method: :put do
+      =link_to unlike_comment_response_path(comment, response), remote: true, id: "likes_#{response.id}", method: :put do
         %span.glyphicon.glyphicon-thumbs-up.glyphicon-selected
     - unless current_user.voted_down_on? response
-      =link_to dislike_comment_response_path(@comment, response), remote: true, id: "likes_#{response.id}", method: :put do
+      =link_to dislike_comment_response_path(comment, response), remote: true, id: "likes_#{response.id}", method: :put do
         %span.glyphicon.glyphicon-thumbs-down
     - else
-      =link_to unlike_comment_response_path(@comment, response), remote: true, id: "likes_#{response.id}", method: :put do
+      =link_to unlike_comment_response_path(comment, response), remote: true, id: "likes_#{response.id}", method: :put do
         %span.glyphicon.glyphicon-thumbs-down.glyphicon-selected
 
 

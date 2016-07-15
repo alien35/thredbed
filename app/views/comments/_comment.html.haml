@@ -19,7 +19,7 @@
   -if comment.responses.any?
     .container.reply_container
       .responses{id: "responses_#{comment.id}"}
-        = render comment.responses, comment: comment
+        = render comment.responses, post: @post, comment: comment
     -if user_signed_in?
       = render 'responses/form', comment: comment
   -if !user_signed_in? && comment.responses.count > 0

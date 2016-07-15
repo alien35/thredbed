@@ -5,6 +5,7 @@ class ResponsesController < ApplicationController
   def create
     @response = @comment.responses.build(response_params)
     @response.user_id = current_user.id
+    @response.post_id = @comment.post_id
 
     if @response.save
     #  create_notification @post, @comment
@@ -84,7 +85,7 @@ class ResponsesController < ApplicationController
     end
 
     def set_post
-    @comment = Comment.find(params[:comment_id])
+      @comment = Comment.find(params[:comment_id])
     end
 
 end

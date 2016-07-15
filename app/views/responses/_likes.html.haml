@@ -1,7 +1,7 @@
 .response_votes{id: "response_votes_#{response.id}"}
-  .likes{id: "likes_#{response.id}"}
+  .likes.voter_names{id: "likes_#{response.id}"}
     = display_response_likes response
-  .likes{id: "likes_#{response.id}"}
+  .likes.voter_names{id: "likes_#{response.id}"}
     = display_response_dislikes response
   -if user_signed_in? && current_user != response.user
     - unless current_user.voted_up_on? response

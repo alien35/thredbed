@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   has_many :comments,      dependent: :destroy
   has_many :responses,     dependent: :destroy
   has_many :notifications, dependent: :destroy
-  validates :image_link, presence: true
+  #validates :image_link, presence: true
 #  has_attached_file :image, styles: { medium: "260x", thumb: "100x"},
  #                        default_url: 'https://s31.postimg.org/z6185cysb/question_mark.jpg'
   #validates_attachment_content_type :image,

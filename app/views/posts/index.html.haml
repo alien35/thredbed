@@ -12,7 +12,7 @@
         .well
           %span= link_to (index_profile_avatar_select(post.user)), profile_path(post.user.user_name), method: :get
           %strong.index_name= render 'posts/user_info', post: post
-          =link_to (image_tag post.image.url(:medium)), post_path(post), method: :get
+          =link_to (image_tag post.image_link), post_path(post), method: :get
           %ul
           %h3=post.title
           %h5=caption_max_length(post.commentary)

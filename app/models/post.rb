@@ -9,7 +9,6 @@ class Post < ActiveRecord::Base
   validates :commentary, presence: true
   validates :user_id, presence: true
   validates :tag_list, presence: true
-
   belongs_to :user
   has_many :comments,      dependent: :destroy
   has_many :responses,     dependent: :destroy
@@ -35,11 +34,8 @@ class Post < ActiveRecord::Base
         def get_image_from_link
           page = MetaInspector.new(link)
           return unless page.images.best.present?
-          # block opens and closes meta file
-          open(page.images.best) do |file|
-            # self is not implicit in this case
-            self.image = file
-          end
+            self.image_link = page.images.best
+
         end
 
 end

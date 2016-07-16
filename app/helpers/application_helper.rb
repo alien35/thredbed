@@ -27,21 +27,7 @@ module ApplicationHelper
 
   def user_bio(post_user)
     a = post_user.user_name
-    post_user.bio.nil? ? (link_to a, profile_path(a)) : (link_to a, profile_path(a)) + ", " + "#{post_user.bio}"
+    post_user.bio.nil? ? a : a + ", " + "#{post_user.bio}"
   end
-
-  def user_bio_comment(comment_user, comment)
-    a = comment_user.user_name
-    b = comment_user.bio.nil? ? (link_to a, profile_path(a)) : (link_to a, profile_path(a)) + " (#{comment_user.bio})"
-    b + " " + comment
-  end
-
-  def signed_out_user_bio_comment(comment_user, comment)
-    a = comment_user.user_name
-    b = comment_user.bio.nil? ? a : a + " (#{comment_user.bio})"
-    b + " " + comment
-  end
-
-
 
 end

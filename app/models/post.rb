@@ -34,9 +34,7 @@ class Post < ActiveRecord::Base
 
         def get_image_from_link
           page = MetaInspector.new(link)
-          return "hello" unless page.images.best.present?
-            self.image_link = page.images.best
-
+          self.image_link = page.images.best.present? ? page.images.best : "https://s32.postimg.org/7wdmzydut/hintergrund_tapete_1460040441_Mp1.jpg"
         end
 
 end

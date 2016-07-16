@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
              presence: true,
              length: { minimum: 4, maximum: 16 }
   validates :bio, length: {maximum: 20 }
-  has_attached_file :avatar, styles: { medium: '300x300#', thumb: "30x30#" }
+  has_attached_file :avatar, styles: { medium: '230x230#', thumb: "100x100#" }
 validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   # Follows a user.

@@ -16,10 +16,10 @@ class Post < ActiveRecord::Base
   has_many :responses,     dependent: :destroy
   has_many :notifications, dependent: :destroy
   #validates :image_link, presence: true
-#  has_attached_file :image, styles: { medium: "260x", thumb: "100x"},
- #                        default_url: 'https://s31.postimg.org/z6185cysb/question_mark.jpg'
-  #validates_attachment_content_type :image,
-  #                                   content_type: /\Aimage\/.*\Z/
+  has_attached_file :image, styles: { medium: "260x", thumb: "100x"},
+                         default_url: 'https://s31.postimg.org/z6185cysb/question_mark.jpg'
+  validates_attachment_content_type :image,
+                                     content_type: /\Aimage\/.*\Z/
 
   def self.search(query)
     where("title LIKE :search OR commentary LIKE :search OR link LIKE :search", search: "%#{query}%")

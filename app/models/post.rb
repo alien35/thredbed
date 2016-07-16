@@ -15,8 +15,9 @@ class Post < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   before_save :get_image_from_link,
               if: ->(post) { post.link_changed? }
-  has_attached_file :image, styles: { medium: "260x", thumb: "100x"},
-                         default_url: 'https://s31.postimg.org/z6185cysb/question_mark.jpg'
+  validates :image_link, presence: true
+#  has_attached_file :image, styles: { medium: "260x", thumb: "100x"},
+ #                        default_url: 'https://s31.postimg.org/z6185cysb/question_mark.jpg'
   validates_attachment_content_type :image,
                                      content_type: /\Aimage\/.*\Z/
 
@@ -33,7 +34,7 @@ class Post < ActiveRecord::Base
 
         def get_image_from_link
           page = MetaInspector.new(link)
-          return unless page.images.best.present?
+          return "hello" unless page.images.best.present?
             self.image_link = page.images.best
 
         end

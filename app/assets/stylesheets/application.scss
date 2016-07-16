@@ -162,6 +162,7 @@ h6 {
 
 hr {
   margin:7px;
+  border-top: 1px solid #DDD;
 }
 
 /* format index posts */
@@ -194,10 +195,22 @@ hr {
  border-radius: 0;
  border:0;
  img {
-  padding:5px 3px;
-  border-bottom:1px solid #DDD;
-  margin-bottom: 10px;
   max-width: 255px;
+  margin-bottom: 4px;
+ }
+
+ .img_wrap {
+  display: inline-block;
+  margin-top: 5px;
+ }
+
+ a {
+  color:black;
+
+ }
+
+ .small_font a {
+  word-break: break-all;
  }
 }
 
@@ -215,7 +228,7 @@ hr {
 .index_name {
   word-break: keep-all;
   position:relative;
-  top:9px;
+  top:4px;
 
   display:inline-block;
   font-weight: bold;

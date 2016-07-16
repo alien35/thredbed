@@ -3,7 +3,7 @@
 
 .comment_format
   %ul.post_info
-    %span Check out the reference:
+    %span Reference:
     = link_to @post.link, @post.link
   - begin
     - if @post.user.id == current_user.id

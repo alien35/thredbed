@@ -327,12 +327,8 @@ span.login_or_sign_up_to {
   top:3px;
 }
 
-.btn-danger {
-  top:-2px;
-}
 
-
-.btn-danger, .new_post {
+.new_post {
   position: relative;
   background: none;
   border:none;
@@ -342,6 +338,12 @@ span.login_or_sign_up_to {
 
 .dropdown-toggle {
   background: none;
+  cursor: pointer;
+}
+
+.nav_right_el {
+  top:3px;
+  margin-top: 10px;
   cursor: pointer;
 }
 
@@ -362,6 +364,7 @@ span.login_or_sign_up_to {
 .input-group-btn {
   display: inline-block;
 }
+
 
 /* small thing */
 
@@ -423,11 +426,7 @@ input#user_avatar {
   border:none;
 }
 
-.nav_right_el {
-  top:3px;
-  margin-top: 10px;
-  cursor: pointer;
-}
+
 
 /* registration page */
 

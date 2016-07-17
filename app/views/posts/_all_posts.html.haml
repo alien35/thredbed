@@ -3,10 +3,10 @@
     .well
 
       -if user_signed_in?
-        %span{ :class => follow_num(post) }= link_to (index_profile_avatar_select(post.user)), profile_path(post.user.user_name), method: :get
-        %strong.index_name= render 'posts/user_info', post: post
+        %span{ :class => follow_num(post.user) }= link_to (index_profile_avatar_select(post.user)), profile_path(post.user.user_name), method: :get
+        %strong.index_bio_capsule.index_name= render 'posts/user_info', post: post
       -else
-        %span{ :class => follow_num(post) }= index_profile_avatar_select(post.user)
+        %span{ :class => follow_num(post.user) }= index_profile_avatar_select(post.user)
         %strong.index_bio_capsule.index_name= render 'posts/so_user_info', post: post
       %span.index_time_ago=time_ago_in_words post.created_at
       = link_to post_path(post) do
@@ -26,4 +26,3 @@
       %hr
         .small_font
           Reference: #{link_to post.link, post.link}
-

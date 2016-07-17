@@ -1,23 +1,17 @@
-.posts-wrapper
-  -if current_user == @user
+.container-fluid.profile_container
+  .posts-wrapper
     %br
-    %h4#edit_profile
-      =link_to "Edit Profile", edit_profile_path
-  = profile_avatar_select(@user)
-  %span.profile_follow_form= render 'follow_form'
-%h3.profile_user_name
-  = @user.user_name
-
-%p.profile-bio
-  = @user.bio
-
-
-%span= render 'shared/stats'
-
-
-
-
-
+    -if current_user == @user
+      %h4
+        =link_to "Edit Profile", edit_profile_path
+    %div{ :class => follow_num(@user) }= profile_avatar_select(@user)
+  .profile_basic_content
+    %span.profile_follow_form= render 'follow_form'
+    %h3.profile_user_name
+      = @user.user_name
+    %p.profile-bio
+      = @user.bio
+    %span= render 'shared/stats'
 
 
 .container.organize_rows#my-posts

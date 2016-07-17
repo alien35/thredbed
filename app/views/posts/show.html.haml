@@ -12,13 +12,13 @@
     %br
   - rescue NoMethodError
   - if user_signed_in?
-    = link_to index_profile_avatar_select(@post.user), profile_path(@post.user.user_name)
-    %span.poster_name
+    %span{ :class => follow_num(@post.user) }= link_to index_profile_avatar_select(@post.user), profile_path(@post.user.user_name)
+    %span.show_signed_in_name
       = render 'user_info', post: @post
     = render 'profiles/post_follow_form'
   - else
     %br
-    %span{ :class => follow_num(@post) }= index_profile_avatar_select(@post.user)
+    %span{ :class => follow_num(@post.user) }= index_profile_avatar_select(@post.user)
     %li.signed_out_names
       = render 'so_user_info', post: @post
   .small_font posted this #{time_ago_in_words @post.created_at} ago

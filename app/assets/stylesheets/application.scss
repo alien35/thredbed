@@ -85,7 +85,7 @@ abbr {
   margin:0 auto;
   .small_font {
     position: relative;
-    left:-61px;
+    right:73px;
     top:-15px;
   }
 }
@@ -245,7 +245,12 @@ hr {
   font-weight: bold;
 }
 
-
+.show_signed_in_name {
+  position:relative;
+  top:-28px;
+  display:inline;
+  font-weight: bold;
+}
 
 
 
@@ -799,11 +804,11 @@ height:100%;
 }
 
 .profile-bio {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-#edit_profile {
-  text-align: center;
+.profile_container * {
+  text-align: left;
 }
 
 textarea#user_bio {
@@ -822,7 +827,7 @@ textarea#user_bio {
 
 .follow_0 {
   display: inline-block;
-  border:3px solid rgba(0,0,0,0);
+  border:3px solid blue;
   border-radius: 2px;
   margin-bottom: 2px;
 }
@@ -870,7 +875,17 @@ textarea#user_bio {
   border-bottom: none !important;
 }
 
+.profile-image {
+  margin: 0;
+  float: left;
+}
 
+.profile_basic_content {
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  top:-25px;
+}
 
 /* likes */
 

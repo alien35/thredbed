@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable_on :tags
+  ActsAsTaggableOn.default_parser = MyParser
   scope :of_followed_users, -> (following_users) { where user_id: following_users }
   before_save :ends_with_q
   before_save :get_image_from_link,
@@ -26,6 +27,7 @@ class Post < ActiveRecord::Base
   end
 
   def ends_with_q
+    return if self.title.empty?
     self.title = (/\A.*\?\z/).match(self.title).nil? ? title.strip + "?" : title.strip
   end
 

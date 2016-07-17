@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717023729) do
+ActiveRecord::Schema.define(version: 20160717043546) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20160717023729) do
   add_index "comments", ["cached_votes_up"], name: "index_comments_on_cached_votes_up"
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "my_parsers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"

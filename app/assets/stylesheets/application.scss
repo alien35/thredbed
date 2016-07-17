@@ -83,6 +83,11 @@ abbr {
   font-size: 15px;
   width:800px;
   margin:0 auto;
+  .small_font {
+    position: relative;
+    left:-61px;
+    top:-15px;
+  }
 }
 
 
@@ -197,7 +202,7 @@ hr {
  border:0;
  img {
   max-width: 255px;
-  margin-bottom: 4px;
+  z-index: 0;
  }
 
  .img_wrap {
@@ -213,28 +218,36 @@ hr {
  .small_font a {
   word-break: break-all;
  }
+
+
+
+
+
+  .index_name {
+  display: block;
+  left:63px;
+  top:7px;
+ }
+
+.index_time_ago {
+  position: relative;
+  top:-15px;
+}
+
+
 }
 
 .signed_out_names {
-  word-break: keep-all;
   position:relative;
-  top:3px;
+  top:-28px;
 
-  display:block;
+  display:inline;
   font-weight: bold;
-  color:#004d99;
-
 }
 
-.index_name {
-  word-break: keep-all;
-  position:relative;
-  top:4px;
 
-  display:block;
-  font-weight: bold;
-  color:#004d99;
-}
+
+
 
 .well .signed_out_names {
   max-width: 205px;
@@ -246,10 +259,10 @@ hr {
 }
 
 .index_bio_capsule {
+  position: absolute;
   display: block;
-  .small_font {
-    display: block;
-  }
+  top:5px;
+  margin-left:0;
 }
 
 #all_posts {
@@ -798,18 +811,28 @@ textarea#user_bio {
   margin:0 auto;
 }
 
-.index-profile-image {
-  float:left;
 
-  margin-right: 3px;
+
+.follow_25 {
+  display: inline-block;
+  border:3px solid #ffcc66;
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.follow_0 {
+  display: inline-block;
+  border:3px solid rgba(0,0,0,0);
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.index-profile-image {
+
+  float:left;
   height: 43px;
   width: 43px;
   padding:0;
-}
-
-.follower_25 {
-  border:3px solid #ffcc66;
-  border-radius: 2px;
 }
 
 .show-profile-image {

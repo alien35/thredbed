@@ -51,4 +51,8 @@ class ProfilesController < ApplicationController
                       .limit(10)
     end
 
+  def follow_25
+
+  end
+
 end

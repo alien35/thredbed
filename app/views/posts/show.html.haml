@@ -18,7 +18,7 @@
     = render 'profiles/post_follow_form'
   - else
     %br
-    = index_profile_avatar_select(@post.user)
+    %span{ :class => follow_num(@post) }= index_profile_avatar_select(@post.user)
     %li.signed_out_names
       = render 'so_user_info', post: @post
   .small_font posted this #{time_ago_in_words @post.created_at} ago

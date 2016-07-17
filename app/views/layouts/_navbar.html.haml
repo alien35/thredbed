@@ -24,15 +24,15 @@
     - elsif user_signed_in?
       = render 'notifications/notification_dropdown'
       %span.nav_space
-      %span.dropdown
-        %button.btn.btn-danger.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+      %span.dropdown.nav_right_el
+        %span{"data-toggle" => "dropdown", :type => "button"}
           = current_user.user_name
           %span.caret
         %ul.dropdown-menu#account_dropdown
           %li= link_to "Profile", profile_path(current_user.user_name)
           %li= link_to "Settings", edit_user_registration_path
           %li= link_to 'Sign out', destroy_user_session_path, method: :delete
-      %span.new_post
+      %span.new_post.nav_right_el
         = link_to 'New thread', new_post_path
 
     - else

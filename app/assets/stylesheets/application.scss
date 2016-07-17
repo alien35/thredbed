@@ -244,6 +244,13 @@ hr {
   margin-bottom: 0;
 }
 
+.index_bio_capsule {
+  display: block;
+  .small_font {
+    display: block;
+  }
+}
+
 
 
 /* format show posts */
@@ -324,25 +331,18 @@ span.login_or_sign_up_to {
   top:-2px;
 }
 
-button article {
-  color:red;
-  background: white;
-  border-radius: 10px;
-  padding:0 3px;
-  position:relative;
-  left:15px;
-  bottom:-10px;
-  z-index: 10;
-}
+
 .btn-danger, .new_post {
   position: relative;
   background: none;
   border:none;
   font-size: 15px;
+  margin-left: 10px;
 }
 
-button.dropdown-toggle {
+.dropdown-toggle {
   background: none;
+  cursor: pointer;
 }
 
 /* sign up form */
@@ -423,7 +423,11 @@ input#user_avatar {
   border:none;
 }
 
-
+.nav_right_el {
+  top:3px;
+  margin-top: 10px;
+  cursor: pointer;
+}
 
 /* registration page */
 
@@ -851,8 +855,20 @@ textarea#user_bio {
 
 /* notifications */
 
+button article {
+  color:#0099cc;
+  background: white;
+  border-radius: 10px;
+  padding:0 3px;
+  position:relative;
+  left:15px;
+  bottom:-10px;
+  z-index: 10;
+}
+
 .notification-dropdown {
-  margin-top: 10px;
+  position:absolute;
+  top:6px;
   button {
     border: none;
   }
@@ -861,6 +877,9 @@ textarea#user_bio {
 
 ul.dropdown-menu {
 
+  a {
+    color:black !important;
+  }
 
 .notif_image {
   display: inline-block;
@@ -888,6 +907,10 @@ ul.dropdown-menu {
   left:-295px;
   top:25px;
   width:350px;
+  a {
+    color:black !important;
+    margin:0;
+  }
 }
 
 #comment_dropdown {
@@ -897,8 +920,11 @@ ul.dropdown-menu {
 
 ul.dropdown-menu#account_dropdown {
 min-width:100px !important;
+color:black;
 a {
+  margin:0;
   padding-right: 0;
+  color:black !important;
 }
 }
 

@@ -4,6 +4,7 @@
     %span.glyphicon.glyphicon-globe
   %ul#notif_dropdown.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
     %li.dropdown-header.text-center Notifications
+    %br
     %h6#notification_details= render current_user.notifications.order('created_at DESC').where(read: false).take(5)
     %li.divider{ role: 'separator' }
     %li.text-center= link_to 'View All', notifications_path

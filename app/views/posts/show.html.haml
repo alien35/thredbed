@@ -56,5 +56,5 @@
 - if user_signed_in?
   .comment_format
     = simple_form_for([@post, @post.comments.build], remote: true)  do |f|
-      = f.input :content, label:'Add your commentary:'
+      = f.input :content, label:'Add your commentary:', hint: '10 characters minimum'
       = f.submit "Submit", class: "btn btn-default", error: "10 chars min."

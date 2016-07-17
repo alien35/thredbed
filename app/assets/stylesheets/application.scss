@@ -231,7 +231,7 @@ hr {
   position:relative;
   top:4px;
 
-  display:inline-block;
+  display:block;
   font-weight: bold;
   color:#004d99;
 }
@@ -805,7 +805,11 @@ textarea#user_bio {
   height: 43px;
   width: 43px;
   padding:0;
-  border-bottom: none !important;
+}
+
+.follower_25 {
+  border:3px solid #ffcc66;
+  border-radius: 2px;
 }
 
 .show-profile-image {
@@ -1051,4 +1055,8 @@ li.follower_block_text {
 .show_follow_xhr {
   display: inline-block;
   height:25px;
+}
+
+.help-block {
+  margin-left: 0 !important;
 }

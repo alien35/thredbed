@@ -1,14 +1,13 @@
-
 %strong
   - if user_signed_in?
     =link_to reply_profile_avatar_select(response.user), profile_path(response.user.user_name)
   -else
     =reply_profile_avatar_select(response.user)
 -if user_signed_in?
-  %strong= user_bio(response.user)
+  %strong= render 'responses/user_info', response: response
   = simple_format(response.content)
 -else
-  %strong= so_user_bio(response.user)
+  %strong= render 'responses/so_user_info', response: response
   = simple_format(response.content)
 .small_font.time_ago
   #{time_ago_in_words response.created_at} ago

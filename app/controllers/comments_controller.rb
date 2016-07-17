@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
       end
     else
       flash[:alert] = 'Check the comment form, something went wrong.'
-      render :back
     end
   end
 

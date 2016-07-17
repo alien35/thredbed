@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   VALID_LINK_REGEX = /\Ahttp\.*/
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }
   validates :title, length: { maximum: 101 }
-  validates :commentary, presence: true
+  validates :commentary, presence: true, length: { minimum: 10 }
   validates :user_id, presence: true
   validates :tag_list, presence: true
   belongs_to :user

@@ -158,6 +158,7 @@ h6 {
 
 .small_font {
   font-size: 10px;
+  display: inline;
 }
 
 hr {
@@ -276,10 +277,16 @@ li.show_name a {
 
 .first_comment_format p, .first_comment_format .time_ago {
   margin-left: 35px;
+  margin-bottom: 0;
 }
 
 .responses p, .responses .time_ago {
   margin-left: 25px;
+  margin-bottom: 0;
+}
+
+.poster_name {
+  display: block;
 }
 
 /* navigation bar */
@@ -836,11 +843,7 @@ textarea#user_bio {
   border-bottom: none !important;
 }
 
-/* time ago */
 
-.time_ago {
-  font-size: 11px;
-}
 
 /* likes */
 

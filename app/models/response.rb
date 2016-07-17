@@ -3,5 +3,5 @@ class Response < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
   belongs_to :comment
-  validates :content, presence: true
+  validates :content, presence: true, length: { minimum: 10 }
 end

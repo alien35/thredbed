@@ -5,10 +5,10 @@
     -else
       =comment_profile_avatar_select(comment.user)
   -if user_signed_in?
-    %strong= user_bio(comment.user)
+    %strong= render 'comments/user_info', comment: comment
     = simple_format(comment.content)
   -else
-    %strong= so_user_bio(comment.user)
+    %strong= render 'comments/so_user_info', comment: comment
     = simple_format(comment.content)
 
   .small_font.time_ago
@@ -29,4 +29,3 @@
     .signed_out_reply_line
   -unless user_signed_in? || comment.responses.count > 0
     %br
-

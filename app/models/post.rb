@@ -26,8 +26,7 @@ class Post < ActiveRecord::Base
   end
 
   def ends_with_q
-    a = self.title.strip
-    a = (/\A.*\?\z/).match(self.title).nil? && self.title.length > 0 ? title + "?" : title
+    self.title = (/\A.*\?\z/).match(self.title).nil? ? title.strip + "?" : title.strip
   end
 
   private

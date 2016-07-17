@@ -10,10 +10,15 @@ class PostsController < ApplicationController
       @posts = Post.paginate(page: params[:page], per_page: 12)
                  .of_followed_users(current_user.following)
                  .where("created_at > ?", Time.now - 5.days)
-                 .order(cached_weighted_total: :desc)
+                 .order(cached_votes_up: :desc)
     else
+      if Post.count > 20
       @posts = Post.paginate(page: params[:page], per_page: 12)
-                 .order(cached_weighted_total: :desc)
+                 .where("created_at > ?", Time.now - 5.days)
+                 .order(cached_votes_up: :desc)
+      else
+      @posts = nil
+      end
     end
       if params[:search]
         @posts = Post.paginate(page: params[:page], per_page: 12)
@@ -21,7 +26,7 @@ class PostsController < ApplicationController
       elsif params[:tag]
         @posts = Post.paginate(page: params[:page], per_page: 12)
                      .tagged_with(params[:tag])
-                     .order("created_at DESC")
+                     .order(cached_votes_up: :desc)
       end
 
 

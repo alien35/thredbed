@@ -274,7 +274,13 @@ li.show_name a {
   left:5px;
 }
 
+.first_comment_format p, .first_comment_format .time_ago {
+  margin-left: 35px;
+}
 
+.responses p, .responses .time_ago {
+  margin-left: 25px;
+}
 
 /* navigation bar */
 

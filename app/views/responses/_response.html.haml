@@ -5,10 +5,10 @@
   -else
     =reply_profile_avatar_select(response.user)
 -if user_signed_in?
-  = user_bio(response.user)
+  %strong= user_bio(response.user)
   = simple_format(response.content)
 -else
-  = so_user_bio(response.user)
+  %strong= so_user_bio(response.user)
   = simple_format(response.content)
 .small_font.time_ago
   #{time_ago_in_words response.created_at} ago

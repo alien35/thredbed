@@ -5,10 +5,10 @@
     -else
       =comment_profile_avatar_select(comment.user)
   -if user_signed_in?
-    = user_bio(comment.user)
+    %strong= user_bio(comment.user)
     = simple_format(comment.content)
   -else
-    = so_user_bio(comment.user)
+    %strong= so_user_bio(comment.user)
     = simple_format(comment.content)
 
   .small_font.time_ago

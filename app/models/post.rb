@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable_on :tags
   ActsAsTaggableOn.default_parser = MyParser
   scope :of_followed_users, -> (following_users) { where user_id: following_users }
-  before_save :ends_with_q
+  #before_save :ends_with_q
   before_save :get_image_from_link,
               if: ->(post) { post.link_changed? }
   VALID_LINK_REGEX = /\Ahttp\.*/
@@ -26,10 +26,10 @@ class Post < ActiveRecord::Base
     where("title LIKE :search OR commentary LIKE :search OR link LIKE :search", search: "%#{query}%")
   end
 
-  def ends_with_q
-    return if self.title.empty?
-    self.title = (/\A.*\?\z/).match(self.title).nil? ? title.strip + "?" : title.strip
-  end
+  #def ends_with_q
+   # return if self.title.empty?
+   # self.title = (/\A.*\?\z/).match(self.title).nil? ? title.strip + "?" : title.strip
+  #end
 
   private
 

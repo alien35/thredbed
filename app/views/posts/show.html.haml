@@ -28,7 +28,7 @@
     .small_font posted this #{time_ago_in_words @post.created_at} ago
 
 
-  %h1.post_title= @post.title
+
   %li= simple_format(@post.commentary)
   %span= render 'posts/likes'
 

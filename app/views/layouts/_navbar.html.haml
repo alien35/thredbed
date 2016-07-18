@@ -33,6 +33,6 @@
           %li= link_to "Settings", edit_user_registration_path
           %li= link_to 'Sign out', destroy_user_session_path, method: :delete
       %span.new_post.nav_right_el
-        = link_to 'New thread', new_post_path
+        = link_to 'New thread', new_post_path, method: :get
 
     - else

@@ -180,9 +180,11 @@ hr {
 
 
 iframe {
+  min-height:300px;
   margin:0 !important;
   .bootsy_text_area {
   width:700px;
+
   margin:0;
   padding:1px;
   overflow: hidden;

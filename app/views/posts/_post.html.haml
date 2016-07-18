@@ -11,8 +11,7 @@
         =image_tag post.image_link
       - else
         = image_tag post.image
-      %h3=post.title
-      %h5=caption_max_length(post.commentary)
+      %h5=simple_format(caption_max_length(post.commentary))
       .small_font=comment_count_index(post)
       %hr
 

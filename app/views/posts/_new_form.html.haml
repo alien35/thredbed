@@ -1,6 +1,6 @@
 = simple_form_for @post do |f|
   = f.input  :link, hint: "(Required) Make sure it includes 'http://' or 'https://' at the beginning."
   = f.input  :title, label: 'Opening question', hint: '(Optional) Invite people to the conversation with a question.', error: 'Title, please', maxlength: 100
-  = f.input  :commentary, label: "(Required) Add your own thoughts, commentary here:", placeholder: 'Type type type...'
+  = f.input  :commentary, as: :ckeditor, input_html: { ckeditor: { height: 400, toolbar: 'basic' } }, label: "(Required) Add your own thoughts, commentary here:", placeholder: 'Type type type...'
   = f.input  :tag_list, label: "Tags", hint: "use commas or spaces to separate"
   = f.button :submit

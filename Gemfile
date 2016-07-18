@@ -23,7 +23,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'aws-sdk', '< 2.0'
-gem 'ckeditor'
+gem 'bootsy'
+
 
 group :development, :test do
   gem 'byebug'

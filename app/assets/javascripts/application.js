@@ -14,8 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require posts
-//= require ckeditor/init
 //= require bootstrap
+//= require bootsy
 //= require turbolinks
 //= require pagination
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get 'users/index'
 
   post ':user_name/follow_user', to: 'relationships#follow_user', as: :follow_user

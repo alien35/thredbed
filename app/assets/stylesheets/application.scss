@@ -10,8 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootsy
  *= require_tree .
  *= require_self
+
  */
 
  @import "bootstrap-sprockets";
@@ -173,6 +175,18 @@ h6 {
 hr {
   margin:7px;
   border-top: 1px solid #DDD;
+}
+
+
+
+iframe {
+  margin:0 !important;
+  .bootsy_text_area {
+  width:700px;
+  margin:0;
+  padding:1px;
+  overflow: hidden;
+}
 }
 
 /* format index posts */

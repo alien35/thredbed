@@ -90,6 +90,10 @@ abbr {
     top:-30px;
     left:50px;
   }
+  h1, h2, h3 {
+    margin-top: 0;
+  }
+
 }
 
 .comment_format #follow_form {
@@ -220,6 +224,10 @@ iframe {
  display: block;
  border-radius: 0;
  border:0;
+
+ h1, h2, h3 {
+  margin:0;
+ }
  img {
   max-width: 255px;
   z-index: 0;

@@ -7,6 +7,8 @@ module PostsHelper
     str.split("")[0...300].join("") + "..." : str
     str.gsub("<br>", " ")
     str.gsub(/<img.+>/, "")
+    str.gsub(/a target="_blank" rel="nofollow" href="/, "")
+  str.gsub(/<\/a>/, "")
   end
 
   def likers_of(post)

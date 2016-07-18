@@ -233,6 +233,9 @@ iframe {
   z-index: 0;
  }
 
+.post_image img {
+  min-width: 160px;
+}
  .img_wrap {
   display: inline-block;
   margin-top: 5px;

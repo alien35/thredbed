@@ -12,7 +12,7 @@
       - else
         = image_tag post.image
       %h5=simple_format(index_commentary_shrink(post.commentary))
-      .small_font=comment_count_index(post)
+      .small_font= link_to comment_count_index(post), post_path(post)
       %hr
 
     %span Tags:

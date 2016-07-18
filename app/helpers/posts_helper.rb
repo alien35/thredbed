@@ -6,6 +6,7 @@ module PostsHelper
     str.split("").length > 300 ?
     str.split("")[0...300].join("") + "..." : str
     str.gsub("<br>", " ")
+    str.gsub(/<img.+>/, "")
   end
 
   def likers_of(post)

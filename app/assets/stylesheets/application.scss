@@ -772,6 +772,10 @@ height:100%;
   text-align: center;
 }
 
+.profile-bio {
+  max-width: 600px;
+}
+
 .profile_user_name {
 
 }
@@ -879,7 +883,7 @@ height:100%;
   display: inline-block;
   position: relative;
   left: 10px;
-  top:-25px;
+  top:-50px;
 }
 
 /* edit profile */

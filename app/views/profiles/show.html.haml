@@ -9,11 +9,12 @@
     %span.profile_follow_form= render 'follow_form'
     %h3.profile_user_name
       = @user.user_name
-    %p.profile-bio
-      = @user.bio
+    %p
+      = @user.occupation
     %span= render 'shared/stats'
-
-
+  %br
+  .profile-bio
+    = simple_format(@user.bio)
 .container.organize_rows#my-posts
   = render @posts
 

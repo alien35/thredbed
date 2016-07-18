@@ -85,11 +85,15 @@ abbr {
   margin:0 auto;
   .small_font {
     position: relative;
-    right:73px;
-    top:-15px;
+    top:-30px;
+    left:50px;
   }
 }
 
+.comment_format #follow_form {
+  position: relative;
+  top:-15px;
+}
 
 
 
@@ -233,6 +237,10 @@ hr {
   top:-15px;
 }
 
+.first_comment_format .small_font {
+  font-size: 12px !important;
+}
+
 
 }
 
@@ -304,6 +312,16 @@ li.show_name a {
 
 .poster_name {
   display: block;
+}
+
+.show_time_ago {
+  display: inline;
+  font-size: 9px;
+  margin-left:16px;
+}
+
+.comment_format .btn-primary {
+  float:left;
 }
 
 /* navigation bar */
@@ -819,14 +837,14 @@ height:100%;
 
 .follow_25 {
   display: inline-block;
-  border:3px solid #ffcc66;
+  border:2px solid #ffcc66;
   border-radius: 2px;
   margin-bottom: 2px;
 }
 
 .follow_0 {
   display: inline-block;
-  border:3px solid blue;
+  border:2px solid blue;
   border-radius: 2px;
   margin-bottom: 2px;
 }

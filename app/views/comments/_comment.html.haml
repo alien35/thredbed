@@ -1,16 +1,18 @@
 .first_comment_format{id: "comment_response_block_#{comment.id}"}
   %strong
     - if user_signed_in?
-      =link_to comment_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
+      %span{ :class => follow_num(comment.user) }=link_to comment_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
     -else
-      =comment_profile_avatar_select(comment.user)
+      %span{ :class => follow_num(comment.user) }=comment_profile_avatar_select(comment.user)
   -if user_signed_in?
-    %strong= render 'posts/user_info', post: comment
+    %strong.comment_user_name= render 'posts/user_info', post: comment
+    .comment_time_ago #{time_ago_in_words comment.created_at} ago
     = simple_format(comment.content)
   -else
-    %strong= render 'posts/so_user_info', post: comment
+    %strong.comment_user_name= render 'posts/so_user_info', post: comment
+    .comment_time_ago #{time_ago_in_words comment.created_at} ago
     = simple_format(comment.content)
-  .show_time_ago #{time_ago_in_words comment.created_at} ago
+
   - if comment.user == current_user
     = link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
       .glyphicon.glyphicon-remove

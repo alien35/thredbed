@@ -24,7 +24,8 @@
     %span{ :class => follow_num(@post.user) }= index_profile_avatar_select(@post.user)
     %li.signed_out_names
       = render 'so_user_info', post: @post
-
+    %br
+    .small_font posted this #{time_ago_in_words @post.created_at} ago
 
 
   %h1.post_title= @post.title

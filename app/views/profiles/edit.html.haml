@@ -1,19 +1,14 @@
-.posts-wrapper
-  .post
-    .post-body
-      .image-wrap
-        = simple_form_for @user, url: {action: "update"}, html: { multipart: true } do |f|
-          .row
-            .col-md-12
-              .form-group.text-center
-                %h4 Change your profile image:
-                .img-circle
-                  = profile_avatar_select(@user)
-                = f.input :avatar, onChange: 'loadFile(event)'
-          .row
-            .col-md-12
-              .form-group.text-center
-                %h4 What's your occupation? (Maximum 20 characters)
-                = f.input :bio, label: false, maxlength: 20
-          .form-group.text-center
-            = f.submit "Update Profile", class: 'btn btn-success'
+%br
+.container-fluid.edit_profile_page
+  = simple_form_for @user, url: {action: "update"}, html: { multipart: true } do |f|
+    #edit_profile_pic
+      = profile_avatar_select(@user)
+    %h4 Change your profile image:
+    = f.input :avatar, onChange: 'loadFile(event)', label:false
+    %br
+    %br
+    %br
+    = f.input :occupation, label: "What's your occupation? (20 characters maximum)", maxlength: 20
+    = f.input :bio, label: "Add a bio to display on your profile page"
+
+    = f.submit "Update Profile", class: 'btn btn-success'

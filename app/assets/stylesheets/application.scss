@@ -810,10 +810,6 @@ height:100%;
   text-align: left;
 }
 
-textarea#user_bio {
-  width:250px;
-  margin:0 auto;
-}
 
 
 
@@ -886,6 +882,24 @@ textarea#user_bio {
   top:-25px;
 }
 
+/* edit profile */
+
+#user_avatar {
+  float:left;
+}
+
+.edit_profile_page img{
+  float:none;
+
+}
+
+#user_occupation {
+  width:150px;
+}
+
+#user_bio {
+  width:500px;
+}
 /* likes */
 
 

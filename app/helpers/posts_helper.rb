@@ -3,12 +3,12 @@ module PostsHelper
 
 
   def index_commentary_shrink(str)
-    str.split("").length > 300 ?
+    a = str.split("").length > 300 ?
     str.split("")[0...300].join("") + "..." : str
-    str.gsub("<br>", " ")
-    str.gsub(/<img.+>/, "")
-    str.gsub(/a target="_blank" rel="nofollow" href="/, "")
-  str.gsub(/<\/a>/, "")
+    a.gsub("<br>", " ")
+     .gsub(/<img.+>/, "")
+     .gsub('a target="_blank" rel="nofollow" href="', "")
+     .gsub('<\a>', "")
   end
 
   def likers_of(post)

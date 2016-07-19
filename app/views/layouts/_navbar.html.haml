@@ -3,7 +3,8 @@
   = link_to '/', method: :get do
     %span.site_title.navbar_left thredbed
     %span.glyphicon.glyphicon-cloud
-  %span.navbar_left= link_to 'learn more', learn_path
+  = link_to '/', method: :get do
+    %span.site_title.navbar_left home
   %span.dropdown.navbar_left
     %span.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
       trending
@@ -11,6 +12,8 @@
     %ul.dropdown-menu
       - @tag_counts.each do |tag|
         %li= link_to tag, tag_path(tag.name)
+  %span.navbar_left= link_to 'learn more', learn_path
+
   .nav_elements
     = form_tag(posts_path, :method => "get", id: "search-form") do
       %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
@@ -21,7 +24,7 @@
         %span.sign_up_underline= link_to 'Login',  new_user_session_path
         or
         %span.sign_up_underline= link_to "Sign up", new_user_registration_path
-        to post or comment. Join the comment-powered news source today!
+        to post or comment. Join the thread-powered news source today!
     - elsif user_signed_in?
       = render 'notifications/notification_dropdown'
       %span.nav_space

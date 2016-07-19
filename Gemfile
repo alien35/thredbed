@@ -25,6 +25,7 @@ gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'aws-sdk', '< 2.0'
 gem 'bootsy'
 gem 'devise_zxcvbn'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 
 group :development, :test do

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get 'users/index'
 
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   get 'profiles/show'
   get 'profiles/index'
   get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'static_pages/learn', as: :learn
+
 
   devise_for :users, controllers: { registrations: 'registrations',
                                     sessions: 'sessions',

@@ -3,11 +3,11 @@
   = link_to '/', method: :get do
     %span.site_title.navbar_left thredbed
     %span.glyphicon.glyphicon-cloud
-  -if !current_page?(new_user_registration_path)
-    %span.dropdown.navbar_left
-      %span.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-        trending
-        %span.caret
+  %span.navbar_left= link_to 'learn more', learn_path
+  %span.dropdown
+    %span.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+      trending
+      %span.caret
       %ul.dropdown-menu
         - @tag_counts.each do |tag|
           %li= link_to tag, tag_path(tag.name)

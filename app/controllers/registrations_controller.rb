@@ -3,15 +3,14 @@ prepend_before_action :check_captcha, only: [:create]
 before_action :count_tags
 
 def create
-      if verify_recaptcha
-        super
-      else
-        build_resource
-        clean_up_passwords(resource)
-        flash[:alert] = "There was an error with the recaptcha code below. Please re-enter the code and click submit."
-        render :new
-      end
+    if verify_recaptcha
+       super
+    else
+       flash.delete(:recaptcha_error)
+       flash.now[:alert] = "There was an error with the recaptcha code below. Please re-enter the code."
+       render :new
     end
+end
 
 private
 

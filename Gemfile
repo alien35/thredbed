@@ -24,6 +24,7 @@ gem 'acts-as-taggable-on'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'aws-sdk', '< 2.0'
 gem 'bootsy'
+gem 'devise_zxcvbn'
 
 
 group :development, :test do

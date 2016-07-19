@@ -30,7 +30,8 @@ class User < ActiveRecord::Base
          :rememberable,
          :trackable,
          :validatable,
-         :lockable
+         :lockable,
+         :zxcvbnable
 
   validates :user_name,
              presence: true,

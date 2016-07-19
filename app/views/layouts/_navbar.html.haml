@@ -1,11 +1,12 @@
 .nav
 
   = link_to '/', method: :get do
-    .glyphicon.glyphicon-home
+    %span.site_title.navbar_left thredbed
+    %span.glyphicon.glyphicon-cloud
   -if !current_page?(new_user_registration_path)
-    %span.dropdown
+    %span.dropdown.navbar_left
       %span.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-        Trending
+        trending
         %span.caret
       %ul.dropdown-menu
         - @tag_counts.each do |tag|

@@ -195,6 +195,9 @@ iframe {
 }
 }
 
+
+
+
 /* format index posts */
 
 
@@ -470,7 +473,16 @@ span.login_or_sign_up_to {
   display: inline-block;
 }
 
+.navbar_left {
+  position: relative;
+  top:3px;
+}
 
+.glyphicon-cloud {
+  position: relative;
+  top:6px;
+  margin-right: 15px;
+}
 /* small thing */
 
 .glyphicon-globe {

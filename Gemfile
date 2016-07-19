@@ -27,6 +27,7 @@ gem 'bootsy'
 gem 'devise_zxcvbn'
 
 
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

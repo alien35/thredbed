@@ -2,10 +2,7 @@ class User < ActiveRecord::Base
   before_save :capitalize_name
   before_save :downcase_email
 
-  #after_create :send_create_mail
-  def send_create_mail
-    UserMailer.send_signup_email(self).deliver
-  end
+
 
 
   acts_as_voter

@@ -1,11 +1,6 @@
 class UserMailer < ApplicationMailer
-  default from: 'no-reply@comlink.com'
+  default from: 'noreply@thredbed.com'
 
-  def send_signup_email(user)
-    @user = user
-    mail( to: @user.email,
-          subject: "Thanks for signing up to Comlink!")
-  end
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #

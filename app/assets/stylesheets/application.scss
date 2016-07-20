@@ -51,6 +51,9 @@ a {
   &:visited {
     color:#0059b3;
   }
+  &:selected {
+    background: none;
+  }
 }
 
 .commenter_name a, .voter_names a, .reply_button, .post_info a, .poster_name a {

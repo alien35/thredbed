@@ -60,7 +60,7 @@ class ResponsesController < ApplicationController
   private
 
     def create_notification(comment, response)
-    return if post.user.id == current_user.id
+    return if response.user.id == current_user.id
     Notification.create(user_id: comment.user.id,
                         notified_by_id: current_user.id,
                         post_id: comment.post.id,

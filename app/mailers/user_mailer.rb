@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'noreply@thredbed.com'
+  default from: 'hellothere@thredbed.com'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

@@ -1,7 +1,6 @@
 .first_comment_format
-  %strong
-    =link_to comment_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
-    = render 'posts/user_info', post: comment
-  = comment.content
-  .time_ago= time_ago_in_words comment.created_at
+  %span{ :class => follow_num(comment.user) }=link_to comment_profile_avatar_select(comment.user), profile_path(comment.user.user_name)
+  %strong.comment_user_name= render 'posts/user_info', post: comment
+  .followed_comment_time_ago #{time_ago_in_words comment.created_at} ago
+  = simple_format(comment.content)
   %span.voter_names= render 'comments/likes', comment: comment

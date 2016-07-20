@@ -12,7 +12,6 @@
     %strong.comment_user_name= render 'posts/so_user_info', post: comment
     .comment_time_ago #{time_ago_in_words comment.created_at} ago
     = simple_format(comment.content)
-
   - if comment.user == current_user
     = link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{comment.id}" do
       .glyphicon.glyphicon-remove

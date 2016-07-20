@@ -69,13 +69,13 @@ class ResponsesController < ApplicationController
                         notice_type: 'replied to your comment')
     end
 
-    def create_upvote_notification(comment)
-    #return if post.user.id == current_user.id
+    def create_upvote_notification(comment, response)
     Notification.create(user_id: comment.user.id,
                         notified_by_id: current_user.id,
-                        post_id: post.id,
-                        identifier: comment.id,
-                        notice_type: 'likes your comment')
+                        post_id: comment.post.id,
+                        comment_id: comment.id,
+                        identifier: response.id,
+                        notice_type: 'likes your reply')
     end
 
 

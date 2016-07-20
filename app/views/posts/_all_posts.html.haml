@@ -1,4 +1,5 @@
-- Post.paginate(page: params[:page], per_page: 12).order(created_at: :desc).each do |post|
+- @unfollowed_posts = Post.paginate(page: params[:page], per_page: 12).order(created_at: :desc) - Post.paginate(page: params[:page], per_page: 12).of_followed_users(current_user.following).where("created_at > ?", Time.now - 5.days)
+- @unfollowed_posts.each do |post|
   .item
     .well
       -if user_signed_in?

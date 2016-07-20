@@ -8,7 +8,7 @@ class ResponsesController < ApplicationController
     @response.post_id = @comment.post_id
 
     if @response.save
-    #  create_notification @post, @comment
+      create_notification @comment, @response
       respond_to do |format|
         format.html { redirect_to :back }
         format.js
@@ -59,17 +59,18 @@ class ResponsesController < ApplicationController
 
   private
 
-    def create_notification(post, comment)
+    def create_notification(comment, response)
     return if post.user.id == current_user.id
-    Notification.create(user_id: post.user.id,
+    Notification.create(user_id: comment.user.id,
                         notified_by_id: current_user.id,
-                        post_id: post.id,
-                        identifier: comment.id,
-                        notice_type: 'commented on your post')
+                        post_id: comment.post.id,
+                        comment_id: comment.id,
+                        identifier: response.id,
+                        notice_type: 'replied to your comment')
     end
 
-    def create_upvote_notification(post, comment)
-    return if post.user.id == current_user.id
+    def create_upvote_notification(comment)
+    #return if post.user.id == current_user.id
     Notification.create(user_id: comment.user.id,
                         notified_by_id: current_user.id,
                         post_id: post.id,

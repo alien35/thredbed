@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160718093759) do
     t.datetime "updated_at",                     null: false
     t.string   "link"
     t.text     "commentary"
-    t.string   "title"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

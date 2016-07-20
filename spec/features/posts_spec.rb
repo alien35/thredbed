@@ -7,14 +7,12 @@ feature "creating posts" do
   end
   scenario 'logged in user can create a post' do
     expect(page).to have_content("Signed in successfully")
-    click_on 'New post'
+    click_on 'New thread'
     fill_in 'Link', with: "https://armadillo-online.org/facts.html"
-    fill_in 'Title', with: "I love armadillos"
-    fill_in 'Add your full commentary here:', with: "Why can't armadillos and people unite for a common cause?"
+    find(:css, ".bootsy_text_area").set("Why can't life be the best for 'em arma'illos!")
     click_button 'Create Post'
     expect(page).to have_content("Your post has been created")
-    expect(page).to have_content("love armadillos")
-    expect(page).to have_content("Why can't armadillos and people")
+    expect(page).to have_content("Why can't life be the best for 'em arma'illos!")
   end
 end
 

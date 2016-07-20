@@ -101,7 +101,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:link, :commentary, :tag_list, :image_link)
+      params.require(:post).permit(:link, :image, :commentary, :tag_list, :image_link)
     end
 
     def update_params

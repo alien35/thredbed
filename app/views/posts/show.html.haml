@@ -38,7 +38,7 @@
   .comments{id: "comments_#{@post.id}"}
     - if @post.comments.any?
       -if user_signed_in?
-        - @followerposts = @post.comments.of_followed_users(current_user.following)
+        - @followerposts = @post.comments.of_followed_users(current_user.following).order(cached_votes_score: :desc)
         - @unfollowedposts = @post.comments.order(cached_votes_score: :desc) - @post.comments.of_followed_users(current_user.following)
         - @result = @followerposts + @unfollowedposts
         = render @result, post: @post

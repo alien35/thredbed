@@ -26,7 +26,6 @@ feature 'editing posts' do
     visit '/'
     find(:xpath, "//a[contains(@href,'posts/1')]").click
     click_on 'Edit'
-    fill_in 'Title', with: "I made a mistake"
     fill_in 'Add your full commentary here:', with: "Wait, no I didn't.."
     click_button 'Update Post'
     expect(page).to have_content("successfully updated")

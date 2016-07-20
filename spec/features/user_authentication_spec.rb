@@ -6,16 +6,16 @@ feature 'Create an account' do
     click_on 'Sign up'
   end
   scenario "can create a new user via index page" do
-    fill_in 'User name', with: "Johnny"
-    fill_in 'Email', with: "john@john.com"
-    fill_in 'Password', with: 'Adfg12/o', match: :first
-    fill_in 'Password confirmation', with: 'Adfg12/o'
+    find(:css, "input#user_user_name").set("johnyboy")
+    find(:css, "input#user_email").set("john@john.com")
+    fill_in 'Password', with: 'SWEETpea/35', match: :first
+    fill_in 'Confirm Password', with: 'SWEETpea/35'
     click_button 'Sign up'
-    expect(page).to have_content('Welcome! You have signed up successfully')
+    expect(page).to have_content('Welcome! You have signed up successfully.')
   end
   scenario "all fields must be filled to create account" do
     click_button 'Sign up'
-    expect(page).to have_content('4 errors')
+    expect(page).to have_content("can't be blank")
   end
 end
 
@@ -27,7 +27,7 @@ feature 'Login' do
   end
   scenario 'can log in via index page' do
     fill_in 'Email', with: 'johnb@yahoo.com'
-    fill_in 'Password', with: 'password123'
+    fill_in 'Password', with: 'SWEETpea/35'
     click_button 'Log in'
     expect(page).to have_content("Signed in successfully")
   end

@@ -5,5 +5,8 @@ module NotificationsHelper
 
   end
 
+  def all_notif_name
+    "all_notif_name"
+  end
 
 end

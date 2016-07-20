@@ -1039,13 +1039,7 @@ ul.dropdown-menu {
     color:black !important;
   }
 
-.notif_image {
-  display: inline-block;
-  word-wrap: break-word !important;
 
-  position: relative;
-  top:14px;
-}
 
 
 
@@ -1086,7 +1080,10 @@ a {
 }
 }
 
-
+.notif_text {
+  position: relative;
+  top:-20px;
+}
 
 /* following */
 

@@ -24,7 +24,7 @@
         %span.sign_up_underline= link_to 'Login',  new_user_session_path
         or
         %span.sign_up_underline= link_to "Sign up", new_user_registration_path
-        to post or comment. Join the thread-powered news source today!
+        to post or comment.
     - elsif user_signed_in?
       = render 'notifications/notification_dropdown'
       %span.nav_space

@@ -1,7 +1,4 @@
-
-%br
-
-.comment_format
+.comment_format.post_head
   %ul.post_info
     %span Reference:
     = link_to @post.link, @post.link
@@ -24,7 +21,6 @@
     %span{ :class => follow_num(@post.user) }= index_profile_avatar_select(@post.user)
     %li.signed_out_names
       = render 'so_user_info', post: @post
-    %br
     .small_font posted this #{time_ago_in_words @post.created_at} ago
 
 
@@ -32,7 +28,7 @@
   %li= simple_format(@post.commentary)
   %span= render 'posts/likes'
 
-%br
+
 
 .comment_format
   .comments{id: "comments_#{@post.id}"}

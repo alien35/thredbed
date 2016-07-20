@@ -27,13 +27,10 @@ feature 'editing posts' do
 
     visit '/'
     first(:xpath, "//a[contains(@href,'posts/1')]").click
-    find(css: ".glyphicon-wrench").click
-    fill_in 'Add your full commentary here:', with: "Wait, no I didn't.."
+    find(:css, "a.glyphicon-wrench").click
+    find(:css, ".bootsy_text_area").set("Actually, armadillos have it pretty good!")
     click_button 'Update Post'
-    expect(page).to have_content("successfully updated")
-    click_on 'Back'
-    expect(page).to have_content("made a mistake")
-    expect(page).to have_content("Wait, no")
+    expect(page).to have_content("armadillos have it pretty good!")
   end
 end
 
@@ -43,13 +40,13 @@ feature 'deleting posts' do
     sign_in_with user
   end
   scenario 'you created' do
-    post = create(:post, commentary:"Type type")
+    post = create(:post, tag_list: "how could, this")
     visit '/'
-    expect(page).to have_content("Type type")
-    find(:xpath, "//a[contains(@href,'posts/1')]").click
-    click_on 'Delete'
+    expect(page).to have_content("how, could, this")
+    first(:xpath, "//a[contains(@href,'posts/1')]").click
+    find(:css, "a.glyphicon-trash").click
     visit '/'
-    expect(page).to_not have_content("Type type")
+    expect(page).to_not have_content("how, could, this")
   end
 end
 
@@ -59,10 +56,10 @@ feature 'accessing show pages' do
     sign_in_with user
   end
   scenario 'via link image generated w/ metainspector' do
-    post = create(:post, commentary: "Why me")
+    post = create(:post, tag_list: "Why me")
     visit '/'
-    expect(page).to have_content("Why me")
-    find(:xpath, "//a[contains(@href,'posts/1')]").click
+    expect(page).to have_content("Why, me")
+    first(:xpath, "//a[contains(@href,'posts/1')]").click
     expect(page.current_path).to eq(post_path(post))
   end
 

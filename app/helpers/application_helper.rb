@@ -19,9 +19,9 @@ module ApplicationHelper
   end
 
   def notif_title_count
-    return "Comlink" unless user_signed_in?
+    return "thredbed" unless user_signed_in?
     a = current_user.notifications.where(read:false).count
-    a > 0 ? "(#{a}) Comlink" : "Comlink"
+    a > 0 ? "(#{a}) thredbed" : "thredbed"
 
   end
 

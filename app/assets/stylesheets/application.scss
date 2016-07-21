@@ -327,6 +327,12 @@ iframe {
 
 /* format show posts */
 
+.first_comment_format {
+  max-width: 630px;
+}
+
+
+
 .post_head {
   padding-top: 20px;
   *:not(.post_info) {
@@ -358,13 +364,19 @@ li.show_name a {
 
 .first_comment_format p, .first_comment_format .time_ago {
   margin-bottom: 0;
-  max-width: 600px;
+  max-width: 400px;
+  display: inline;
+}
+
+.first_comment_format p {
+  position: relative;
+  top:-4px;
 }
 
 .responses p, .responses .time_ago {
   margin-left: 25px;
   margin-bottom: 0;
-  max-width: 570px;
+  max-width: 400px;
 }
 
 .poster_name {
@@ -379,6 +391,7 @@ li.show_name a {
 
 
 .response_time_ago {
+  display: inline;
   color:grey;
   font-size: 10px;
   position: relative;
@@ -398,7 +411,7 @@ li.show_name a {
   color:grey;
   font-size: 10px;
   position: relative;
-  top:-7px;
+  top:-3px;
 }
 
 .response_user_name {
@@ -411,30 +424,7 @@ input#post_image {
   border:none;
 }
 
-@media screen and (max-width: 991px) {
-  .well {
-    max-width:250px;
-  img {
-    max-width:230px;
-  }
-  }
-  input#search {
-    float:left;
-    margin-right: 3px;
-  }
-}
 
-@media screen and (max-width: 937px) {
-  nav {
-    font-size: 10px;
-  }
-  input#search {
-    margin-top:5px;
-    position: fixed;
-    top:30px;
-    left:3px;
-  }
-}
 
 /* learn more */
 
@@ -1201,7 +1191,7 @@ li.follower_block_text {
 /* replies */
 
 .responses {
-  max-width: 647px;
+  max-width: 600px;
   p {
     margin:0;
   }
@@ -1258,3 +1248,42 @@ li.follower_block_text {
 .help-block {
   margin-left: 0 !important;
 }
+/* responsive */
+
+@media screen and (max-width: 1199px) {
+  span.index_time_ago {
+    display: block;
+    position: relative;
+    right:-52px;
+    top:-25px !important;
+  }
+}
+
+@media screen and ( max-width: 1094px ) {
+  .nav_space {
+    margin-left: 40px !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .well {
+    max-width:250px;
+  img {
+    max-width:230px;
+  }
+  }
+
+}
+
+@media screen and (max-width: 937px) {
+  .navbar_left, .nav_right_el {
+    font-size: 10px !important;
+    margin-right: 5px;
+  }
+  .glyphicon-cloud {
+    left:-5px;
+  }
+
+
+}
+

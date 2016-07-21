@@ -16,6 +16,7 @@
     - else
       =link_to unlike_comment_response_path(comment, response), remote: true, id: "likes_#{response.id}", method: :put do
         %span.glyphicon.glyphicon-thumbs-down.glyphicon-selected
+  .response_time_ago #{time_ago_in_words response.created_at} ago
 
 
 

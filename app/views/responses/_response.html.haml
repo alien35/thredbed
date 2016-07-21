@@ -6,12 +6,10 @@
 -if user_signed_in?
   %strong.response_user_name= render 'posts/user_info', post: response
   %br
-  .response_time_ago #{time_ago_in_words response.created_at} ago
   = simple_format(response.content)
 -else
   %strong.response_user_name= render 'posts/so_user_info', post: response
   %br
-  .response_time_ago #{time_ago_in_words response.created_at} ago
   = simple_format(response.content)
 - if response.user == current_user
   = link_to comment_response_path(comment, response), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{response.id}" do

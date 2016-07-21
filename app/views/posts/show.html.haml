@@ -4,7 +4,7 @@
     = link_to @post.link, @post.link
   - begin
     - if @post.user.id == current_user.id
-      = link_to '', edit_post_path(@post), class: "glyphicon glyphicon-wrench"
+      = link_to '', edit_post_path(@post), class: "glyphicon glyphicon-wrench", method: :get
       = link_to '', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash"
     %br
   - rescue NoMethodError

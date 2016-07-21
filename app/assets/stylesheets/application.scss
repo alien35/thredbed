@@ -158,9 +158,9 @@ textarea#comment_content {
     background-color: lightblue;
 }
 
+
 #response_content {
   width:550px;
-  max-width:550px;
 }
 
 #new_response, #new_comment {
@@ -1390,10 +1390,17 @@ li.follower_block_text {
   }
 }
 
+@media screen and (max-width: 590px) {
+    #response_content {
+      width:400px;
+    }
+}
+
 @media screen and (max-width: 450px) {
   .dropdown .nav_right_el {
     display: block;
   }
+
 }
 
 
@@ -1409,6 +1416,9 @@ li.follower_block_text {
 @media screen and (max-width: 420px) {
   .new_post {
     margin-left: 0 !important;
+  }
+  #response_content {
+    width:300px;
   }
 }
 
@@ -1465,6 +1475,10 @@ li.follower_block_text {
   .nav_space {
     width:0;
     margin-left: 100px !important;
+  }
+
+  #response_content {
+    width:150px;
   }
 }
 

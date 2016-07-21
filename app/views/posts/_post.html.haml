@@ -19,6 +19,6 @@
     %span=raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
     %hr
       .small_font
-        Reference: #{link_to post.link, post.link}
+        #{link_to post.link, post.link}
 
 

@@ -1305,6 +1305,10 @@ li.follower_block_text {
     position: relative;
     font-size: 10px;
   }
+  .glyphicon-globe {
+    top:-3px;
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 788px) {
@@ -1327,10 +1331,7 @@ li.follower_block_text {
   .nav_elements span {
     margin-left: 0;
   }
-  .glyphicon-globe {
-    top:-3px;
-    font-size: 23px;
-  }
+
   .nav_space {
     margin-left:25px !important;
   }
@@ -1352,17 +1353,14 @@ li.follower_block_text {
   .nav_elements {
   float:left;
 }
-}
-
-@media screen and (max-width: 633px) {
-  .nav {
-    position: absolute;
+  .new_post {
+    margin-left: 17px !important;
   }
-.nav_elements {
-  float:left;
 }
 
-}
+
+
+
 
 @media screen and (max-width: 631px){
 .nav_elements {
@@ -1392,7 +1390,16 @@ li.follower_block_text {
     position: relative;
     top:2px !important;
   }
+
 }
+
+@media screen and (max-width: 420px) {
+  .new_post {
+    margin-left: 0 !important;
+  }
+}
+
+
 
 @media screen and (max-width: 405px) {
   .navbar_left {
@@ -1411,6 +1418,7 @@ li.follower_block_text {
     left:101px;
   }
   .nav_right_el {
+    top:-5px;
     float: left;
   }
 }

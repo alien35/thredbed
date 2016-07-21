@@ -87,7 +87,7 @@ abbr {
   padding-left:48px;
   color:#444;
   font-size: 15px;
-  width:800px;
+  max-width:800px;
   margin:0 auto;
   .small_font {
     position: relative;
@@ -1316,6 +1316,8 @@ li.follower_block_text {
   }
 }
 
+
+
 @media screen and (max-width: 788px) {
   form#search-form {
     margin-right: 3px;
@@ -1323,6 +1325,9 @@ li.follower_block_text {
 
   input#search {
     width:200px;
+  }
+  .comment_format {
+    padding-left: 10px;
   }
 }
 
@@ -1360,6 +1365,9 @@ li.follower_block_text {
 }
   .new_post {
     margin-left: 17px !important;
+  }
+  .comment_format {
+    padding-top: 25px;
   }
 }
 
@@ -1425,6 +1433,10 @@ li.follower_block_text {
   .nav_right_el {
     top:-5px;
     float: left;
+  }
+
+  .comment_format {
+    padding-top: 50px;
   }
 }
 

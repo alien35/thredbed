@@ -171,7 +171,11 @@ textarea#comment_content {
 }
 }
 
-
+.index_post_link {
+  position: relative;
+  top:4px;
+  color:grey;
+}
 
 .btn {
   font-size: 15px;

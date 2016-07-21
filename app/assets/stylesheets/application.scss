@@ -1286,16 +1286,23 @@ li.follower_block_text {
 }
 
 @media screen and (max-width: 937px) {
+  .navbar_left {
+    position: relative;
+    top:-1px;
+  }
   .navbar_left, .nav_right_el {
     font-size: 10px;
     margin-right: 5px;
   }
+  .nav input#search, .nav input {
+    font-size:10px;
+  }
   .glyphicon-cloud {
     left:-5px;
+    top:2px;
   }
   .login_or_sign_up_to {
     position: relative;
-    top:7px !important;
     font-size: 10px;
   }
 }
@@ -1315,6 +1322,7 @@ li.follower_block_text {
   .nav_elements a-globe, .nav_elements span {
     margin-right:0px !important;
 
+
   }
   .nav_elements span {
     margin-left: 0;
@@ -1327,31 +1335,41 @@ li.follower_block_text {
     margin-left:25px !important;
   }
 
-  form#search-form {
-    margin-right: 220px !important;
-  }
+
   .login_or_sign_up_to {
-    top: -10px !important;
     margin-right: 30px !important;
   }
 
+  .site_title {
+    margin-left: 8px !important;
+  }
 
 }
 
 
+
+@media screen and (max-width: 645px) {
+  .nav_elements {
+  float:left;
+}
+}
+
+@media screen and (max-width: 633px) {
+  .nav {
+    position: absolute;
+  }
+.nav_elements {
+  float:left;
+}
+
+}
+
 @media screen and (max-width: 631px){
 .nav_elements {
-  float: left;
   margin-right: 1px;
+  }
 
-  }
-  .navbar_left {
-    position: relative;
-    top:-5px !important;
-  }
-  .glyphicon-cloud {
-    top:0;
-  }
+
   form#search-form {
     margin-right: 0 !important;
   }
@@ -1374,7 +1392,27 @@ li.follower_block_text {
     position: relative;
     top:2px !important;
   }
+}
 
+@media screen and (max-width: 405px) {
+  .navbar_left {
+    margin:0;
+
+  }
+  .glyphicon-cloud {
+    left:2px;
+  }
+  .nav_space {
+    margin-left: 200px !important;
+  }
+
+  .glyphicon-globe {
+    position: relative;
+    left:101px;
+  }
+  .nav_right_el {
+    float: left;
+  }
 }
 
 @media screen and (max-width: 283px) {

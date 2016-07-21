@@ -1314,6 +1314,7 @@ li.follower_block_text {
 
   .nav_elements a-globe, .nav_elements span {
     margin-right:0px !important;
+
   }
   .nav_elements span {
     margin-left: 0;
@@ -1323,22 +1324,26 @@ li.follower_block_text {
     font-size: 23px;
   }
   .nav_space {
-    margin-left:40px !important;
+    margin-left:25px !important;
   }
 
   form#search-form {
-    margin-right: 250px !important;
+    margin-right: 220px !important;
   }
   .login_or_sign_up_to {
     top: -10px !important;
     margin-right: 30px !important;
   }
+
+
 }
 
 
-@media screen and (max-width: 632px){
+@media screen and (max-width: 631px){
 .nav_elements {
-    float: left;
+  float: left;
+  margin-right: 1px;
+
   }
   .navbar_left {
     position: relative;

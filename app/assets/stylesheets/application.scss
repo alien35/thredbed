@@ -1423,6 +1423,26 @@ li.follower_block_text {
   }
 }
 
+@media screen and (max-width: 344px) {
+
+
+
+  .nav a {
+    margin-top: 0 !important;
+    padding:0;
+  }
+  .glyphicon-globe {
+    position: absolute;
+    left:103px;
+  }
+
+
+  .nav_space {
+    width:0;
+    margin-left: 100px !important;
+  }
+}
+
 @media screen and (max-width: 283px) {
   .nav {
     position: absolute;
@@ -1443,6 +1463,15 @@ li.follower_block_text {
 
 }
 
+@media screen and (max-width: 268px) {
+  .glyphicon-globe {
+    left:0px;
+  }
+  .nav_space {
+    margin:0 !important;
+  }
+}
+
 @media screen and (max-width: 243px) {
   input#search {
     width:140px;
@@ -1450,5 +1479,6 @@ li.follower_block_text {
   .well img {
     max-width: 100px;
   }
+
 }
 

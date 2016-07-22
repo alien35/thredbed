@@ -16,7 +16,7 @@
 
   .nav_elements
     = form_tag(posts_path, :method => "get", id: "search-form") do
-      %span= text_field_tag :search, params[:search], placeholder: "Search posts, URLs"
+      %span= text_field_tag :search, params[:search], placeholder: "Search posts, tags, URLs"
       %span= submit_tag "Go", :name => nil
 
     - if !user_signed_in? && ( !current_page?(new_user_registration_path) || !current_page?(new_user_session_path) )

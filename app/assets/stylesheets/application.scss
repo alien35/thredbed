@@ -1297,29 +1297,30 @@ li.follower_block_text {
 @media screen and (max-width: 937px) {
   .navbar_left {
     position: relative;
-    top:-1px;
+    top:2px;
   }
   .navbar_left, .nav_right_el {
-    font-size: 10px;
+    font-size: 13px;
     margin-right: 5px;
   }
   .nav input#search, .nav input {
-    font-size:10px;
+    font-size:13px;
   }
   .glyphicon-cloud {
     left:-5px;
-    top:2px;
+    top:5px;
+
   }
   .login_or_sign_up_to {
     position: relative;
-    font-size: 10px;
+    font-size: 13px;
   }
   .glyphicon-globe {
     top:-3px;
     font-size: 20px;
   }
   .dropdown-menu {
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 
@@ -1335,6 +1336,18 @@ li.follower_block_text {
   }
   .comment_format {
     padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 729px) {
+  .nav_elements {
+  float: left;
+}
+  .navbar_left {
+    top:-2px;
+  }
+  .glyphicon-cloud {
+    top:1px;
   }
 }
 
@@ -1363,7 +1376,6 @@ li.follower_block_text {
   }
 
 }
-
 
 
 @media screen and (max-width: 645px) {

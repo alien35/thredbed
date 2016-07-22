@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
                                      content_type: /\Aimage\/.*\Z/
 
   def self.search(query)
-    includes(:tags).where("commentary LIKE :search OR link LIKE :search", search: "%#{query}%")
+    joins(:tags).where("commentary LIKE :search OR link LIKE :search OR tags.name LIKE :search", search: "%#{query}%")
   end
 
   #def ends_with_q

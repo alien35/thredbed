@@ -1324,6 +1324,13 @@ li.follower_block_text {
   }
 }
 
+@media screen and (max-width:834px) {
+  input#search {
+    width:250px;
+  }
+
+  }
+
 
 
 @media screen and (max-width: 788px) {
@@ -1348,6 +1355,12 @@ li.follower_block_text {
   }
   .glyphicon-cloud {
     top:1px;
+  }
+  .nav_space {
+    margin-left: 70px !important;
+  }
+  .comment_format {
+    padding-top: 25px;
   }
 }
 

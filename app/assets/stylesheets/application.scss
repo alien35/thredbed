@@ -1440,21 +1440,14 @@ li.follower_block_text {
     position: relative;
     top:2px !important;
   }
-
-}
-
-@media screen and (max-width: 420px) {
-  .new_post {
-    margin-left: 0 !important;
+  .nav_space {
+    margin-left: 200px !important;
   }
-  #response_content {
-    width:300px;
+  .nav_right_el {
+    top:-5px;
+    float: left;
   }
-}
 
-
-
-@media screen and (max-width: 405px) {
   .navbar_left {
     margin:0;
 
@@ -1470,10 +1463,6 @@ li.follower_block_text {
     position: relative;
     left:101px;
   }
-  .nav_right_el {
-    top:-5px;
-    float: left;
-  }
 
   .comment_format {
     padding-top: 50px;
@@ -1486,21 +1475,44 @@ li.follower_block_text {
   .new_post_format {
     padding-top: 32px;
   }
+
 }
+
+@media screen and (max-width: 420px) {
+  .new_post {
+    margin-left: 0 !important;
+  }
+  #response_content {
+    width:300px;
+  }
+
+}
+
+@media screen and (max-width: 359px) {
+  .nav_space {
+    width:0;
+    margin:0;
+  }
+
+  .nav_space {
+    width:0;
+    margin-left: 10px !important;
+  }
+}
+
+
 
 @media screen and (max-width: 344px) {
 
-
-
-  .nav a {
+    .nav a {
     margin-top: 0 !important;
     padding:0;
   }
   .glyphicon-globe {
     position: absolute;
     left:103px;
-  }
 
+  }
 
   .nav_space {
     width:0;

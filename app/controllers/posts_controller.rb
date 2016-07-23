@@ -29,7 +29,9 @@ class PostsController < ApplicationController
                      .order(cached_votes_up: :desc)
       end
 
-
+  def search_post
+    redirect_to search_articles_path(params[:q])
+  end
 
   end
 

@@ -26,7 +26,7 @@
 
 
 
-  %li= simple_format(@post.commentary)
+  %li= simple_format(@post.commentary.strip)
   %span= render 'posts/likes'
 
 

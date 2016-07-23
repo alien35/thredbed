@@ -75,12 +75,6 @@ Rails.application.routes.draw do
   patch ':user_name/edit', to: 'profiles#update', as: :update_profile
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  resources :posts do
-    collection do
-      get :search, :action => 'search_post', :as => 'search_post'
-      get 'search/:q', :action => 'search', :as => 'search'
-    end
-  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

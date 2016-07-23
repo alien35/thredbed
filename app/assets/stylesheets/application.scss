@@ -453,8 +453,13 @@ input#post_image {
   top:10px;
   left:65px;
 }
+
+
 .navbar-brand {
   color: white !important;
+  &:hover {
+    color: white !important;
+  }
 }
 .navbar-collapse {
   background: #0099cc;
@@ -491,6 +496,10 @@ nav button[type='submit'] {
 
 .nav .open .dropdown-toggle {
   background: #007399 !important;
+}
+
+.form-group {
+  height:20px;
 }
 
 /* sign up form */

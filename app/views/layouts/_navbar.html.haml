@@ -20,11 +20,11 @@
         %ul.dropdown-menu
           - @tag_counts.each do |tag|
             %li= link_to tag, tag_path(tag.name)
-
-    %form.navbar-form.navbar-left{:role => "search"}
+    .navbar-form.navbar-left
       .form-group
-        %span= search_field_tag :search, params[:search], placeholder: "Search posts, tags, URLs", class: "form-control"
-      %button.btn.btn-default{:type => "submit"} Go
+        =form_tag(posts_path, method: :get) do
+          %span= text_field_tag :search, params[:search], placeholder: "Search posts, tags, URLs", class: "form-control"
+          %button.btn.btn-default{:type => "submit"} Go
     -if user_signed_in?
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown

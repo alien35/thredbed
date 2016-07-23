@@ -1,48 +1,64 @@
-.nav
-
-  = link_to '/', method: :get do
-    %span.site_title.navbar_left thredbed
+%nav.navbar.navbar-default
+  / Brand and toggle get grouped for better mobile display
+  .navbar-header
+    %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to 'thredbed', '/', class:"navbar-brand", method: :get
     %span.glyphicon.glyphicon-cloud
-  %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-    %span.sr-only Toggle navigation
-    %span.icon-bar
-    %span.icon-bar
-    %span.icon-bar
-
-  = link_to '/', method: :get do
-    %span.site_title.navbar_left home
-  %span.dropdown.navbar_left
-    %span.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-      trending
-      %span.caret
-    %ul.dropdown-menu
-      - @tag_counts.each do |tag|
-        %li= link_to tag, tag_path(tag.name)
-  %span.navbar_left= link_to 'learn more', learn_path
-
-  .nav_elements
-    = form_tag(posts_path, :method => "get", id: "search-form") do
-      %span= text_field_tag :search, params[:search], placeholder: "Search posts, tags, URLs"
-      %span= submit_tag "Go", :name => nil
-
-    - if !user_signed_in? && ( !current_page?(new_user_registration_path) || !current_page?(new_user_session_path) )
-      %span.login_or_sign_up_to
-        %span.sign_up_underline= link_to 'Login',  new_user_session_path
-        or
-        %span.sign_up_underline= link_to "Sign up", new_user_registration_path
-        to post or comment.
-    - elsif user_signed_in?
-      = render 'notifications/notification_dropdown'
-      %span.nav_space
-      %span.dropdown.nav_right_el
-        %span{"data-toggle" => "dropdown", :type => "button"}
-          = current_user.user_name
+  / Collect the nav links, forms, and other content for toggling
+  #bs-example-navbar-collapse-1.collapse.navbar-collapse
+    %ul.nav.navbar-nav
+      %li=link_to 'home', '/', method: :get
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Trending
           %span.caret
-        %ul.dropdown-menu#account_dropdown
-          %li= link_to "Profile", profile_path(current_user.user_name)
-          %li= link_to "Settings", edit_user_registration_path
-          %li= link_to 'Sign out', destroy_user_session_path, method: :delete
-      %span.new_post.nav_right_el
-        = link_to 'New thread', new_post_path, method: :get
+        %ul.dropdown-menu
+          - @tag_counts.each do |tag|
+            %li= link_to tag, tag_path(tag.name)
 
+    %form.navbar-form.navbar-left{:role => "search"}
+      .form-group
+        %span= text_field_tag :search, params[:search], placeholder: "Search posts, tags, URLs", class: "form-control"
+      %button.btn.btn-default{:type => "submit"} Go
+    -if user_signed_in?
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.notif_dropdown.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            %span.glyphicon.glyphicon-globe
+          %ul.dropdown-menu
+            %li.dropdown-header.text-center Notifications
+            = render current_user.notifications.order('created_at DESC').where(read: false).take(5)
+            %li.divider{ role: 'separator' }
+            %li.text-center= link_to 'View All', notifications_path
+        %li
+          = link_to 'New thread', new_post_path, method: :get
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = current_user.user_name
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %li= link_to "Profile", profile_path(current_user.user_name)
+            %li
+              %li= link_to "Settings", edit_user_registration_path
+            %li.divider{:role => "separator"}
+            %li
+              %li= link_to 'Sign out', destroy_user_session_path, method: :delete
     - else
+      %ul.nav.navbar-nav.navbar-right
+        - unless user_signed_in? && ( !current_page?(new_user_registration_path) || !current_page?(new_user_session_path) )
+          %li.login_or_signup_to
+            %span.sign_up_underline= link_to 'Login',  new_user_session_path
+            or
+            %span.sign_up_underline= link_to "Sign up", new_user_registration_path
+            to post or comment.
+
+
+  / /.navbar-collapse
+/ /.container-fluid
+
+

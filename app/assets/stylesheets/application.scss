@@ -439,93 +439,56 @@ input#post_image {
 
 /* navigation bar */
 
-
-
-
-.nav {
+.login_or_signup_to {
+  position: relative;
+  right: 10px;
+  top:17px;
+}
+.glyphicon-cloud {
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top:10px;
+  left:65px;
+}
+.navbar-brand {
+  color: white !important;
+}
+.navbar-collapse {
   background: #0099cc;
   border-bottom:0.7px solid #004080;
-  color:white;
-  padding:5px 10px 5px;
-  position:fixed;
+  color: white;
+}
+
+.dropdown-menu  {
+  background: white !important;
+}
+
+.navbar-header {
+  background: #0099cc;
+  border-bottom:0.7px solid #004080;
+  color: white;
+}
+
+.navbar-default {
+  position: fixed;
   width:100%;
-  display: inline-block;
-  z-index: 1;
-}
-
-.nav_elements {
-  position:relative;
-  float:right;
-  a {
-    margin-top:20px;
-  }
-
-}
-
-form#search-form {
-  color:black;
-  float:left;
-  margin:0 30px 0 0;
-  input[type=submit] {
-    position: relative;
-    right:5px;
-    background: #EEE;
-    border:none;
-    padding:4px 5px;
-    border-radius: 0 4px 4px 0;
-  }
-  input#search {
-    border-radius: 0;
-  }
-}
-
-input {
-  color:black;
-  background: white;
-  border:3px solid white;
-}
-input#search {
-  width:300px;
-
-}
-
-.popular_posts {
-  background-color: #EEE;
-  width:80%;
-  position:fixed;
-  top:44px;
-  padding: 1px 1px 1px 3px;
-  z-index: 3;
-}
-
-span.login_or_sign_up_to {
-  position:relative;
-  top:3px;
-}
-
-
-.new_post {
-  position: relative;
-  background: none;
+  z-index: 2;
   border:none;
-  font-size: 15px;
-  margin-left: 10px;
 }
 
-.new_post_format strong {
-  position: relative;
-  top:-5px;
+input#search {
+  width:400px;
+  border-radius: 3px 0 0 3px;
 }
 
-.dropdown-toggle {
-  background: none;
-  cursor: pointer;
+nav button[type='submit'] {
+  border-radius: 0 3px 3px 0;
+  background: #EEE;
 }
 
-.nav_right_el {
-  top:3px;
-  margin-top: 10px;
-  cursor: pointer;
+.nav .open .dropdown-toggle {
+  background: #007399 !important;
 }
 
 /* sign up form */
@@ -552,17 +515,15 @@ span.login_or_sign_up_to {
   margin-right: 15px;
 }
 
-.glyphicon-cloud {
-  position: relative;
-  top:6px;
-  right:15px;
-}
+
 /* small thing */
 
+.notif_dropdown {
+  padding:10px !important;
+}
+
 .glyphicon-globe {
-  position: absolute;
-  top:-8px;
-  left:0;
+  margin-top: 0;
   font-size: 30px;
 }
 
@@ -1277,13 +1238,15 @@ li.follower_block_text {
     right:-52px;
     top:-25px !important;
   }
+
 }
 
-@media screen and ( max-width: 1094px ) {
-  .nav_space {
-    margin-left: 40px !important;
+@media screen and (max-width: 1017px) {
+  input#search {
+    width:250px;
   }
 }
+
 
 @media screen and (max-width: 991px) {
   .well {
@@ -1292,103 +1255,43 @@ li.follower_block_text {
     max-width:230px;
   }
   }
+
 }
 
-@media screen and (max-width: 937px) {
-  .navbar_left {
-    position: relative;
-    top:2px;
-  }
-  .navbar_left, .nav_right_el {
-    font-size: 13px;
-    margin-right: 5px;
-  }
-  .nav input#search, .nav input {
-    font-size:13px;
-  }
-  .glyphicon-cloud {
-    left:-5px;
-    top:5px;
-
-  }
-  .login_or_sign_up_to {
-    position: relative;
-    font-size: 13px;
-  }
-  .glyphicon-globe {
-    top:-3px;
-    font-size: 20px;
-  }
-  .dropdown-menu {
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width:859px) {
+@media screen and (max-width: 880px) {
   input#search {
-    width:220px;
+    width:200px;
   }
+}
 
+@media screen and (max-width: 820px) {
+  input#search {
+    width:150px;
   }
+}
+
+
 
 
 
 @media screen and (max-width: 788px) {
-  form#search-form {
-    margin-right: 3px;
-  }
 
-  input#search {
-    width:200px;
-  }
   .comment_format {
     padding-left: 10px;
   }
+
 }
 
-@media screen and (max-width: 729px) {
-  .nav_elements {
-  float: left;
-}
-  .navbar_left {
-    top:-2px;
+@media screen and (max-width: 767px) {
+  input#search {
+    width:100%;
+    border-radius: 3px;
   }
-  .glyphicon-cloud {
-    top:1px;
-  }
-  .nav_space {
-    margin-left: 70px !important;
-  }
-  .comment_format {
-    padding-top: 25px;
+  nav button[type="submit"] {
+    border-radius: 3px;
   }
 }
 
-@media screen and (max-width: 660px){
-
-  .nav_elements a-globe, .nav_elements span {
-    margin-right:0px !important;
-
-
-  }
-  .nav_elements span {
-    margin-left: 0;
-  }
-
-  .nav_space {
-    margin-left:25px !important;
-  }
-
-
-  .login_or_sign_up_to {
-    margin-right: 30px !important;
-  }
-
-  .site_title {
-    margin-left: 8px !important;
-  }
-
-}
 
 
 @media screen and (max-width: 645px) {
@@ -1405,20 +1308,7 @@ li.follower_block_text {
 
 
 
-@media screen and (max-width: 631px){
-.nav_elements {
-  margin-right: 1px;
-  }
 
-
-  form#search-form {
-    margin-right: 0 !important;
-  }
-  .login_or_sign_up_to {
-    top: 0 !important;
-    margin-right: 0 !important;
-  }
-}
 
 @media screen and (max-width: 590px) {
     #response_content {
@@ -1426,43 +1316,8 @@ li.follower_block_text {
     }
 }
 
-@media screen and (max-width: 450px) {
-  .dropdown .nav_right_el {
-    display: block;
-  }
-
-}
-
 
 @media screen and (max-width: 435px) {
-  .login_or_sign_up_to {
-    display: block;
-    position: relative;
-    top:2px !important;
-  }
-  .nav_space {
-    margin-left: 200px !important;
-  }
-  .nav_right_el {
-    top:-5px;
-    float: left;
-  }
-
-  .navbar_left {
-    margin:0;
-
-  }
-  .glyphicon-cloud {
-    left:2px;
-  }
-  .nav_space {
-    margin-left: 200px !important;
-  }
-
-  .glyphicon-globe {
-    position: relative;
-    left:101px;
-  }
 
   .comment_format {
     padding-top: 50px;
@@ -1488,36 +1343,9 @@ li.follower_block_text {
 
 }
 
-@media screen and (max-width: 359px) {
-  .nav_space {
-    width:0;
-    margin:0;
-  }
-
-  .nav_space {
-    width:0;
-    margin-left: 10px !important;
-  }
-}
-
-
 
 @media screen and (max-width: 344px) {
 
-    .nav a {
-    margin-top: 0 !important;
-    padding:0;
-  }
-  .glyphicon-globe {
-    position: absolute;
-    left:103px;
-
-  }
-
-  .nav_space {
-    width:0;
-    margin-left: 100px !important;
-  }
 
   #response_content {
     width:150px;
@@ -1525,38 +1353,16 @@ li.follower_block_text {
 }
 
 @media screen and (max-width: 283px) {
-  .nav {
-    position: absolute;
-  }
-  input {
-    padding:0;
-  }
-  .nav_elements {
-    margin:0;
-  }
 
-  input#search {
-    width:170px;
-  }
   .well img {
     max-width: 190px;
   }
 
 }
 
-@media screen and (max-width: 268px) {
-  .glyphicon-globe {
-    left:0px;
-  }
-  .nav_space {
-    margin:0 !important;
-  }
-}
 
 @media screen and (max-width: 243px) {
-  input#search {
-    width:140px;
-  }
+
   .well img {
     max-width: 100px;
   }

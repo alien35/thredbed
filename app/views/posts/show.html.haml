@@ -20,6 +20,7 @@
       = link_to '', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash"
     %br
   - rescue NoMethodError
+  = link_to 'Share on Facebook', "https://www.facebook.com/dialog/share?app_id=625876907589354&href=#{request.original_url}&redirect_uri=#{request.original_url}"
 
 
 

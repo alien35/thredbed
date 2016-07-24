@@ -441,6 +441,10 @@ input#post_image {
 
 /* navigation bar */
 
+.form-group {
+  height:20px;
+}
+
 .login_or_signup_to {
   position: relative;
   right: 10px;
@@ -498,9 +502,7 @@ nav button[type='submit'] {
   background: #007399 !important;
 }
 
-.form-group {
-  height:20px;
-}
+
 
 /* sign up form */
 .create_your_account {
@@ -1312,6 +1314,9 @@ li.follower_block_text {
   nav button[type="submit"] {
     border-radius: 3px;
   }
+  .form-group {
+  height:63px;
+}
 }
 
 

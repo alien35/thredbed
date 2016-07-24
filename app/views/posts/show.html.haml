@@ -1,13 +1,4 @@
 .comment_format.post_head
-  %ul.post_info
-    %span Shared link:
-    = link_to @post.link, @post.link
-  - begin
-    - if @post.user.id == current_user.id
-      = link_to '', edit_post_path(@post), class: "glyphicon glyphicon-wrench", method: :get
-      = link_to '', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash"
-    %br
-  - rescue NoMethodError
   - if user_signed_in?
     %span{ :class => follow_num(@post.user) }= link_to index_profile_avatar_select(@post.user), profile_path(@post.user.user_name)
     %span.show_signed_in_name
@@ -23,12 +14,19 @@
       = render 'so_user_info', post: @post
     %br
     .small_font posted this #{time_ago_in_words @post.created_at} ago
+  - begin
+    - if @post.user.id == current_user.id
+      = link_to '', edit_post_path(@post), class: "glyphicon glyphicon-wrench", method: :get
+      = link_to '', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash"
+    %br
+  - rescue NoMethodError
 
 
 
   %li= simple_format(@post.commentary.strip)
   %span= render 'posts/likes'
-
+  .show_post_link= link_to @post.link, @post.link
+  %hr.show_divider
 
 
 .comment_format

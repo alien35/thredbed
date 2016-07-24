@@ -26,7 +26,8 @@ gem 'aws-sdk', '< 2.0'
 gem 'bootsy'
 gem 'devise_zxcvbn'
 gem 'puma'
-
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 
 
 group :development, :test do

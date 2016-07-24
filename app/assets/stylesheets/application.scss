@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+
  *= require bootsy
  *= require_tree .
  *= require_self
@@ -18,7 +19,8 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
+ @import "bootstrap-social";
+ @import 'font-awesome';
 /* general */
 
 body {
@@ -338,6 +340,27 @@ iframe {
 
 
 /* format show posts */
+
+.fa-facebook {
+  color: #ebeef4 !important;
+  position: relative;
+  right:23px;
+  top:1px;
+  &:hover {
+    color:#ebeef4 !important;
+  }
+}
+.btn-facebook, .btn-twitter {
+  border-radius: 50%;
+  width:30px;
+  height:30px;
+}
+.btn-twitter {
+  position: relative;
+  right:13px;
+}
+
+
 
 .first_comment_format {
   max-width: 630px;

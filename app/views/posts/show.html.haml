@@ -21,10 +21,16 @@
     %br
   - rescue NoMethodError
   %br
-  = link_to 'Share on Facebook', "https://www.facebook.com/dialog/share?app_id=625876907589354&href=#{request.original_url}&redirect_uri=#{request.original_url}"
-  = link_to "Share on Twitter", "http://twitter.com/home?status=#{post_url(@post)}"
+
+
+  = link_to '', "https://www.facebook.com/dialog/share?app_id=625876907589354&href=#{request.original_url}&redirect_uri=#{request.original_url}", class: " btn btn-facebook"
+  = link_to '', "https://www.facebook.com/dialog/share?app_id=625876907589354&href=#{request.original_url}&redirect_uri=#{request.original_url}", class: "fa fa-facebook"
+
+  = link_to "", "http://twitter.com/home?status=#{post_url(@post)}", class: "fa fa-twitter btn btn-twitter"
   %br
   %br
+
+
 
   %li= simple_format(@post.commentary.strip)
   %span= render 'posts/likes'

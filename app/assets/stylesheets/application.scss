@@ -472,6 +472,39 @@ input#post_image {
 
 /* navigation bar */
 
+li.dropdown-header {
+
+  color:black;
+  font-weight: bold;
+}
+
+.each_notif_hr {
+  padding-bottom: 5px;
+}
+
+.notifications-dropdown-menu {
+
+  padding-top: 4px;
+  width:400px;
+  a {
+    font-size: 12px;
+  }
+  hr {
+    margin:4px 0;
+  }
+}
+.notifications_count {
+  font-size: 12px;
+  background: #C00000;
+  color:white;
+  position: relative;
+  top:25px;
+  left:46px;
+  padding:0 2px;
+  border-radius: 3px;
+  z-index: 2;
+}
+
 nav .form-group {
   height:20px;
 }
@@ -1355,6 +1388,17 @@ li.follower_block_text {
 
 .login_or_signup_to {
   left:0;
+}
+
+.notifications_count {
+  font-size: 12px;
+  background: none;
+  color:white;
+  padding:0 2px;
+  border-radius: 3px;
+  z-index: 2;
+  left:40px;
+
 }
 }
 

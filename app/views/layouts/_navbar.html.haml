@@ -27,16 +27,19 @@
           %button.btn.btn-default{:type => "submit"} Go
     -if user_signed_in?
       %ul.nav.navbar-nav.navbar-right
+        %li.notifications_count
+          = new_notifs(current_user)
         %li.dropdown
           %a.notif_dropdown.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             %span.glyphicon.glyphicon-globe
-          %ul.dropdown-menu
-            %li.dropdown-header.text-center Notifications
+          %ul.dropdown-menu.notifications-dropdown-menu
+            %li.dropdown-header Notifications
+            %hr
             = render current_user.notifications.order('created_at DESC').where(read: false).take(5)
-            %li.divider{ role: 'separator' }
             %li.text-center= link_to 'View All', notifications_path
         %li
           = link_to 'New thread', new_post_path, method: :get
+
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             = current_user.user_name

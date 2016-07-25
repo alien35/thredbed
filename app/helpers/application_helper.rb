@@ -21,7 +21,7 @@ module ApplicationHelper
   def notif_title_count
     return "thredbed" unless user_signed_in?
     a = current_user.notifications.where(read:false).count
-    a > 0 ? "(#{a}) thredbed" : "thredbed"
+    a > 0 ? "(#{a}) #{current_user.user_name}" : "#{current_user.user_name}"
 
   end
 

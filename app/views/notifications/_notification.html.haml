@@ -1,4 +1,4 @@
-%li
-  %span{ :class => follow_num(notification.user) }= link_to index_profile_avatar_select(notification.user), link_through_path(notification)
+%li.container
+  %span{ :class => follow_num(notification.user) }= link_to index_profile_avatar_select(notification.user), profile_path(notification.notified_by.user_name)
   %span.notif_text= link_to "#{notification.notified_by.user_name} #{notification.notice_type}", link_through_path(notification)
-  %br
+  %hr.each_notif_hr

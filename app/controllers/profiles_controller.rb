@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user
   before_action :profile_owner, only: [:edit, :update]
   before_action :count_tags
-
+  before_action :verify_confirmed
 
 
 
@@ -29,6 +29,13 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def verify_confirmed
+      unless current_user.confirmed?
+        flash[:alert] = "Please confirm your email first"
+        redirect_to :back
+      end
+    end
 
   def profile_params
     params.require(:user).permit(:avatar, :bio, :occupation)

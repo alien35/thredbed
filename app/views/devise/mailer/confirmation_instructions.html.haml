@@ -1,5 +1,7 @@
 %h3
-  Greetings from thredbed, #{@resource.user_name}!
-%p You can confirm your account email through the link below:
+  Hi, #{@resource.user_name}!
+%p You can confirm your thredbed account email through the link below:
 .btn.btn-success
   = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+%p All the best,
+%p Your friends at thredbed

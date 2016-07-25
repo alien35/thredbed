@@ -28,23 +28,26 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :posts do
-    resources :comments#, only: [:new,:create,:show,:edit,:update,:destroy]
+get "/posts/:id/thread", to: 'posts#show', as: 'post'
+
+  resources :posts, except: :show do
+    resources :comments
   end
-  resources :posts do
+
+  resources :posts, except: :show do
     resources :comments do
-      resources :responses#, only: [:new,:create,:show,:edit,:update,:destroy]
+      resources :responses
     end
   end
 
-  resources :posts do
+  resources :posts, except: :show do
     member do
       put 'like',   to: 'posts#like'
       put 'dislike', to: 'posts#dislike'
       put 'unlike',   to: 'posts#unlike'
     end
   end
-  resources :posts do
+  resources :posts, except: :show do
     resources :comments do
       member do
         put 'like',   to: 'comments#like'

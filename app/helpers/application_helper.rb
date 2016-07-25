@@ -35,4 +35,6 @@ module ApplicationHelper
     post_user.bio.nil? ? a : a + ", " + "#{post_user.bio}"
   end
 
+
+
 end

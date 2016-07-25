@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }
   validates :commentary, presence: true, length: { minimum: 10 }
   validates :user_id, presence: true
-  validates :tag_list, presence: true
+  validates :tag_list, presence: true, length: { maximum: 30}
   belongs_to :user
   has_many :comments,      dependent: :destroy
   has_many :responses,     dependent: :destroy

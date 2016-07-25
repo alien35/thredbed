@@ -1,4 +1,13 @@
 .comment_format.post_head
+  -if user_signed_in?
+    - if @post.tag_list.count == 1
+      Tag:
+    - else
+      Tags:
+    %span
+      = raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
+    %hr.show_hr
+    .show_tag_divider
   - if user_signed_in?
     %span{ :class => follow_num(@post.user) }= link_to index_profile_avatar_select(@post.user), profile_path(@post.user.user_name)
     %span.show_signed_in_name

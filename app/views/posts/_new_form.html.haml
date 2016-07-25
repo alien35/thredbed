@@ -2,6 +2,6 @@
   = f.input  :link, hint: "(Required) Make sure it includes 'http://' or 'https://' at the beginning."
   %strong Add your commentary here
   = f.bootsy_area  :commentary, hint: "(Required) Add your own thoughts, commentary here:", placeholder: 'Type type type...', class: 'form-control'
-  = f.input  :tag_list, label: "Tags", hint: "(Required) Use commas or spaces to separate"
+  = f.input  :tag_list, label: "Tags", hint: "(Required) Use commas or spaces to separate", maxlength: 30
   = f.input  :image, label: "Thread pic", hint: "(Optional) Upload an image to accompany your post in the news feed. If you don't, we'll find a pic for you that you can change at any time."
   = f.button :submit

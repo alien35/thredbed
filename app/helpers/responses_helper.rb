@@ -30,13 +30,13 @@ module ResponsesHelper
 
   def display_response_likes(response)
     votes = response.votes_for.up.by_type(User)
-    return list_likers(votes) if votes.size <= 8
+    return list_likers(votes) if votes.size <= 4
     count_likers(votes)
   end
 
   def display_response_dislikes(response)
     votes = response.votes_for.down.by_type(User)
-    return list_dislikers(votes) if votes.size <= 8
+    return list_dislikers(votes) if votes.size <= 4
     count_dislikers(votes)
   end
 

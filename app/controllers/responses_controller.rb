@@ -70,7 +70,8 @@ class ResponsesController < ApplicationController
     end
 
     def create_upvote_notification(comment, response)
-    Notification.create(user_id: comment.user.id,
+    #return if response.user.id == current_user.id
+    Notification.create(user_id: response.user.id,
                         notified_by_id: current_user.id,
                         post_id: comment.post.id,
                         comment_id: comment.id,

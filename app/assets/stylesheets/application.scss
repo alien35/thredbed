@@ -1081,6 +1081,21 @@ height:100%;
   top:-30px;
 }
 
+.following_list {
+  background: white;
+  display: inline-block;
+  padding:5px 8px;
+  border-radius: 4px;
+
+  strong {
+    padding:0;
+  }
+}
+
+.follower_block_text {
+  margin-left: 5px;
+}
+
 /* edit profile */
 
 #user_avatar {

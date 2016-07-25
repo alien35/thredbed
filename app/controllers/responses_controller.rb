@@ -1,5 +1,6 @@
 class ResponsesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy, :like, :dislike]
+  before_action :verify_confirmed
   before_action :set_post
 
   def create
@@ -58,6 +59,13 @@ class ResponsesController < ApplicationController
   end
 
   private
+
+    def verify_confirmed
+      unless current_user.confirmed?
+        flash[:alert] = "Please confirm your email first"
+        redirect_to :back
+      end
+    end
 
     def create_notification(comment, response)
     return if response.user.id == current_user.id

@@ -1,5 +1,6 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_confirmed
 def create
     @user = User.find(params[:followed_id])
     current_user.follow(@user)
@@ -26,6 +27,13 @@ def create
                         notified_by_id: current_user.id,
                         identifier: user.id,
                         notice_type: 'started following you')
+    end
+
+    def verify_confirmed
+      unless current_user.confirmed?
+        flash[:alert] = "Please confirm your email first"
+        redirect_to :back
+      end
     end
 
 

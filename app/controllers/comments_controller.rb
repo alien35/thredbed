@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_confirmed
   before_action :set_post
 
   def create
@@ -60,6 +61,13 @@ class CommentsController < ApplicationController
 
 
   private
+
+    def verify_confirmed
+      unless current_user.confirmed?
+        flash[:alert] = "Please confirm your email first"
+        redirect_to :back
+      end
+    end
 
     def create_notification(post, comment)
     return if comment.user.id == current_user.id

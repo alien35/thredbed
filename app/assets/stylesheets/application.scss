@@ -212,7 +212,12 @@ iframe {
 }
 }
 
-
+button {
+  color:#888;
+  border-radius: 10px;
+  border:1px solid #CCC;
+  background: #e6ffff;
+}
 
 
 /* format index posts */
@@ -658,6 +663,7 @@ input#user_avatar {
 
 
 /* registration page */
+
 
 .devise_forms {
   max-width: 600px;

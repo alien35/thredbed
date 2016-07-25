@@ -37,7 +37,10 @@
   %li= simple_format(@post.commentary.strip)
   %span= render 'posts/likes'
   .show_post_link= link_to @post.link, @post.link
-  %hr.show_divider
+  - if @post.comments.any?
+    %hr.show_divider
+  - else
+    %br
 
 
 .comment_format

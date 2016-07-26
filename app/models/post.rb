@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
               if: ->(post) { post.link_changed? }
   VALID_LINK_REGEX = /\Ahttp\.*/
   validates :link,  presence: true, format: { with: VALID_LINK_REGEX }
-  validates :commentary, presence: true, length: { minimum: 10 }
+  validates :commentary, presence: true
   validates :user_id, presence: true
   validates :tag_list, presence: true, length: { maximum: 30}
   belongs_to :user

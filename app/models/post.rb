@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
                                      content_type: /\Aimage\/.*\Z/
 
   def self.search(query)
-    joins(:tags, :user).where("lower(commentary) LIKE :search OR lower(link) LIKE :search OR lower(tags.name) LIKE :search OR lower(users.user_name) LIKE :search", search: "%#{query.downcase}%")
+    joins(:user).where("lower(commentary) LIKE :search OR lower(link) LIKE :search OR lower(users.user_name) LIKE :search", search: "%#{query.downcase}%")
   end
 
   #def ends_with_q

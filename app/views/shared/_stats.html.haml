@@ -1,0 +1,12 @@
+- @user ||= current_user
+.stats
+  %a{:href => "#{following_user_path(@user)}"}
+    %span#following.stat
+      = @user.following.count
+    following
+  %a{:href => "#{followers_user_path(@user)}"}
+    %span#followers.stat
+      = pluralize @user.followers.count, "follower"
+  %br/
+  %span.user-statistics= pluralize @user.posts.count, 'post'
+  %span.user-statistics= pluralize @user.comments.count, 'comment'

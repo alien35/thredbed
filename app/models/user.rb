@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   validates :user_name,
              presence: true,
              length: { minimum: 4, maximum: 16 },
-             format: { with: /\A[^.]+\z/, message: "no dots, please"}, unless: :confirmed?
+             format: { with: /\A[A-Za-z0-9\s\-\_]+\z/, message: "letters, numbers, spaces, underscore and hyphens only, please"}, unless: :confirmed?
   validates :occupation, length: {maximum: 20 }
   has_attached_file :avatar, styles: { medium: '230x230#', thumb: "100x100#" }
 validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

@@ -2,6 +2,7 @@ class ResponsesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy, :like, :dislike]
   before_action :verify_confirmed
   before_action :set_post
+  before_action :owned_response, only: [:edit, :update, :destroy]
 
   def create
     @response = @comment.responses.build(response_params)
@@ -97,6 +98,13 @@ class ResponsesController < ApplicationController
     def set_post
       @comment = Comment.find(params[:comment_id])
       @post = @comment.post_id
+    end
+
+    def owned_response
+      unless current_user == @post.user
+        flash[:alert] = "That post doesn't belong to you!"
+        redirect_to root_path
+      end
     end
 
 end

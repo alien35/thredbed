@@ -11,9 +11,8 @@
   %strong.response_user_name= render 'posts/so_user_info', post: response
   %br
   = simple_format(response.content)
-- if response.user == current_user
+- if response.user == current_user || current_user.admin
   = link_to comment_response_path(comment, response), method: :delete, data: { confirm: "Are you sure?"}, remote: true, id: "delete-#{response.id}" do
     .glyphicon.glyphicon-remove
 %span= render 'responses/likes', comment: comment, response: response
-
 %br

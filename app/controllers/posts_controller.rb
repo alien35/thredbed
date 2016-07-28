@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :like, :dislike, :unlike]
   before_action :verify_confirmed, only: [:new, :create, :delete, :like, :dislike, :edit, :update]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :dislike, :unlike]
-  before_action :post_owner, only: [:edit, :update, :destroy]
+  before_action :owned_post, only: [:edit, :update, :destroy]
   before_action :count_tags
 
 
@@ -115,9 +115,9 @@ class PostsController < ApplicationController
       params.require(:post).permit(:image, :commentary)
     end
 
-    def post_owner
-      unless current_user = @post.user
-        flash.now[:alert] = "That post doesn't belong to you"
+    def owned_post
+      unless current_user == @post.user
+        flash[:alert] = "That post doesn't belong to you!"
         redirect_to root_path
       end
     end

@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_confirmed
   before_action :set_post
+  before_action :owned_comment, only: [:edit, :update, :destroy]
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -98,6 +99,13 @@ class CommentsController < ApplicationController
 
     def set_post
     @post = Post.find(params[:post_id])
+    end
+
+    def owned_comment
+      unless current_user == @post.user
+        flash[:alert] = "That post doesn't belong to you!"
+        redirect_to root_path
+      end
     end
 
 end

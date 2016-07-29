@@ -1,7 +1,7 @@
 - if user_signed_in?
-  - @all_posts = Post.paginate(page: params[:page], per_page: 20).order(created_at: :desc) - Post.paginate(page: params[:page], per_page: 20).of_followed_users(current_user.following).where("created_at > ?", Time.now - 5.days)
+  - @all_posts = Post.paginate(page: params[:page], per_page: 36).order(created_at: :desc) - Post.paginate(page: params[:page], per_page: 36).of_followed_users(current_user.following).where("created_at > ?", Time.now - 5.days)
 -else
-  - @all_posts = Post.paginate(page: params[:page], per_page: 20).order(created_at: :desc)
+  - @all_posts = Post.paginate(page: params[:page], per_page: 36).order(created_at: :desc)
 - @all_posts.each do |post|
   .item
     .well

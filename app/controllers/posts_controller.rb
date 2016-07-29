@@ -8,12 +8,12 @@ class PostsController < ApplicationController
 
   def index
     if user_signed_in?
-      @posts = Post.paginate(page: params[:page], per_page: 12)
+      @posts = Post.paginate(page: params[:page], per_page: 6)
                  .where("created_at > ?", Time.now - 5.days)
                  .order(cached_votes_up: :desc)
     else
       if Post.count > 20
-      @posts = Post.paginate(page: params[:page], per_page: 12)
+      @posts = Post.paginate(page: params[:page], per_page: 6)
                  .where("created_at > ?", Time.now - 5.days)
                  .order(cached_votes_up: :desc)
       else
@@ -21,10 +21,10 @@ class PostsController < ApplicationController
       end
     end
       if params[:search]
-        @posts = Post.paginate(page: params[:page], per_page: 12)
+        @posts = Post.paginate(page: params[:page], per_page: 6)
                  .search(params[:search]).order("created_at DESC")
       elsif params[:tag]
-        @posts = Post.paginate(page: params[:page], per_page: 12)
+        @posts = Post.paginate(page: params[:page], per_page: 6)
                      .tagged_with(params[:tag])
                      .order(cached_votes_up: :desc)
       end

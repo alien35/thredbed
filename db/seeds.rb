@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 6.times do |n|
-  name  = Faker::Name.name.first(13)
+  name  = "hannah_#{n+1}"
   email = "noreply_#{n+1}@comlink.com"
-  password = "password"
+  password = "can23409_fjk23449"
   User.create!(user_name: name,
                email: email,
                password: password,
@@ -18,12 +18,12 @@ end
 
 users = User.order(:created_at).take(6)
 6.times do
-  title = Faker::Lorem.sentence(1)
   link = "https://www.sitepoint.com/infinite-scrolling-rails-basics/"
   commentary = Faker::Lorem.sentence(5)
+  tag_list = "hello there"
   users.each {
     |user| user.posts.create!(link: link,
-                            title: title,
+                            tag_list: tag_list,
                             commentary: commentary)
   }
 end

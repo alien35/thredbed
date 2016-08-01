@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'profiles/show'
   get 'profiles/index'
   get 'tags/:tag', to: 'posts#index', as: :tag
-  get 'static_pages/learn', as: :learn
+  get 'learn' => 'static_pages#learn'
 
 
   devise_for :users, controllers: { registrations: 'registrations',

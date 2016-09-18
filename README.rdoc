@@ -1,6 +1,6 @@
 == thredbed
 
-repo for thredbed, available [here](https://www.thredbed.com)
+repo for thredbed, available at https://www.thredbed.com
 
 * Ruby version 2.3.0p0
 

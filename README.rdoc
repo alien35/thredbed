@@ -6,4 +6,6 @@ repo for thredbed, available [here](https://www.thredbed.com)
 
 * Tests using RSpec/Capybara/FactoryGirl Suite
 
-* to get started, run 'bundle', then 'rails s' should get the app going.
+to get started, 
+* run 'bundle'
+* then 'rails s' should get the app going.

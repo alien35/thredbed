@@ -14,7 +14,7 @@ gem 'devise'
 gem 'html2haml'
 gem 'paperclip', '~> 4.2'
 gem 'simple_form'
-gem 'metainspector'
+gem 'metainspector', '>= 5.2.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-sass', '3.2.0.2'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
@@ -34,7 +34,7 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.4'
-  gem 'capybara'
+  gem 'capybara', '>= 2.7.1'
   gem 'factory_girl_rails'
 
 end

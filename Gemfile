@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 5.0.0.beta1'
-gem 'sass-rails', '~> 5.0'
+gem 'rails', '~> 5.2.7.1'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.2'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
-gem 'devise'
+gem 'devise', '>= 4.4.2'
 gem 'html2haml'
 gem 'paperclip', '~> 4.2'
-gem 'simple_form'
+gem 'simple_form', '>= 4.0.0'
 gem 'metainspector'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-sass', '3.2.0.2'
@@ -21,26 +21,26 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
-gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+gem 'dotenv-rails', '~> 2.2', '>= 2.2.2'
 gem 'aws-sdk', '< 2.0'
 gem 'bootsy'
 gem 'devise_zxcvbn'
 gem 'puma'
 gem 'bootstrap-social-rails'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '>= 4.7.0.4'
 
 
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
-  gem 'rspec-rails', '~> 3.4'
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
   gem 'capybara'
   gem 'factory_girl_rails'
 
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.3', '>= 2.3.0'
   gem 'spring'
 end
 

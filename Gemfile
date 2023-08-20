@@ -25,7 +25,7 @@ gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'aws-sdk', '< 2.0'
 gem 'bootsy'
 gem 'devise_zxcvbn'
-gem 'puma'
+gem 'puma', '>= 5.6.7'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 

@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 5.0.0.beta1'
-gem 'sass-rails', '~> 5.0'
+gem 'rails', '~> 7.0.0.0'
+gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -22,7 +22,7 @@ gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '~> 2.0', '>= 2.0.22'
 gem 'bootsy'
 gem 'devise_zxcvbn'
 gem 'puma'
@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0', '>= 3.0.0'
   gem 'spring'
 end
 

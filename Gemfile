@@ -33,7 +33,7 @@ gem 'font-awesome-rails'
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
-  gem 'rspec-rails', '~> 3.4'
+  gem 'rspec-rails', '~> 8.0', '>= 8.0.0'
   gem 'capybara'
   gem 'factory_girl_rails'
 
